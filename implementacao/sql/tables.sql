@@ -135,10 +135,10 @@ CREATE TABLE IF NOT EXISTS proposta_contraparte (
     id_troca INTEGER NOT NULL,
     id_usuario INTEGER NOT NULL,
     id_chave INTEGER NOT NULL,
+    PRIMARY KEY(id_chave),
     FOREIGN KEY(id_troca) REFERENCES trocas(id),
     FOREIGN KEY(id_usuario) REFERENCES usuario(id),
-    FOREIGN KEY(id_chave) REFERENCES jogo_instanciado(id),
-    UNIQUE(id_chave)
+    FOREIGN KEY(id_chave) REFERENCES jogo_instanciado(id)
 );
 
 CREATE TABLE IF NOT EXISTS troca_concluida (

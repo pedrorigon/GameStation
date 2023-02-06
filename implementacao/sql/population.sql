@@ -135,12 +135,9 @@ INSERT INTO trocas(id_usuario, id_chave) VALUES((SELECT id FROM usuario_base WHE
 
 INSERT INTO proposta_contraparte(id_troca, id_usuario, id_chave) VALUES(1, (SELECT id FROM usuario_base WHERE login="client3"), 19);
 INSERT INTO proposta_contraparte(id_troca, id_usuario, id_chave) VALUES(1, (SELECT id FROM usuario_base WHERE login="client3"), 12);
-INSERT INTO proposta_contraparte(id_troca, id_usuario, id_chave) VALUES(1, (SELECT id FROM usuario_base WHERE login="client2"), 7);
-INSERT INTO proposta_contraparte(id_troca, id_usuario, id_chave) VALUES(1, (SELECT id FROM usuario_base WHERE login="client1"), 13);
+INSERT INTO proposta_contraparte(id_troca, id_usuario, id_chave) VALUES(2, (SELECT id FROM usuario_base WHERE login="client2"), 7);
+INSERT INTO proposta_contraparte(id_troca, id_usuario, id_chave) VALUES(2, (SELECT id FROM usuario_base WHERE login="client1"), 13);
 
 INSERT INTO troca_concluida(id, id_user_iniciou, id_user_aceitou, id_chave_proposto, id_chave_aceito) VALUES(1, (SELECT id FROM usuario_base WHERE login="client4"), (SELECT id FROM usuario_base WHERE login="client3"), 16, 12);
-
--- ignora inserção, usuario nao tem o jogo em biblioteca
--- INSERT INTO ofertas(id_usuario, id_chave, valor) VALUES((SELECT id FROM usuario_base WHERE login="client1"), 4, 60);
 
 COMMIT;

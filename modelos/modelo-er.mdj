@@ -4,25 +4,6 @@
 	"name": "Untitled",
 	"ownedElements": [
 		{
-			"_type": "UMLModel",
-			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
-			"_parent": {
-				"$ref": "AAAAAAFF+h6SjaM2Hec="
-			},
-			"name": "Model",
-			"ownedElements": [
-				{
-					"_type": "UMLClassDiagram",
-					"_id": "AAAAAAFF+qBtyKM79qY=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Main",
-					"defaultDiagram": true
-				}
-			]
-		},
-		{
 			"_type": "ERDDataModel",
 			"_id": "AAAAAAGGFzdQcCp3nB0=",
 			"_parent": {
@@ -3359,7 +3340,7 @@
 									"font": "Arial;13;1",
 									"left": 1288,
 									"top": 53,
-									"width": 183.84814453125,
+									"width": 192.51904296875,
 									"height": 13,
 									"text": "proposta-contraparte"
 								},
@@ -3385,7 +3366,7 @@
 											"font": "Arial;13;0",
 											"left": 1293,
 											"top": 76,
-											"width": 173.84814453125,
+											"width": 182.51904296875,
 											"height": 13
 										},
 										{
@@ -3400,7 +3381,7 @@
 											"font": "Arial;13;0",
 											"left": 1293,
 											"top": 91,
-											"width": 173.84814453125,
+											"width": 182.51904296875,
 											"height": 13
 										},
 										{
@@ -3415,21 +3396,21 @@
 											"font": "Arial;13;0",
 											"left": 1293,
 											"top": 106,
-											"width": 173.84814453125,
+											"width": 182.51904296875,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 1288,
 									"top": 71,
-									"width": 183.84814453125,
+									"width": 192.51904296875,
 									"height": 53
 								}
 							],
 							"font": "Arial;13;0",
 							"left": 1288,
 							"top": 48,
-							"width": 183.84814453125,
+							"width": 192.51904296875,
 							"height": 76,
 							"nameLabel": {
 								"$ref": "AAAAAAGGGWkYHTKvnTM="
@@ -5785,8 +5766,8 @@
 							"name": "id_chave",
 							"type": "INTEGER",
 							"length": 0,
-							"foreignKey": true,
-							"unique": true
+							"primaryKey": true,
+							"foreignKey": true
 						}
 					]
 				},

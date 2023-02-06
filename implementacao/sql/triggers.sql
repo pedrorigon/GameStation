@@ -192,7 +192,7 @@ BEGIN
         SET saldo = saldo - NEW.valor
         WHERE (usuario.id=NEW.id_user_comprou);
     UPDATE usuario
-        SET saldo = saldo + 0.7*NEW.valor
+        SET saldo = saldo + 0.75*NEW.valor
         WHERE (usuario.id=NEW.id_user_vendeu);
 END;
 
@@ -203,8 +203,8 @@ WHEN(
 )
 BEGIN
     UPDATE desenvolvedor
-        -- 30% de taxa do sistema, 30% do valor da oferta
-        SET lucro = lucro + 0.7*0.3*NEW.valor
+        -- 30% de taxa do sistema, 25% do valor da oferta
+        SET lucro = lucro + 0.7*0.25*NEW.valor
         WHERE (desenvolvedor.id=(
             SELECT jogo_pendente.id_dev
             FROM jogo_pendente
@@ -213,8 +213,8 @@ BEGIN
         ));
 END;
 
-/* T17: Atualiza rank do desenvolvedor assim que uma avaliação for atualizada */
-CREATE TRIGGER IF NOT EXISTS t17_registra_proposta BEFORE INSERT ON proposta_contraparte
+/* T17: Impede que o usuário ofereça como contraparte um jogo que não está em sua biblioteca */
+CREATE TRIGGER IF NOT EXISTS t17_proposta_na_biblioteca BEFORE INSERT ON proposta_contraparte
 WHEN (
     NEW.id_chave NOT IN (SELECT id_chave FROM biblioteca_jogos WHERE id_usuario=NEW.id_usuario)
 )

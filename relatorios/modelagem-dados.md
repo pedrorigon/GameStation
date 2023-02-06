@@ -6,80 +6,24 @@
     - [Restrições ocultas](#restrições-ocultas)
     - [Observações](#observações)
   - [Uso esperado](#uso-esperado)
+  - [Casos de uso](#casos-de-uso)
+    - [UC1 - Avaliar jogo](#uc1---avaliar-jogo)
+    - [UC2 - Gerenciar trocas](#uc2---gerenciar-trocas)
+    - [UC3/UC8 -  Comprar jogo da loja/Listar lucro](#uc3uc8----comprar-jogo-da-lojalistar-lucro)
+    - [UC4/UC6 - Adicionar/validar um jogo](#uc4uc6---adicionarvalidar-um-jogo)
+    - [UC5 - Remover jogo](#uc5---remover-jogo)
+    - [UC7 - Colocar jogo para validação](#uc7---colocar-jogo-para-validação)
+    - [UC9 - Listar avaliações](#uc9---listar-avaliações)
+    - [UC10 - Pesquisar jogos](#uc10---pesquisar-jogos)
+    - [UC11 - Listar jogos possuídos](#uc11---listar-jogos-possuídos)
+    - [UC12 - Login](#uc12---login)
   - [Dicionário de dados e mapeamento](#dicionário-de-dados-e-mapeamento)
     - [Mapeamento de entidades](#mapeamento-de-entidades)
-      - [usuario\_base](#usuario_base)
-      - [desenvolvedor](#desenvolvedor)
-      - [gerenciador](#gerenciador)
-      - [usuario](#usuario)
-      - [tags](#tags)
-      - [jogo\_pendente](#jogo_pendente)
-      - [jogo\_aceito](#jogo_aceito)
-      - [jogo\_removido](#jogo_removido)
-      - [jogo\_instanciado](#jogo_instanciado)
-      - [avaliacao](#avaliacao)
-      - [ofertas](#ofertas)
-      - [oferta\_concluida](#oferta_concluida)
-      - [trocas](#trocas)
-      - [proposta\_contraparte](#proposta_contraparte)
-      - [troca\_concluida](#troca_concluida)
     - [Mapeamento de relações](#mapeamento-de-relações)
-      - [jogo-tags](#jogo-tags)
-      - [biblioteca](#biblioteca)
-      - [dev-jogo](#dev-jogo)
-      - [aceito](#aceito)
-      - [avaliar](#avaliar)
-      - [jogo-avaliacao](#jogo-avaliacao)
-      - [oferta-finalizada](#oferta-finalizada)
-      - [aceitar-oferta](#aceitar-oferta)
-      - [troca-finalizada](#troca-finalizada)
-      - [trocas-aceitas](#trocas-aceitas)
-      - [ofertar-jogo](#ofertar-jogo)
-      - [trocar-jogo](#trocar-jogo)
-      - [usuario-contraparte](#usuario-contraparte)
-      - [jogo-chaves](#jogo-chaves)
-      - [jogo-oferta-concluida](#jogo-oferta-concluida)
-      - [jogo-proposto](#jogo-proposto)
-      - [jogo-aceito](#jogo-aceito)
-      - [jogo-oferta](#jogo-oferta)
-      - [jogo-troca](#jogo-troca)
-      - [jogo-contraparte](#jogo-contraparte)
-  - [Views](#views)
-    - [media\_avaliacao](#media_avaliacao)
   - [Consistência de dados](#consistência-de-dados)
     - [Checks](#checks)
-      - [avaliacao](#avaliacao-1)
-      - [ofertas](#ofertas-1)
-      - [oferta\_concluida](#oferta_concluida-1)
-      - [troca\_concluida](#troca_concluida-1)
     - [Triggers](#triggers)
-      - [T1: Aumento do saldo da conta do usuário eleva seu rank](#t1-aumento-do-saldo-da-conta-do-usuário-eleva-seu-rank)
-      - [T2: Jogo recusado não pode ser aceito](#t2-jogo-recusado-não-pode-ser-aceito)
-      - [T3: Impede que jogos sejam aceitos se não tem tags correspondentes](#t3-impede-que-jogos-sejam-aceitos-se-não-tem-tags-correspondentes)
-      - [T4: Impede novas instâncias de jogos removidos de serem geradas](#t4-impede-novas-instâncias-de-jogos-removidos-de-serem-geradas)
-      - [T5: Impede que instâncias de jogos ainda não aceitos sejam geradas](#t5-impede-que-instâncias-de-jogos-ainda-não-aceitos-sejam-geradas)
-      - [T6: Atualiza rank do desenvolvedor assim que uma avaliação for criada](#t6-atualiza-rank-do-desenvolvedor-assim-que-uma-avaliação-for-criada)
-      - [T7: Atualiza rank do desenvolvedor assim que uma avaliação for apagada](#t7-atualiza-rank-do-desenvolvedor-assim-que-uma-avaliação-for-apagada)
-      - [T8: Atualiza rank do desenvolvedor assim que uma avaliação for atualizada](#t8-atualiza-rank-do-desenvolvedor-assim-que-uma-avaliação-for-atualizada)
-      - [T9: Preço de venda do usuário deve estar entre 50% e 150% do preço original](#t9-preço-de-venda-do-usuário-deve-estar-entre-50-e-150-do-preço-original)
-      - [T10: Oferta apenas jogos da biblioteca](#t10-oferta-apenas-jogos-da-biblioteca)
-      - [T11: Remove da biblioteca a chave que será usada em oferta](#t11-remove-da-biblioteca-a-chave-que-será-usada-em-oferta)
-      - [T12: Readiciona chave à biblioteca do usuário](#t12-readiciona-chave-à-biblioteca-do-usuário)
-      - [T13: Permite que oferta seja concluída paenas se usuário tem saldo suficiente](#t13-permite-que-oferta-seja-concluída-paenas-se-usuário-tem-saldo-suficiente)
-      - [T14: Garante que a oferta existe e é válida](#t14-garante-que-a-oferta-existe-e-é-válida)
-      - [T15: Insere a chave do jogo comprado na oferta na biblioteca do usuário que comprou](#t15-insere-a-chave-do-jogo-comprado-na-oferta-na-biblioteca-do-usuário-que-comprou)
-      - [T16: Altera lucro do desenvolvedor no caso de oferta de jogo não removido](#t16-altera-lucro-do-desenvolvedor-no-caso-de-oferta-de-jogo-não-removido)
-      - [T17: Atualiza rank do desenvolvedor assim que uma avaliação for atualizada](#t17-atualiza-rank-do-desenvolvedor-assim-que-uma-avaliação-for-atualizada)
-      - [T18: Impede que o usuário faça uma proposta para si mesmo](#t18-impede-que-o-usuário-faça-uma-proposta-para-si-mesmo)
-      - [T19: Jogo que não está mais sendo proposto para troca deve voltar à biblioteca do usuário](#t19-jogo-que-não-está-mais-sendo-proposto-para-troca-deve-voltar-à-biblioteca-do-usuário)
-      - [T20: Remove jogo da biblioteca do usuário após ter sido proposto para troca](#t20-remove-jogo-da-biblioteca-do-usuário-após-ter-sido-proposto-para-troca)
-      - [T21: Troca apenas jogos da biblioteca](#t21-troca-apenas-jogos-da-biblioteca)
-      - [T22: Remove da biblioteca a chave que será usada na troca](#t22-remove-da-biblioteca-a-chave-que-será-usada-na-troca)
-      - [T23: Readiciona chave à biblioteca do usuário](#t23-readiciona-chave-à-biblioteca-do-usuário)
-      - [T24: Garante que a troca existe e é válida](#t24-garante-que-a-troca-existe-e-é-válida)
-      - [T25: Jogo aceito pela troca deve estar na lista de proposta](#t25-jogo-aceito-pela-troca-deve-estar-na-lista-de-proposta)
-      - [T26: Faz swap das chaves que fazem parte da troca](#t26-faz-swap-das-chaves-que-fazem-parte-da-troca)
-      - [T27: Verifica se usuário tem jogo na biblioteca antes de avaliá-lo](#t27-verifica-se-usuário-tem-jogo-na-biblioteca-antes-de-avaliá-lo)
+  - [Visualizações criadas](#visualizações-criadas)
 
 <div style="page-break-after: always;"></div>
 
@@ -90,6 +34,8 @@ Segue neste documento o diagrama entidade-relacionamento e seu mapeamento que de
 ## Diagrama ER
 
 ![Print](../modelos/modelo-er.png "Imagem")
+
+O modelo foi feito usando a ferramenta StarUML.
 
 ### Restrições ocultas
 
@@ -119,6 +65,380 @@ Um jogo aceito pode se tornar removido, o controle deverá garantir que se o ped
 Por mais que o controle possa fazer verificações sobre a corretude das requisições, foi optado por definir algumas restrições na própria modelagem por meio de triggers que assegurem as pré e pós condições semânticas dos dados, i.e. quando uma troca for finalizada, todas outras chaves propostas devem retornar aos usuários antigos \[[T23](#t23-readiciona-chave-à-biblioteca-do-usuário)\].
 
 Verificações sobre permissão ao acesso de determinadas queries é papel do controlador, DB Manager fornecerá métodos que se comunicam com o banco de dados SQLite3 que estará em memória.
+
+## Casos de uso
+
+### UC1 - Avaliar jogo
+
+```python
+db.listar_avaliacoes(8)
+```
+
+id_dev|login_dev|id_jogo|nome|id_usuario|login_user|nota|resenha
+-|-|-|-|-|-|-|-
+
+```python
+db.avaliar_jogo(3, 7, 2, "Odiei")
+db.avaliar_jogo(5, 7, 10)
+db.listar_avaliacoes(8)
+```
+
+id_dev|login_dev|id_jogo|nome|id_usuario|login_user|nota|resenha
+-|-|-|-|-|-|-|-
+8|dev3|7|game4-ar|3|client2|2|Odiei
+8|dev3|7|game4-ar|5|client4|10|None
+
+### UC2 - Gerenciar trocas
+
+#### Ofertas
+
+##### Inserção de ofertas
+
+```python
+db.listar_ofertas()
+```
+
+id_oferta|id_usuario|rank|nome|nota|preco|preco_oferta|data
+-|-|-|-|-|-|-|-
+
+```python
+db.colocar_jogo_em_oferta(2, 1, 18)
+db.colocar_jogo_em_oferta(3, 2, 15)
+db.colocar_jogo_em_oferta(3, 15, 80)
+db.colocar_jogo_em_oferta(2, 11, 50)
+db.listar_ofertas()
+```
+
+id_oferta|id_usuario|rank|nome|nota|preco|preco_oferta|data
+-|-|-|-|-|-|-|-
+1|2|1000.0|CSGO|None|20.5|18.0|2023-02-05 22:58:46
+4|2|1000.0|game2-a|None|50.0|50.0|2023-02-05 22:58:46
+2|3|200.0|CSGO|None|20.5|15.0|2023-02-05 22:58:46
+3|3|200.0|game4-ar|None|90.0|80.0|2023-02-05 22:58:46
+
+##### Remoção de ofertas
+
+```python
+db.remove_oferta(2)
+db.listar_ofertas()
+```
+
+id_oferta|id_usuario|rank|nome|nota|preco|preco_oferta|data
+-|-|-|-|-|-|-|-
+1|2|1000.0|CSGO|None|20.5|18.0|2023-02-05 23:04:19
+4|2|1000.0|game2-a|None|50.0|50.0|2023-02-05 23:04:19
+3|3|200.0|game4-ar|None|90.0|80.0|2023-02-05 23:04:19
+
+##### Compra de jogo ofertado
+
+```python
+db.listar_jogos_usuario(2)
+```
+
+id|login|id_jogo|nome|id_chave|disponibilidade
+-|-|-|-|-|-
+2|client1|1|CSGO|1|O
+2|client1|1|CSGO|3|B
+2|client1|5|game2-a|11|O
+2|client1|5|game2-a|13|B
+2|client1|8|game5-a|17|B
+
+```python
+db.comprar_jogo_ofertado(2, 3)
+db.listar_ofertas()
+```
+
+id_oferta|id_usuario|rank|nome|nota|preco|preco_oferta|data
+-|-|-|-|-|-|-|-
+1|2|1000.0|CSGO|None|20.5|18.0|2023-02-05 23:04:19
+4|2|1000.0|game2-a|None|50.0|50.0|2023-02-05 23:04:19
+
+```python
+db.listar_jogos_usuario(2)
+```
+
+id|login|id_jogo|nome|id_chave|disponibilidade
+-|-|-|-|-|-
+2|client1|1|CSGO|1|O
+2|client1|1|CSGO|3|B
+2|client1|5|game2-a|11|O
+2|client1|5|game2-a|13|B
+2|client1|7|game4-ar|15|B
+2|client1|8|game5-a|17|B
+
+#### Trocas
+
+##### Inserção em trocas
+
+```python
+db.listar_trocas()
+```
+
+id_troca|id_usuario|rank|nome|nota|preco|data
+-|-|-|-|-|-|-
+
+```python
+db.anunciar_jogo_troca(5, 16)
+db.anunciar_jogo_troca(4, 10)
+db.listar_trocas()
+```
+
+id_troca|id_usuario|rank|nome|nota|preco|data
+-|-|-|-|-|-|-
+2|4|50.0|RDR2|None|180.5|2023-02-05 23:19:24
+1|5|6.0|game4-ar|None|90.0|2023-02-05 23:19:24
+
+##### Inserção em proposta
+
+```python
+db.propor_troca(1, 4, 19)
+db.propor_troca(1, 4, 12)
+db.propor_troca(2, 3, 7)
+db.propor_troca(2, 2, 13)
+```
+
+##### Listagem de propostas recebidas
+
+```python
+db.listar_propostas_recebidas(4)
+```
+
+id_troca|id_usuario|inome|ipreco|pnome|ppreco|usuario_propos|id_proposta
+-|-|-|-|-|-|-|-
+2|4|RDR2|180.5|GTAV|60.5|client2|7
+2|4|RDR2|180.5|game2-a|50.0|client1|13
+
+```python
+db.listar_propostas_recebidas(5)
+```
+
+id_troca|id_usuario|inome|ipreco|pnome|ppreco|usuario_propos|id_proposta
+-|-|-|-|-|-|-|-
+1|5|game4-ar|90.0|game2-a|50.0|client3|12
+1|5|game4-ar|90.0|game5-a|20.0|client3|19
+
+##### Remoção/recusa de propostas
+
+```python
+db.remover_proposta(2, 3, 7)
+db.listar_propostas_recebidas(4)
+```
+
+id_troca|id_usuario|inome|ipreco|pnome|ppreco|usuario_propos|id_proposta
+-|-|-|-|-|-|-|-
+2|4|RDR2|180.5|game2-a|50.0|client1|13
+
+##### Aceitação de proposta
+
+```python
+db.aceitar_troca(1, 5, 4, 16, 12)
+db.listar_propostas_recebidas(5)
+```
+
+id_troca|id_usuario|inome|ipreco|pnome|ppreco|usuario_propos|id_proposta
+-|-|-|-|-|-|-|-
+
+##### Jogos anteriormente em proposta voltam para a biblioteca de jogos
+
+Jogo de id 19 estava sendo proposto para troca anteriormente
+
+```python
+db.listar_jogos_usuario(4)
+```
+
+id|login|id_jogo|nome|id_chave|disponibilidade
+-|-|-|-|-|-
+4|client3|2|GTAV|6|B
+4|client3|3|RDR2|10|T
+4|client3|7|game4-ar|16|B
+4|client3|8|game5-a|19|B
+
+### UC3/UC8 -  Comprar jogo da loja/Listar lucro
+
+```python
+db.listar_jogos_usuario(2)
+db.listar_lucro(6)
+db.listar_saldo(2)
+```
+
+id|login|id_jogo|nome|id_chave|disponibilidade
+-|-|-|-|-|-
+
+id|login|lucro|rank
+-|-|-|-
+6|dev1|500.0|0.0
+
+id|login|saldo|rank
+-|-|-|-
+2|client1|1000.0|1000.0
+
+```python
+db.comprar_jogo(2, 1)
+db.listar_jogos_usuario(2)
+db.listar_lucro(6)
+db.listar_saldo(2)
+```
+
+id|login|id_jogo|nome|id_chave|disponibilidade
+-|-|-|-|-|-
+2|client1|1|CSGO|21|B
+
+id|login|lucro|rank
+-|-|-|-
+6|dev1|514.35|0.0
+
+id|login|saldo|rank
+-|-|-|-
+2|client1|979.5|1000.0
+
+### UC4/UC6 - Adicionar/validar um jogo
+
+```python
+db.listar_jogos_em_aguardo()
+db.listar_jogos()
+```
+
+id_dev|login|rank|id|nome|preco|descricao|link_imagens|link_trailer
+-|-|-|-|-|-|-|-|-
+7|dev2|0.0|2|GTAV|60.5|Jogo GTAV|img.com|None
+
+id_jogo|nome|id_dev|login_dev|preco|descricao|link_imagens|link_trailer|nota|modalidade|rank|id_chave
+-|-|-|-|-|-|-|-|-|-|-|-
+1|CSGO|6|dev1|20.5|Jogo CSGO|img.com|None|None|N|None|NA
+
+```python
+db.aceitar_jogo(1, 2)
+db.listar_jogos_em_aguardo()
+db.listar_jogos()
+```
+
+id_dev|login|rank|id|nome|preco|descricao|link_imagens|link_trailer
+-|-|-|-|-|-|-|-|-
+
+id_jogo|nome|id_dev|login_dev|preco|descricao|link_imagens|link_trailer|nota|modalidade|rank|id_chave
+-|-|-|-|-|-|-|-|-|-|-|-
+1|CSGO|6|dev1|20.5|Jogo CSGO|img.com|None|None|N|None|NA
+2|GTAV|7|dev2|60.5|Jogo GTAV|img.com|None|None|N|None|NA
+
+### UC5 - Remover jogo
+
+```python
+db.remover_jogo(1)
+db.remover_jogo(2, "Regras")
+db.exec("SELECT * FROM jogo_removido;")
+db.listar_jogos()
+```
+
+id_jogo|justificativa
+-|-
+1|None
+2|Regras
+
+id_jogo|nome|id_dev|login_dev|preco|descricao|link_imagens|link_trailer|nota|modalidade|rank|id_chave
+-|-|-|-|-|-|-|-|-|-|-|-
+
+### UC7 - Colocar jogo para validação
+
+```python
+db.exec("SELECT * FROM jogo_pendente;")
+db.exec("SELECT * FROM jogo_tags;")
+db.adicionar_jogo(7, "Exemplo", 60, "descricao", "link_imagem", ("puzzle",), "link_trailer")
+db.adicionar_jogo(7, "Exemplo2", 90, "desc", "imagem", ("online",))
+db.exec("SELECT * FROM jogo_pendente;")
+db.exec("SELECT * FROM jogo_tags;")
+```
+
+id|id_dev|nome|preco|descricao|link_imagens|link_trailer
+-|-|-|-|-|-|-
+
+id_jogo|tag
+-|-
+
+id|id_dev|nome|preco|descricao|link_imagens|link_trailer
+-|-|-|-|-|-|-
+1|7|Exemplo|60.0|descricao|link_imagem|link_trailer
+2|7|Exemplo2|90.0|desc|imagem|None
+
+id_jogo|tag
+-|-
+1|puzzle
+2|online
+
+### UC9 - Listar avaliações
+
+```python
+db.listar_avaliacoes(8)
+```
+
+id_dev|login_dev|id_jogo|nome|id_usuario|login_user|nota|resenha
+-|-|-|-|-|-|-|-
+8|dev3|5|game2-a|2|client1|8|None
+8|dev3|8|game5-a|2|client1|5|None
+8|dev3|7|game4-ar|3|client2|2|Odeiei
+8|dev3|5|game2-a|4|client3|8|None
+
+### UC10 - Pesquisar jogos
+
+```python
+db.pesquisar_jogos_nome('A')
+```
+
+id_jogo|nome|id_dev|login_dev|preco|descricao|link_imagens|link_trailer|nota|modalidade|rank|id_chave
+-|-|-|-|-|-|-|-|-|-|-|-
+2|GTAV|7|dev2|60.5|Jogo GTAV|img.com|None|6.5|N|None|NA
+5|game2-a|8|dev3|50.0|Game 2|img.com|None|8.0|N|None|NA
+8|game5-a|8|dev3|20.0|Game 5|img.com|None|6.666666666666667|N|None|NA
+5|game2-a|8|dev3|50.0|Game 2|img.com|None|8.0|O|1013.5|11
+7|game4-ar|8|dev3|80.0|Game 4|img.com|None|2.5|O|200.0|15
+
+```python
+db.pesquisar_jogos_tag('puzzle')
+```
+
+id_jogo|nome|id_dev|login_dev|preco|descricao|link_imagens|link_trailer|nota|modalidade|rank|id_chave
+-|-|-|-|-|-|-|-|-|-|-|-
+3|RDR2|7|dev2|180.5|Jogo RDR2|img.com|trailer.com|7.5|N|None|NA
+5|game2-a|8|dev3|50.0|Game 2|img.com|None|8.0|N|None|NA
+8|game5-a|8|dev3|20.0|Game 5|img.com|None|6.666666666666667|N|None|NA
+5|game2-a|8|dev3|50.0|Game 2|img.com|None|8.0|O|1013.5|11
+7|game4-ar|8|dev3|80.0|Game 4|img.com|None|2.5|O|200.0|15
+3|RDR2|7|dev2|NA|Jogo RDR2|img.com|trailer.com|7.5|T|50.0|10
+
+```python
+db.pesquisar_jogos_avaliacao(7)
+```
+
+id_jogo|nome|id_dev|login_dev|preco|descricao|link_imagens|link_trailer|nota|modalidade|rank|id_chave
+-|-|-|-|-|-|-|-|-|-|-|-
+1|CSGO|6|dev1|20.5|Jogo CSGO|img.com|None|7.333333333333333|N|None|NA
+3|RDR2|7|dev2|180.5|Jogo RDR2|img.com|trailer.com|7.5|N|None|NA
+5|game2-a|8|dev3|50.0|Game 2|img.com|None|8.0|N|None|NA
+5|game2-a|8|dev3|50.0|Game 2|img.com|None|8.0|O|1013.5|11
+1|CSGO|6|dev1|15.0|Jogo CSGO|img.com|None|7.333333333333333|O|200.0|2
+3|RDR2|7|dev2|NA|Jogo RDR2|img.com|trailer.com|7.5|T|50.0|10
+
+### UC11 - Listar jogos possuídos
+
+```python
+db.listar_jogos_usuario(2)
+```
+
+id|login|id_jogo|nome|id_chave|disponibilidade
+-|-|-|-|-|-
+2|client1|1|CSGO|3|B
+2|client1|5|game2-a|11|O
+2|client1|5|game2-a|13|C
+2|client1|8|game5-a|17|B
+
+### UC12 - Login
+
+DBManager fornece uma verificação simples se o login está correto. Caso o login seja bem-sucedido o segundo item da tupla de retorno será uma tupla contendo `id_usuario` e valor que represente a permissão do usuário, níveis definidos em `Permission`.
+
+```python
+db.login("admin", md5sum("123")) # (True, (1, 2))
+db.login("admin", md5sum("12")) # (False, 'Dados inconsistentes')
+db.login("admn", md5sum("123")) # (False, 'Usuário não encontrado')
+```
 
 ## Dicionário de dados e mapeamento
 
@@ -297,10 +617,10 @@ CREATE TABLE IF NOT EXISTS proposta_contraparte (
     id_troca INTEGER NOT NULL,
     id_usuario INTEGER NOT NULL,
     id_chave INTEGER NOT NULL,
+    PRIMARY KEY(id_chave),
     FOREIGN KEY(id_troca) REFERENCES trocas(id),
     FOREIGN KEY(id_usuario) REFERENCES usuario(id),
-    FOREIGN KEY(id_chave) REFERENCES jogo_instanciado(id),
-    UNIQUE(id_chave)
+    FOREIGN KEY(id_chave) REFERENCES jogo_instanciado(id)
 );
 ```
 
@@ -424,21 +744,6 @@ CREATE TABLE IF NOT EXISTS biblioteca_jogos (
 #### jogo-contraparte
 
 * id da chave foi incorporado na tabela `proposta_contraparte`, no campo `id_chave`.
-
-## Views
-
-### media_avaliacao
-
-Exibe média do jogo.
-
-```SQL
-CREATE VIEW media_avaliacao AS
-    SELECT jogo_aceito.id, jogo_pendente.nome, AVG(nota) AS nota
-    FROM jogo_aceito
-    JOIN avaliacao ON (avaliacao.id_jogo=jogo_aceito.id)
-    JOIN jogo_pendente ON (jogo_aceito.id=jogo_pendente.id)
-    GROUP BY jogo_aceito.id;
-```
 
 ## Consistência de dados
 
@@ -723,10 +1028,10 @@ BEGIN
 END;
 ```
 
-#### T17: Atualiza rank do desenvolvedor assim que uma avaliação for atualizada
+#### T17: Impede que o usuário ofereça como contraparte um jogo que não está em sua biblioteca
 
 ```SQL
-CREATE TRIGGER IF NOT EXISTS t17_registra_proposta BEFORE INSERT ON proposta_contraparte
+CREATE TRIGGER IF NOT EXISTS t17_proposta_na_biblioteca BEFORE INSERT ON proposta_contraparte
 WHEN (
     NEW.id_chave NOT IN (SELECT id_chave FROM biblioteca_jogos WHERE id_usuario=NEW.id_usuario)
 )
@@ -866,3 +1171,19 @@ BEGIN
     SELECT RAISE(FAIL, "Usuário não pode avaliar jogo que não esteja em sua biblioteca.");
 END;
 ```
+
+## Visualizações criadas
+
+As visualizações criadas são:
+
+* unified_users: Usada em DBManager.permissao_usuario();
+* media_avaliacao: Usada em outras visualizações;
+* ranking_dev: Usada em trigger;
+* exibe_ofertas: Usada em DBManager.listar_ofertas();
+* exibe_trocas: Usada em DBManager.listar_trocas();
+* chaves_zumbis: Usada em trigger;
+* listar_jogos_usuario: Usada em DBManager.listar_jogos_usuario();
+* listar_avaliacoes: Usada em DBManager.listar_avaliacoes();
+* loja_jogos: Usada em pesquisa de jogos;
+* listar_proposta: Usada em DBManager.listar_propostas_recebidas();
+* aguardando_aprovacao: Usada em DBManager.listar_jogos_em_aguardo();
