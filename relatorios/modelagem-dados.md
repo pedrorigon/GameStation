@@ -89,7 +89,7 @@ Segue neste documento o diagrama entidade-relacionamento e seu mapeamento que de
 
 ## Diagrama ER
 
-![Print](modelo.png "Imagem")
+![Print](../modelos/modelo-er.png "Imagem")
 
 ### Restrições ocultas
 
