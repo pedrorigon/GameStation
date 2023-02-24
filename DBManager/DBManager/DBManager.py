@@ -1,5 +1,5 @@
 from .Commands import Commands
-from .helper import gen_key, md5sum
+from Common.helper import gen_key, md5sum
 from Common.Permission import Permission
 from dataclasses import dataclass
 from typing import Tuple
