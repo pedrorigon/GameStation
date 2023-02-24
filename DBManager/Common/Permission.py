@@ -2,12 +2,14 @@ from dataclasses import dataclass
 
 @dataclass
 class Permission:
-    USUARIO = 0
-    DESENVOLVEDOR = 1
-    GERENCIADOR = 2
+    NONE = 0
+    USER = 1
+    DEV = 2
+    ADMIN = 3
 
     MAP_TIPO = {
-        'U': USUARIO,
-        'D': DESENVOLVEDOR,
-        'G': GERENCIADOR
+        'N': NONE,
+        'U': USER,
+        'D': DEV,
+        'A': ADMIN
     }
