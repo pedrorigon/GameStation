@@ -1,13 +1,13 @@
 BEGIN;
 
-INSERT INTO usuario_base (login, password) VALUES("admin", md5("123"));
-INSERT INTO usuario_base (login, password) VALUES("client1", md5("123"));
-INSERT INTO usuario_base (login, password) VALUES("client2", md5("123"));
-INSERT INTO usuario_base (login, password) VALUES("client3", md5("123"));
-INSERT INTO usuario_base (login, password) VALUES("client4", md5("123"));
-INSERT INTO usuario_base (login, password) VALUES("dev1", md5("123"));
-INSERT INTO usuario_base (login, password) VALUES("dev2", md5("123"));
-INSERT INTO usuario_base (login, password) VALUES("dev3", md5("123"));
+INSERT INTO usuario_base (login, password) VALUES("admin","202cb962ac59075b964b07152d234b70");
+INSERT INTO usuario_base (login, password) VALUES("client1","202cb962ac59075b964b07152d234b70");
+INSERT INTO usuario_base (login, password) VALUES("client2","202cb962ac59075b964b07152d234b70");
+INSERT INTO usuario_base (login, password) VALUES("client3","202cb962ac59075b964b07152d234b70");
+INSERT INTO usuario_base (login, password) VALUES("client4","202cb962ac59075b964b07152d234b70");
+INSERT INTO usuario_base (login, password) VALUES("dev1","202cb962ac59075b964b07152d234b70");
+INSERT INTO usuario_base (login, password) VALUES("dev2","202cb962ac59075b964b07152d234b70");
+INSERT INTO usuario_base (login, password) VALUES("dev3","202cb962ac59075b964b07152d234b70");
 
 INSERT INTO desenvolvedor (id) VALUES((SELECT id FROM usuario_base WHERE login="dev1"));
 INSERT INTO desenvolvedor (id) VALUES((SELECT id FROM usuario_base WHERE login="dev2"));
@@ -54,26 +54,26 @@ INSERT INTO jogo_aceito(id, id_gerenciador) VALUES((SELECT id FROM jogo_pendente
 INSERT INTO jogo_aceito(id, id_gerenciador) VALUES((SELECT id FROM jogo_pendente WHERE nome="game4-ar"), (SELECT id FROM usuario_base WHERE login="admin"));
 INSERT INTO jogo_aceito(id, id_gerenciador) VALUES((SELECT id FROM jogo_pendente WHERE nome="game5-a"), (SELECT id FROM usuario_base WHERE login="admin"));
 
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="CSGO"), gen_key()); -- 1
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="CSGO"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="CSGO"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="CSGO"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="GTAV"), gen_key()); -- 5
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="GTAV"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="GTAV"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="RDR2"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="RDR2"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="RDR2"), gen_key()); -- 10
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game2-a"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game2-a"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game2-a"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game4-ar"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game4-ar"), gen_key()); -- 15
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game4-ar"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game5-a"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game5-a"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game5-a"), gen_key());
-INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game5-a"), gen_key()); -- 20
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="CSGO"), "efj3dVjNxQHnYS64LjQ5vcqlg0qAcpq5D8hi6x3jg1PMxXo9qh7pzuFjFJcYeydW"); -- 1
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="CSGO"), "IyIfFP1SdsOWT5Oeyxv9p3tZT1AjR5EJ1k1JaYOjKrQvMjinsHilcqmF39PAui4P");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="CSGO"), "nuPyyeGoexuVQtgoEFXQ0kRYNQtuNLkLJGSNcD3GtO78R3viuMHggQM7KScTAq4U");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="CSGO"), "4r8QtLdOTrXHHMgovkWljrelF1xUeby6MNIhQSyRQXARa1OQQ9bHMYLhWKr5c6WM");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="GTAV"), "N0sYgvx7UxN5Rk4dLrGGabbr0TIwb5PbuQfUZxaY8Zr2y3xJ4YCfzqzdISi5xjng"); -- 5
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="GTAV"), "OSCgScuTE6Z4pCqvFQZt8jDhxYTUZQOgBktPn7W6kJwPii1hRXGAr4T5ezl2rVhk");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="GTAV"), "cjzh7LHv6HoyOxQ9yvywpxTWU26ObawZWbh9Tw1GYHnJU4aLtihTu8y4FnWqOM4k");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="RDR2"), "tkAogAtCYbjR0m2nP3PKdjprK2uTrFXKd1xLiqsJnRrgliB2zLBfxtAyhIi8ZZTv");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="RDR2"), "wsMC7A2iUpggCF4wvs2wPWbtX8mIsfiuFfc2WA0X9Jgbm54HrUrs82lNhl3FNs9p");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="RDR2"), "TmbfS75YD0g8wSauMSydiVvkjhoUFSj8MsPJSK7P5pnNK8Wcwh3k7VjiNbbELJJh"); -- 10
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game2-a"), "K5L1fLJMJLiZPQ96P55IoCf81IeHT6dWgJ7F7q6dO5uuIAah5RWqGE5mWnifwc7B");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game2-a"), "euGmWgtr4NjpacxEHgdhBdvhqLS0aVo4tJtzIxcRMACBY2xw7XPuV7li9SqhLMRj");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game2-a"), "BtGVU6PGHmePVUoQMCKkJS0D4dFB4n8QGUZRR3l66LaYtCr3uZOemTXN5EFVaOaD");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game4-ar"), "6Pf9Wh9bVbGjXuLCAKpxZV584LnyKehTHBxGh41NWd6QnHm36jJErI6m43hXnrjN");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game4-ar"), "JZg3UDDvCVygUC832AedEg6xodn0D4jxXwOvHOMQb1oumlSB9DGil0XrNOkwiDN3"); -- 15
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game4-ar"), "f2lmX7N4OfKqa5dpt8WrVkRKyYrA3S8AsZGpg9nWbtY0voY5oTRjJsiaExDIgXGm");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game5-a"), "SbrGFiLQ29vyJhx9shSnW1gVJjuZwJKY52rKMXTPQe1fFJB9AamrOIWMbpz8cDzb");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game5-a"), "kHoEY9ssP1WFKCvq61Iit11lRwZWY2ysluIZKej7t6pCOfrNLdaqLJRJf5geWnB3");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game5-a"), "XKU5MPdLsKH0u0N9XBfUyJCCL2iJn1u5bUl4FsdfinNnFmhKU3yjMdbqwUXkfZxh");
+INSERT INTO jogo_instanciado(id_jogo, chave) VALUES((SELECT id FROM jogo_pendente WHERE nome="game5-a"), "V3VkZfIaKstzxGACvMKqRnjGazarOZA1g5y4f6rU5ADZY6so7NPJUSPee5Tx2Z3J"); -- 20
 
 INSERT INTO jogo_removido(id_jogo, justificativa) VALUES((SELECT id FROM jogo_pendente WHERE nome="game3-r"), "Violou políticas da loja");
 INSERT INTO jogo_removido(id_jogo) VALUES((SELECT id FROM jogo_pendente WHERE nome="game4-ar")); -- Dev o removeu
