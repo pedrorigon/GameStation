@@ -1,14 +1,9 @@
-from dataclasses import dataclass
-
-@dataclass
 class Permission:
-    NONE = 0
-    USER = 1
-    DEV = 2
-    ADMIN = 3
+    USER = 'user'
+    DEV = 'dev'
+    ADMIN = 'admin'
 
     MAP_TIPO = {
-        'N': NONE,
         'U': USER,
         'D': DEV,
         'A': ADMIN

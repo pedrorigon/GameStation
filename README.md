@@ -51,34 +51,108 @@ python3 utils/create_database.py utils/sql GameStation/data.sqlite3
 
 ## API Rest
 
-* TODO: Usar permissões;
-* TODO: login (via API);
+* `BIBLIO_INFO`: `{"id_chave": int, "avaliacao_usuario": float, "disponibilidade": str, ...JOGO}`;
+* `JOGO`: `{"id_jogo": int, "nome": str, "avaliacao": float, "preco": float, "tags": list[str], "link_imagens": str, "link_trailer": str}`;
+* `OFERTA`: `{"id_oferta": int, "data": timestamp, "usuario_rank": float, "preco_oferta": float, ...JOGO}`;
+* `TROCA`: `{"id_troca": int, "data": timestamp, "usuario_rank": float, ...JOGO}`;
+* `PROPOSTA`: `{"id_proposta": int, ...JOGO}`;
+* `JOGO_PENDENTE`: `{"rank_dev": "float": int, ...JOGO}`;
+* `AVALIACAO`: `{"avaliacao_usuario": float, "resenha": str, ...JOGO}`;
 
-Url|Descrição|Method|Args|Permission
+### biblioteca
+
+Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-/avaliar_jogo/|UC1 - Insere nova avaliação|POST|`{'id_usuario': int, 'id_jogo': int, 'nota': int, 'resenha': str}`|`(Permission.USER, )`
-/aceitar_jogo/|UC4/UC6 - Gerenciador aceita jogo|POST|`{'id_gerenciador': int, 'id_jogo': int}`|`(Permission.ADMIN, )`
-/colocar_jogo_em_oferta/|UC2a - Coloca jogo em oferta|POST|`{'id_usuario': int, 'id_chave': int, 'valor': float}`|`(Permission.USER, )`
-/remove_oferta/|UC2b - Tira jogo de oferta|DELETE|`{'id_oferta': int}`|`(Permission.USER, )`
-/comprar_jogo_ofertado/|UC2c - Comprar jogo ofertado|POST|`{'id_usuario_comprando': int, 'id_oferta': int}`|`(Permission.USER, )`
-/anunciar_jogo_troca/|UC2d - Anuncia jogo para troca (usuário inicial)|POST|`{'id_usuario_inicial': int, 'id_chave': int}`|`(Permission.USER, )`
-/propor_troca/|UC2e - Propor jogo em troca de jogo anunciado (usuário que propôs)|POST|`{'id_troca': int, 'id_usuario_propos': int, 'id_chave': int}`|`(Permission.USER, )`
-/listar_propostas_recebidas/|UC2f - Visualiza as propostas feitas (usuário inicial)|GET|`{'id_usuario_inicial': int}`|`(Permission.USER, )`
-/remover_proposta/|UC2g/UC2i - Remove proposta de troca (usuário inicial)/Retira proposta de troca (usuário que propôs)|DELETE|`{'id_troca': int, 'id_usuario_propos': int, 'id_chave': int}`|`(Permission.USER, )`
-/aceitar_troca/|UC2h - Aceita proposta de troca (usuário inicial)|POST|`{'id_troca': int, 'id_user_iniciou': int, 'id_user_aceitou': int, 'id_chave_proposto': int, 'id_chave_aceito': int}`|`(Permission.USER, )`
-/remover_jogo/|UC5 - Remove/recusa jogo da loja|DELETE|`{'id_jogo': int, 'justificativa': str}`|`(Permission.DEV, Permission.ADMIN)`
-/listar_lucro/|UC8 - Lista lucros do desenvolvedor|GET|`{'id_desenvolvedor': int}`|`(Permission.DEV, )`
-/listar_avaliacoes/|UC9 - Lista para o desenvolvedor as avaliações que recebeu|GET|`{'id_desenvolvedor': int}`|`(Permission.DEV, )`
-/pesquisar_jogos_nome/|UC10a - Pesquisa jogos por nome|GET|`{'nome': str}`|`(Permission.USER, )`
-/pesquisar_jogos_tag/|UC10b - Pesquisa jogos por tag|GET|`{'tag': str}`|`(Permission.USER, )`
-/listar_jogos_usuario/|UC11 - Lista todos os jogos do usuário|GET|`{'id_usuario': int}`|`(Permission.USER, )`
-/pesquisar_jogos_avaliacao/|C. d) - Pesquisa jogos por avaliação|GET|`{'nota': float}`|`(Permission.USER, )`
-/aumentar_saldo/|Soma saldo ao saldo do usuário|POST|`{'id_usuario': int, 'saldo': float}`|`(Permission.USER, )`
-/listar_jogos_em_aguardo/|Lista todos os jogos que estão em aguardo|GET|`{}`|`(Permission.DEV, )`
-/listar_ofertas/|Lista todos as ofertas disponíveis|GET|`{}`|`(Permission.USER, )`
-/listar_trocas/|Lista todos as trocas disponíveis|GET|`{}`|`(Permission.USER, )`
-/listar_saldo/|Lista saldo do usuário|GET|`{'id_usuario': int}`|`(Permission.USER, )`
-/listar_jogos/|Lista todos os jogos da loja|GET|`{}`|`(Permission.USER, )`
-/comprar_jogo/|UC3 - Compra jogo da loja|POST|`{'id_usuario': int, 'id_jogo': int}`|`(Permission.USER, )`
-/adicionar_jogo/|UC7 - Adiciona jogo pendente|POST|`{'id_desenvolvedor': int, 'nome': str, 'preco': float, 'descricao': str, 'link_imagens': str, 'tags': list[str], 'link_trailer': str}`|`(Permission.DEV, )`
-/login/|UC12 - Loga usuário e retorna id do usuário e permissão|POST|`{'login': str, 'password': str}`|`(Permission.NONE, Permission.USER, Permission.DEV, Permission.ADMIN)`
+GET|`{}`|`[BIBLIO_INFO, ...]`|Obtém uma lista com todos os jogos pertencem ao usuário|Deve estar logado, usa AUTH para inferir id do usuário
+
+### loja
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+GET|`{}`|`[JOGO, ...]`|Obtém uma lista com todos os jogos que podem ser comprados diretamente da loja|-
+
+### comprar_jogo
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+PUT|`{"id_jogo": int}`|`{}`|Compra jogado diretamente da loja|Deve estar logado, usa AUTH para inferir id do usuário 
+
+### ofertas
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+GET|`{}`|`[OFERTA, ...]`|Obtém uma lista com todos os jogos que foram colocados em oferta|-
+PUT|`{"id_chave": int, "preco": float}`|`{}`|Coloca um jogo da biblioteca para oferta com o preço `preco`|Deve estar logado, usa AUTH para inferir id do usuário
+DELETE|`{"id_oferta": int}`|`{}`|Remove um jogo ofertado|Deve estar logado, usa AUTH para verificar se usuário é o criador da oferta
+
+### trocas
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+GET|`{}`|`[TROCA, ...]`|Obtém uma lista com todas as trocas disponíveis|-
+PUT|`{"id_chave": int}`|`{}`|Coloca um jogo para troca|Deve estar logado, usa AUTH para inferir id do usuário
+DELETE|`{"id_troca": int}`|`{}`|Remove a troca|Deve estar logado, usa AUTH para verificar se usuário é o criador da troca
+
+### propostas
+
+link|Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-|-
+GET|`{"id_troca": int}`|`[PROPOSTA, ...]`|Obtém uma lista com todas as propostas recebidas para determinada troca|Deve estar logado, usa AUTH para verificar se usuário é o criador da troca
+PUT|`{"id_chave": int, "id_troca": int}`|`{}`|Coloca um jogo como contrapartida|Deve estar logado
+DELETE|`{"id_proposta": int}`|`{}`|Remove a contrapartida|Deve estar logado, usa AUTH para verificar se usuário é o criador da troca ou da proposta
+
+### comprar_oferta
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+PUT|`{"id_oferta": int}`|`{}`|Compra jogo ofertado|Deve estar logado como usuário
+
+### aceitar_troca
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+PUT|`{"id_troca": int, "id_proposta": int}`|`{}`|Aceita que uma troca seja feita com determinada contrapartida|Deve estar logado, usa AUTH para verificar se usuário é o criador da troca
+
+### session
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+PUT|`{"login": str, "password": str}`|`{}`|Cria nova sessão|-
+DELETE|`{}`|`{}`|Encerra sessão|-
+
+### validar_jogo
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+GET|`{}`|`[JOGO_PENDENTE, ...]`|Obtém lista de jogos pendentes|Deve estar logado como gerenciador
+PUT|`{"id_jogo": int}`|`{}`|Aceita jogo|Deve estar logado como gerenciador
+DELETE|`{"id_jogo": int, "justificativa": str}`|`{}`|Recusa/cancela um jogo|Deve estar logado, se desenvolvedor justificativa pode estar vazia, se gerenciador não pode estar vazio
+
+### jogo
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+GET|`{"id_jogo": int}`|`JOGO`|Obtém informações sobre o jogo|-
+PUT|`JOGO`*|`{}`|Cria jogo|Deve estar logado como desenvolvedor
+DELETE|`{"id_jogo": int, "justificativa": str}`|`{}`|Remove/recusa um jogo|Deve estar logado, se desenvolvedor justificativa pode estar vazia, se gerenciador não pode estar vazio
+
+\* Nâo deve conter o campo `id_jogo`;
+
+### user_info
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+GET|`{}`|`{"login": str, "saldo": float, "rank": float}`, caso usuário<br/>`{"login": str, "lucro": float, "rank": float}`, caso desenvolvedor|Retorna informação do usuário|Deve estar logado como usuário ou desenvolvedor
+
+### avaliacoes
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+GET|`{}`|`[AVALIACAO, ...]`|Recebe todas as avaliações feitas, caso usuário<br/>Recebe todas as avaliações recebidas, caso desenvolvedor|-
+PUT|`{"id_jogo": int, "nota": float, "resenha": str}`|`{}`|Faz uma avaliação para um jogo|Deve estar logado como usuário
+
+### aumentar_saldo
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+PUT|`{"acrescimo": float}`|`{}`|Aumenta saldo do usuário|Deve estar logado como usuário
