@@ -155,4 +155,24 @@ CREATE TABLE IF NOT EXISTS troca_concluida (
     CHECK(id_user_iniciou != id_user_aceitou)
 );
 
+CREATE TABLE IF NOT EXISTS historico (
+    id_transacao INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_usuario INTEGER NOT NULL,
+    -- Usuário que participou da oferta/troca
+    id_usuario_participou INTEGER,
+    id_chave INTEGER NOT NULL,
+    valor FLOAT,
+    tipo CHAR(1) NOT NULL,
+    direcao CHAR(1) NOT NULL,
+    data TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(id_usuario) REFERENCES usuario(id),
+    FOREIGN KEY(id_usuario_participou) REFERENCES usuario(id),
+    FOREIGN KEY(id_chave) REFERENCES jogo_instanciado(id),
+    CHECK(id_usuario != id_usuario_participou),
+    -- Tipo de transação: Compra, Troca ou Oferta
+    CHECK(tipo IN ('C', 'T', 'O')),
+    -- Sentido do movimento da chave: In ou Out
+    CHECK(direcao IN ('I', 'O'))
+);
+
 COMMIT;

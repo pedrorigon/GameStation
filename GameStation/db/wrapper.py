@@ -60,6 +60,9 @@ commands = {
     "/aumentar_saldo/": {
         "POST": CommandInfo(SQLCommand.AUMENTAR_SALDO, generic, (Permission.USER,), {"acrescimo": float}),
     },
+    "/historico/": {
+        "GET": CommandInfo(SQLCommand.HISTORICO, generic_permission, (Permission.USER, Permission.DEV,Permission.ADMIN), returns_table=True),
+    },
 }
 
 # Executa um comando da api

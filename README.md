@@ -58,12 +58,13 @@ python3 utils/create_database.py utils/sql GameStation/data.sqlite3
 * `PROPOSTA`: `{"id_proposta": int, ...JOGO}`;
 * `JOGO_PENDENTE`: `{"rank_dev": "float": int, ...JOGO}`;
 * `AVALIACAO`: `{"avaliacao_usuario": float, "resenha": str, ...JOGO}`;
+* `HISTORICO`: `{"id_transacao": int, "id_usuario": int, "id_usuario_participou": int, "id_chave": int, "valor": float, "tipo": char, "direcao": char, "data": timestamp}`;
 
 ### biblioteca
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-GET|`{}`|`[BIBLIO_INFO, ...]`|Obtém uma lista com todos os jogos pertencem ao usuário|Deve estar logado, usa AUTH para inferir id do usuário
+GET|`{}`|`[BIBLIO_INFO, ...]`|Obtém uma lista com todos os jogos pertencem ao usuário|Deve estar logado, usa sessão para inferir id do usuário
 
 ### loja
 
@@ -75,31 +76,31 @@ GET|`{}`|`[JOGO, ...]`|Obtém uma lista com todos os jogos que podem ser comprad
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-PUT|`{"id_jogo": int}`|`{}`|Compra jogado diretamente da loja|Deve estar logado, usa AUTH para inferir id do usuário 
+PUT|`{"id_jogo": int}`|`{}`|Compra jogado diretamente da loja|Deve estar logado, usa sessão para inferir id do usuário 
 
 ### ofertas
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
 GET|`{}`|`[OFERTA, ...]`|Obtém uma lista com todos os jogos que foram colocados em oferta|-
-PUT|`{"id_chave": int, "preco": float}`|`{}`|Coloca um jogo da biblioteca para oferta com o preço `preco`|Deve estar logado, usa AUTH para inferir id do usuário
-DELETE|`{"id_oferta": int}`|`{}`|Remove um jogo ofertado|Deve estar logado, usa AUTH para verificar se usuário é o criador da oferta
+PUT|`{"id_chave": int, "preco": float}`|`{}`|Coloca um jogo da biblioteca para oferta com o preço `preco`|Deve estar logado, usa sessão para inferir id do usuário
+DELETE|`{"id_oferta": int}`|`{}`|Remove um jogo ofertado|Deve estar logado, usa sessão para verificar se usuário é o criador da oferta
 
 ### trocas
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
 GET|`{}`|`[TROCA, ...]`|Obtém uma lista com todas as trocas disponíveis|-
-PUT|`{"id_chave": int}`|`{}`|Coloca um jogo para troca|Deve estar logado, usa AUTH para inferir id do usuário
-DELETE|`{"id_troca": int}`|`{}`|Remove a troca|Deve estar logado, usa AUTH para verificar se usuário é o criador da troca
+PUT|`{"id_chave": int}`|`{}`|Coloca um jogo para troca|Deve estar logado, usa sessão para inferir id do usuário
+DELETE|`{"id_troca": int}`|`{}`|Remove a troca|Deve estar logado, usa sessão para verificar se usuário é o criador da troca
 
 ### propostas
 
 link|Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-|-
-GET|`{"id_troca": int}`|`[PROPOSTA, ...]`|Obtém uma lista com todas as propostas recebidas para determinada troca|Deve estar logado, usa AUTH para verificar se usuário é o criador da troca
+GET|`{"id_troca": int}`|`[PROPOSTA, ...]`|Obtém uma lista com todas as propostas recebidas para determinada troca|Deve estar logado, usa sessão para verificar se usuário é o criador da troca
 PUT|`{"id_chave": int, "id_troca": int}`|`{}`|Coloca um jogo como contrapartida|Deve estar logado
-DELETE|`{"id_proposta": int}`|`{}`|Remove a contrapartida|Deve estar logado, usa AUTH para verificar se usuário é o criador da troca ou da proposta
+DELETE|`{"id_proposta": int}`|`{}`|Remove a contrapartida|Deve estar logado, usa sessão para verificar se usuário é o criador da troca ou da proposta
 
 ### comprar_oferta
 
@@ -111,7 +112,7 @@ PUT|`{"id_oferta": int}`|`{}`|Compra jogo ofertado|Deve estar logado como usuár
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-PUT|`{"id_troca": int, "id_proposta": int}`|`{}`|Aceita que uma troca seja feita com determinada contrapartida|Deve estar logado, usa AUTH para verificar se usuário é o criador da troca
+PUT|`{"id_troca": int, "id_proposta": int}`|`{}`|Aceita que uma troca seja feita com determinada contrapartida|Deve estar logado, usa sessão para verificar se usuário é o criador da troca
 
 ### session
 
@@ -156,3 +157,9 @@ PUT|`{"id_jogo": int, "nota": float, "resenha": str}`|`{}`|Faz uma avaliação p
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
 PUT|`{"acrescimo": float}`|`{}`|Aumenta saldo do usuário|Deve estar logado como usuário
+
+### historico
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+GET|`{}`|`[HISTORICO, ]`|Caso usuário, retornas todas transações que fez parte;<br/>Caso desenvolvedor, retorna todos transações em que seu jogo foi comprado;<br/>Caso gerenciador, retorna todas transações concluídas no sistema;|Deve estar logado

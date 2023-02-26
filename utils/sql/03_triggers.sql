@@ -324,4 +324,33 @@ BEGIN
     SELECT RAISE(FAIL, "Usuário não pode avaliar jogo que não esteja em sua biblioteca.");
 END;
 
+/* T28: Registra ofertas concluídas na tabela de histórico */
+CREATE TRIGGER IF NOT EXISTS t28_historico_compra AFTER INSERT ON oferta_concluida
+BEGIN
+    -- Usuário que vendeu
+    INSERT INTO historico(id_usuario, id_usuario_participou, id_chave, valor, tipo, direcao)
+        VALUES(NEW.id_user_vendeu, NEW.id_user_comprou, NEW.id_chave, NEW.valor, 'O', 'O');
+    -- Usuário que comprou
+    INSERT INTO historico(id_usuario, id_usuario_participou, id_chave, valor, tipo, direcao)
+        VALUES(NEW.id_user_comprou, NEW.id_user_vendeu, NEW.id_chave, NEW.valor, 'O', 'I');
+END;
+
+/* T29: Registra trocas concluídas na tabela de histórico */
+CREATE TRIGGER IF NOT EXISTS t29_historico_troca AFTER INSERT ON troca_concluida
+BEGIN
+    -- Usuário original enviou
+    INSERT INTO historico(id_usuario, id_usuario_participou, id_chave, tipo, direcao)
+        VALUES(NEW.id_user_iniciou, NEW.id_user_aceitou, NEW.id_chave_proposto, 'T', 'O');
+    -- Usuário original recebeu
+    INSERT INTO historico(id_usuario, id_usuario_participou, id_chave, tipo, direcao)
+        VALUES(NEW.id_user_iniciou, NEW.id_user_aceitou, NEW.id_chave_aceito, 'T', 'I');
+
+    -- Usuário participou enviou
+    INSERT INTO historico(id_usuario, id_usuario_participou, id_chave, tipo, direcao)
+        VALUES(NEW.id_user_aceitou, NEW.id_user_iniciou, NEW.id_chave_aceito, 'T', 'O');
+    -- Usuário participou recebeu
+    INSERT INTO historico(id_usuario, id_usuario_participou, id_chave, tipo, direcao)
+        VALUES(NEW.id_user_aceitou, NEW.id_user_iniciou, NEW.id_chave_proposto, 'T', 'I');
+END;
+
 COMMIT;

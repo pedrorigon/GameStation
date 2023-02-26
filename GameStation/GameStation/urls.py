@@ -32,5 +32,6 @@ urlpatterns = [
     path('user_info/', views.api_generic),
     path('avaliacoes/', views.api_generic),
     path('aumentar_saldo/', views.api_generic),
+    path('historico/', views.api_generic),
     path('session/', views.session),
 ]

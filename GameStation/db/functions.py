@@ -189,6 +189,9 @@ def comprar_jogo(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dic
     cursor.execute(command.sql_statement['AUMENTA_LUCRO'], {"lucro": 0.7*preco, "id_jogo": arg["id_jogo"]})
     cursor.execute(command.sql_statement['DIMINUI_SALDO'], {"preco_jogo": preco, "id_usuario": arg["id_usuario"]})
 
+    # Registra compra no histórico de compras
+    cursor.execute(command.sql_statement['HISTORICO_COMPRA'], {"id_usuario": arg["id_usuario"], "id_chave": id_chave, "valor": preco})
+
     return (True, "success")
 
 # UC12 - Dado login e password retorna id do usuário e permissão

@@ -15,7 +15,8 @@ class SQLCommand:
         "ID_CHAVE": "SELECT id FROM jogo_instanciado WHERE(jogo_instanciado.chave=:key);",
         "CHAVE_BIBLIOTECA": "INSERT INTO biblioteca_jogos(id_usuario, id_chave) VALUES(:id_usuario, :id_chave);",
         "AUMENTA_LUCRO": "UPDATE desenvolvedor SET lucro = desenvolvedor.lucro + :lucro WHERE desenvolvedor.id=(SELECT id_dev FROM jogo_pendente WHERE jogo_pendente.id=:id_jogo);",
-        "DIMINUI_SALDO": "UPDATE usuario SET saldo = usuario.saldo - :preco_jogo WHERE usuario.id=(SELECT id FROM usuario_base WHERE id=:id_usuario);"
+        "DIMINUI_SALDO": "UPDATE usuario SET saldo = usuario.saldo - :preco_jogo WHERE usuario.id=(SELECT id FROM usuario_base WHERE id=:id_usuario);",
+        "HISTORICO_COMPRA": "INSERT INTO historico(id_usuario, id_chave, valor, tipo, direcao) VALUES(:id_usuario, :id_chave, :valor, 'C', 'I');"
     }
     OFERTAS = "SELECT * FROM exibe_ofertas;"
     TROCAS = "SELECT * FROM exibe_trocas;"
@@ -57,6 +58,11 @@ class SQLCommand:
         (SELECT id_chave FROM trocas WHERE(id=:id_troca)),
         (SELECT id_chave FROM proposta_contraparte WHERE(id=:id_proposta)));"""
     AUMENTAR_SALDO = "UPDATE usuario SET saldo = usuario.saldo + :acrescimo WHERE(usuario.id=:id_usuario);"
+    HISTORICO = {
+        Permission.USER: "SELECT * FROM historico WHERE(id_usuario=:id_usuario);",
+        Permission.DEV: "SELECT id_transacao, id_usuario, id_chave, valor, historico.data FROM historico JOIN jogo_instanciado ON (jogo_instanciado.id=historico.id_chave) JOIN jogo_pendente ON (jogo_pendente.id=jogo_instanciado.id_jogo) WHERE(id_dev=:id_usuario AND tipo='C');",
+        Permission.ADMIN: "SELECT * FROM historico;"
+    }
 
 # sql_statement: Comando(s) SQL
 # function: Função a ser chamada
