@@ -60,7 +60,7 @@ class SQLCommand:
     AUMENTAR_SALDO = "UPDATE usuario SET saldo = usuario.saldo + :acrescimo WHERE(usuario.id=:id_usuario);"
     HISTORICO = {
         Permission.USER: "SELECT * FROM historico WHERE(id_usuario=:id_usuario);",
-        Permission.DEV: "SELECT id_transacao, id_usuario, id_chave, valor, historico.data FROM historico JOIN jogo_instanciado ON (jogo_instanciado.id=historico.id_chave) JOIN jogo_pendente ON (jogo_pendente.id=jogo_instanciado.id_jogo) WHERE(id_dev=:id_usuario AND tipo='C');",
+        Permission.DEV: "SELECT id_transacao, id_usuario, id_chave, valor, historico.data FROM historico JOIN jogo_instanciado ON (jogo_instanciado.id=historico.id_chave) JOIN jogo_pendente ON (jogo_pendente.id=jogo_instanciado.id_jogo) WHERE(id_dev=:id_usuario AND direcao='I' AND tipo != 'T');",
         Permission.ADMIN: "SELECT * FROM historico;"
     }
 
