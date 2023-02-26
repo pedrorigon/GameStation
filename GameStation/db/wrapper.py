@@ -1,6 +1,6 @@
 from .Commands import SQLCommand, CommandInfo
 from .Common.Permission import Permission
-from .functions import generic, generic_jogo_info, comprar_jogo, remover_jogo, adicionar_jogo, generic_permission, login
+from .functions import generic, generic_jogo_info, comprar_jogo, remover_jogo, adicionar_jogo, generic_permission, login, remover_proposta
 from rest_framework.exceptions import MethodNotAllowed, NotFound, PermissionDenied
 
 # LINK:
@@ -28,7 +28,7 @@ commands = {
     "/propostas/": {
         "GET": CommandInfo(SQLCommand.LISTAR_PROPOSTAS, generic_jogo_info, (Permission.USER,), {"id_troca": int}, returns_table=True),
         "POST": CommandInfo(SQLCommand.PROPOR_CONTRAPARTE, generic, (Permission.USER,), {"id_chave": int, "id_troca": int}),
-        "DELETE": CommandInfo(SQLCommand.PROPOR_CONTRAPARTE, generic, (Permission.USER,), {"id_proposta": int}),
+        "DELETE": CommandInfo(SQLCommand.REMOVE_PROPOSTA, remover_proposta, (Permission.USER,), {"id_proposta": int}),
     },
     "/comprar_oferta/": {
         "POST": CommandInfo(SQLCommand.COMPRA_OFERTA, generic, (Permission.USER,), {"id_oferta": int}),

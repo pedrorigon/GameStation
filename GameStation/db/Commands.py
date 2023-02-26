@@ -26,7 +26,11 @@ class SQLCommand:
     REMOVE_TROCA = "DELETE FROM trocas WHERE(id=:id_troca AND id_usuario=:id_usuario);"
     LISTAR_PROPOSTAS = "SELECT id_proposta, id_jogo FROM proposta_contraparte JOIN jogo_instanciado ON (id_chave=jogo_instanciado.id) WHERE(id_troca=:id_troca);"
     PROPOR_CONTRAPARTE = "INSERT INTO proposta_contraparte(id_troca, id_usuario, id_chave) VALUES(:id_troca, :id_usuario, :id_chave);"
-    REMOVE_PROPOSTA = "DELETE FROM proposta_contraparte WHERE(id_proposta=:id_proposta);"
+    REMOVE_PROPOSTA = {
+        "USUARIO_PROPOS": "SELECT id_usuario FROM proposta_contraparte WHERE(id_proposta=:id_proposta AND id_usuario=:id_usuario);",
+        "USUARIO_CRIOU": "SELECT id_usuario FROM trocas WHERE(id=(SELECT id_troca FROM proposta_contraparte WHERE(id=:id_proposta)) AND id_usuario=:id_usuario);",
+        "REMOVER": "DELETE FROM proposta_contraparte WHERE(id_proposta=:id_proposta);"
+    }
     COMPRA_OFERTA = """INSERT INTO oferta_concluida(id, id_user_vendeu, id_user_comprou, id_chave, valor) VALUES(:id_oferta, (SELECT id_usuario FROM ofertas WHERE(id=:id_oferta)), :id_usuario, (SELECT id_chave ROM ofertas WHERE(id=:id_oferta)), (SELECT valor FROM ofertas WHERE(id=:id_oferta)));"""
     LOGIN = {
         "PERMISSAO_USUARIO": "SELECT tipo FROM user_role JOIN usuario_base ON (usuario_base.id=user_role.id) WHERE(usuario_base.id=:id AND password=:password);",
@@ -44,7 +48,7 @@ class SQLCommand:
     }
     USER_INFO = {
         Permission.USER: "SELECT login, saldo, rank FROM usuario JOIN usuario_base ON (usuario_base.id=usuario.id) WHERE(usuario_base.id=:id_usuario);",
-        Permission.DEV: "SELECT login, lucro, rank FROM desenvolvedor JOIN usuario_base ON (usuario_base.id=desenvolvedor.id)  WHERE(usuario_base.id=:id_usuario);",
+        Permission.DEV: "SELECT login, lucro, rank FROM desenvolvedor JOIN usuario_base ON (usuario_base.id=desenvolvedor.id) WHERE(usuario_base.id=:id_usuario);",
     }
     INSERE_AVALIACAO = "INSERT INTO avaliacao(id_usuario, id_jogo, nota, resenha) VALUES(:id_usuario, :id_jogo, :nota, :resenha);"
     AVALIACOES = {
@@ -53,7 +57,7 @@ class SQLCommand:
     }
     ACEITAR_TROCA = """INSERT INTO troca_concluida(id, id_user_iniciou, id_user_aceitou, id_chave_proposto, id_chave_aceito)
         VALUES(:id_troca,
-        (SELECT id_usuario FROM trocas WHERE(id=:id_troca)),
+        :id_usuario,
         (SELECT id_usuario FROM proposta_contraparte WHERE(id=:id_proposta)),
         (SELECT id_chave FROM trocas WHERE(id=:id_troca)),
         (SELECT id_chave FROM proposta_contraparte WHERE(id=:id_proposta)));"""

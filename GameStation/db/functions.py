@@ -1,7 +1,7 @@
 from .Common.helper import gen_key
 from .Common.Permission import Permission
 from .Commands import CommandInfo, SQLCommand
-from django.db.utils import IntegrityError
+from django.db.utils import IntegrityError, PermissionDenied
 
 # Retorna informações e tags de jogo especificado por id_jogo
 def _jogo_info(cursor, id_jogo: int):
@@ -109,6 +109,25 @@ def generic(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:
         return _get_return_table(cursor)
 
     return (True, "Success")
+
+# Remove uma proposta
+def remover_proposta(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:
+    cursor.execute(command["USUARIO_PROPOS"], arg)
+
+    # Não foi o usuário que propôs
+    if cursor.fetchone() is None:
+        cursor.execute(command["USUARIO_CRIOU"], arg)
+
+        # Não foi o usuário que criou
+        if cursor.fetchone() is None:
+            raise PermissionDenied
+
+    try:
+        cursor.execute(command["REMOVER"], arg)
+    except IntegrityError as e:
+        return (False, str(e))
+
+    return (True, "Success")    
 
 # UC7 - Adiciona jogo pendente
 def adicionar_jogo(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:

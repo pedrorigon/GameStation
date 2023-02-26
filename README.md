@@ -96,8 +96,8 @@ DELETE|`{"id_troca": int}`|`{}`|Remove a troca|Deve estar logado, usa sessão pa
 
 ### propostas
 
-link|Método|Argumentos|Resposta|Descrição|Restrição
--|-|-|-|-|-
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
 GET|`{"id_troca": int}`|`[PROPOSTA, ...]`|Obtém uma lista com todas as propostas recebidas para determinada troca|Deve estar logado, usa sessão para verificar se usuário é o criador da troca
 PUT|`{"id_chave": int, "id_troca": int}`|`{}`|Coloca um jogo como contrapartida|Deve estar logado
 DELETE|`{"id_proposta": int}`|`{}`|Remove a contrapartida|Deve estar logado, usa sessão para verificar se usuário é o criador da troca ou da proposta
@@ -137,19 +137,19 @@ GET|`{"id_jogo": int}`|`JOGO`|Obtém informações sobre o jogo|-
 PUT|`JOGO`*|`{}`|Cria jogo|Deve estar logado como desenvolvedor
 DELETE|`{"id_jogo": int, "justificativa": str}`|`{}`|Remove/recusa um jogo|Deve estar logado, se desenvolvedor justificativa pode estar vazia, se gerenciador não pode estar vazio
 
-\* Nâo deve conter o campo `id_jogo`;
+\* Não deve conter o campo `id_jogo`;
 
 ### user_info
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-GET|`{}`|`{"login": str, "saldo": float, "rank": float}`, caso usuário<br/>`{"login": str, "lucro": float, "rank": float}`, caso desenvolvedor|Retorna informação do usuário|Deve estar logado como usuário ou desenvolvedor
+GET|`{}`|`{"login": str, "saldo": float, "rank": float}`, caso usuário;<br/>`{"login": str, "lucro": float, "rank": float}`, caso desenvolvedor;|Retorna informação do usuário|Deve estar logado como usuário ou desenvolvedor
 
 ### avaliacoes
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-GET|`{}`|`[AVALIACAO, ...]`|Recebe todas as avaliações feitas, caso usuário<br/>Recebe todas as avaliações recebidas, caso desenvolvedor|-
+GET|`{}`|`[AVALIACAO, ...]`|Recebe todas as avaliações feitas, caso usuário;<br/>Recebe todas as avaliações recebidas, caso desenvolvedor;|-
 PUT|`{"id_jogo": int, "nota": float, "resenha": str}`|`{}`|Faz uma avaliação para um jogo|Deve estar logado como usuário
 
 ### aumentar_saldo
