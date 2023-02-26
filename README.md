@@ -34,7 +34,6 @@ Entre `pip install djangorestframework` e `cd GameStation` foram executados os s
 
 ```bash
 django-admin startproject GameStation
-python3 manage.py startapp api
 python3 utils/create_database.py utils/sql GameStation/data.sqlite3
 cd GameStation
 python3 manage.py migrate
@@ -50,6 +49,10 @@ python3 utils/create_database.py utils/sql GameStation/data.sqlite3
 ```
 
 ## API Rest
+
+A API sempre retorna uma tupla `(bool, None|str|{}|[{}])`, sendo o primeiro elemento usado para indicar se a execução foi bem sucedida, o segundo elemento ou retorna motivo do erro, caso algum erro tenha ocorrido, ou conforme especificado abaixo.
+
+Dados retornados:
 
 * `BIBLIO_INFO`: `{"id_chave": int, "avaliacao_usuario": float, "disponibilidade": str, ...JOGO}`;
 * `JOGO`: `{"id_jogo": int, "nome": str, "avaliacao": float, "preco": float, "tags": list[str], "link_imagens": str, "link_trailer": str}`;
