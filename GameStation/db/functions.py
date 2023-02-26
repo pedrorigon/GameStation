@@ -4,7 +4,7 @@ from .Commands import CommandInfo, SQLCommand
 from django.db.utils import IntegrityError, PermissionDenied
 
 # Retorna informações e tags de jogo especificado por id_jogo
-def _jogo_info(cursor, id_jogo: int):
+def _jogo_info(cursor, id_jogo: int) -> dict:
     cursor.execute(SQLCommand.JOGO_INFO, {"id_jogo": id_jogo})
     column_names = cursor.description
 
@@ -22,7 +22,7 @@ def _jogo_info(cursor, id_jogo: int):
     return {"tags": _jogo_tag(cursor, id_jogo), **jogo_info}
 
 # Retorna tags de jogo especificado por id_jogo
-def _jogo_tag(cursor, id_jogo: int):
+def _jogo_tag(cursor, id_jogo: int) -> list[str]:
     cursor.execute(SQLCommand.TAGS_JOGO, {"id_jogo": id_jogo})
     return [line[0] for line in cursor.fetchall()]
 
