@@ -8,6 +8,18 @@ from rest_framework.exceptions import AuthenticationFailed
 
 @api_view(['GET', 'POST', 'DELETE'])
 def api_generic(request):
+    # Remove id_usuario e permission do corpo da requisição, impede que o usuário
+    #   informe diretamente seu id e permissão
+    try:
+        del request.data['id_usuario']
+    except KeyError:
+        pass
+
+    try:
+        del request.data['permission']
+    except KeyError:
+        pass
+
     # Tenta obter informações sobre a sessão
     try:
         session = SessionStore(session_key=request.session['session_key'])
