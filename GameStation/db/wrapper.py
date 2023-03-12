@@ -1,5 +1,5 @@
 from .Commands import SQLCommand, CommandInfo
-from .Common.Permission import Permission
+from .Permission import Permission
 from .functions import generic, generic_jogo_info, comprar_jogo, remover_jogo, adicionar_jogo, generic_permission, login, remover_proposta
 from rest_framework.exceptions import MethodNotAllowed, NotFound, PermissionDenied
 

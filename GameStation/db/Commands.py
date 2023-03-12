@@ -1,4 +1,4 @@
-from .Common.Permission import Permission
+from .Permission import Permission
 
 class SQLCommand:
     JOGO_INFO = """SELECT nome, preco, descricao, link_imagens, link_trailer, nota

@@ -1,7 +1,8 @@
-from .Common.helper import gen_key
-from .Common.Permission import Permission
+from .Permission import Permission
 from .Commands import CommandInfo, SQLCommand
 from django.db.utils import IntegrityError, PermissionDenied
+import string
+import random
 
 # Retorna informações e tags de jogo especificado por id_jogo
 def _jogo_info(cursor, id_jogo: int) -> dict:
@@ -35,8 +36,11 @@ def _permissao_usuario(cursor, sql_statement: str, arg:dict) -> tuple[bool, None
 
 # Gera nova chave para jogo
 def _gen_new_key(cursor, sql_statement: str) -> str:
+    # Caracteres que podem ser usados em uma chave
+    CHAVE_LETTERS: str = string.digits + string.ascii_letters
+
     while True:
-        new_key = gen_key()
+        new_key = ''.join(random.choices(CHAVE_LETTERS, k=64))
         cursor.execute(sql_statement, {"key": new_key})
 
         if cursor.fetchone() is None:
