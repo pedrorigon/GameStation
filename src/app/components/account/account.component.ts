@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AccountComponent {
 
+  mostrarFormulario = false;
+
+  adicionarSaldo() {
+    this.mostrarFormulario = true;
+  }
+
+  cancelar() {
+    this.mostrarFormulario = false;
+  }
+
+  adicionar(dadosCartao: any) {
+    // Lógica para adicionar saldo com os dados do cartão de crédito aqui
+    this.mostrarFormulario = false;
+  }
+
 }
