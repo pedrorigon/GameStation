@@ -1,0 +1,149 @@
+.store-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin-top: 20px;
+    margin-left: 260px;
+    width: 85vw;
+    height: 95vh;
+    background-color: transparent;
+    border-radius: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.title-store {
+    width: 100%;
+    height: 80px;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+.title-store h1 {
+    width: 100%;
+    font-size: 3em;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    color: white;
+}
+
+.store-body {
+    margin: 0;
+    margin-right: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.637);
+    border-radius: 15px;
+}
+
+.store-content {
+    flex: 1;
+}
+
+.store-content ul {
+    list-style: none;
+}
+
+.store-content li {
+    text-decoration: none;
+    display: inline-block;
+    margin: 20px;
+    width: 170px;
+}
+
+.gameInStore {
+    background-color: pink;
+    height: 200px;
+}
+
+.store-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.637);
+    border-radius: 15px;
+    justify-content: right;
+    margin-right: .2em;
+    padding: 10px 20px;
+    height: 100%;
+    box-sizing: border-box;
+    width: 300px;
+}
+
+.store-nav input {
+    margin-top: 10px;
+    padding: 15px 15px;
+    font-size: 1.5em;
+    background-color: rgba(0, 0, 0, 0.753);
+    border-radius: 15px;
+    color: white;
+}
+
+.genres {
+    margin-top: 15px;
+    background-color: rgba(0, 0, 0, 0.637);
+    border-radius: 15px;
+    height: 90%;
+}
+
+.genre-title {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.genre-options {
+    margin-left: 20px;
+    text-transform: uppercase;
+    display: block;
+    color: white;
+    font-size: 1.3em;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1em;
+    height: 1em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    vertical-align: middle;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-bottom: 13px;
+}
+
+input[type="checkbox"]:checked::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: .5em;
+    height: .5em;
+    background-color: rgb(146, 146, 175);
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:hover {
+    border: 1px solid #e3e7ec;
+}
+
+input[type="checkbox"]:checked:hover::before {
+    background-color: #d9dee4;
+}
