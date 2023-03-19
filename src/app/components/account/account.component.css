@@ -1,4 +1,4 @@
-.library-container {
+.account-container {
     display: flex;
     flex-direction: row;
     flex: 1;
@@ -12,7 +12,7 @@
     box-sizing: border-box;
 }
 
-.title-library {
+.title-account {
     width: 100%;
     height: 80px;
     margin: 0;
@@ -22,7 +22,7 @@
     box-sizing: border-box;
 }
 
-.title-library h1 {
+.title-account h1 {
     width: 100%;
     font-size: 3em;
     text-align: center;
@@ -31,10 +31,37 @@
     color: white;
 }
 
-.library-body {
+.account-body {
     margin: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.637);
     border-radius: 15px;
+}
+
+.account-content {
+    margin-top: 40px;
+}
+
+.card-text {
+    font-size: 2em;
+    text-align: left;
+    margin-left: 200px;
+    color: white;
+}
+
+.btn {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 2em;
+    margin-left: 200px;
+    padding: 20px 30px;
+    background-image: linear-gradient(rgb(88, 88, 148), rgb(192, 159, 98));
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.301);
+    transition: all .2s ease-in-out;
+}
+
+.btn:hover {
+    background-image: linear-gradient(rgb(169, 169, 201)rgb(212, 204, 188));
 }
