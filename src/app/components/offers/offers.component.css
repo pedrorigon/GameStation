@@ -48,14 +48,13 @@
 
 .store-content ul {
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 150px);
-    grid-gap: 60px;
-    margin-right: 50px;
 }
 
 .store-content li {
     text-decoration: none;
+    display: inline-block;
+    margin: 20px;
+    width: 170px;
 }
 
 .gameInStore {

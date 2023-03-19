@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class StoreComponent {
 
+  // carregar lista de jogos para venda do banco de dados
+  GamesStore = ["game1", "game2", "game3"];
+
+  constructor() { }
+
 }
