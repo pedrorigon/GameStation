@@ -2,10 +2,8 @@
     display: flex;
     flex-direction: row;
     flex: 1;
-    margin: 0;
-    margin-left: 250px;
-    left: .3em;
-    bottom: .3em;
+    margin-top: 20px;
+    margin-left: 260px;
     width: 85vw;
     height: 95vh;
     background-color: transparent;
@@ -36,9 +34,9 @@
 
 .store-body {
     margin: 0;
-    margin-right: 15px;
-    width: 85vw;
-    height: 95vh;
+    margin-right: 20px;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.637);
     border-radius: 15px;
 }
@@ -54,15 +52,15 @@
     border-radius: 15px;
     justify-content: right;
     margin-right: .2em;
-    padding: 10px;
-    height: 95vh;
+    padding: 10px 20px;
+    height: 100%;
     box-sizing: border-box;
     width: 300px;
 }
 
 .store-nav input {
     margin-top: 10px;
-    padding: 10px;
+    padding: 15px 15px;
     font-size: 1.5em;
     background-color: rgba(0, 0, 0, 0.753);
     border-radius: 15px;
@@ -70,10 +68,10 @@
 }
 
 .genres {
-    margin-top: 10px;
+    margin-top: 15px;
     background-color: rgba(0, 0, 0, 0.637);
     border-radius: 15px;
-    height: 95%;
+    height: 90%;
 }
 
 .genre-title {
@@ -120,15 +118,15 @@ input[type="checkbox"]:checked::before {
     transform: translate(-50%, -50%);
     width: .5em;
     height: .5em;
-    background-color: rgb(108, 108, 138);
+    background-color: rgb(146, 146, 175);
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
 }
 
 input[type="checkbox"]:hover {
-    border: 1px solid #c0ccda;
+    border: 1px solid #e3e7ec;
 }
 
 input[type="checkbox"]:checked:hover::before {
-    background-color: #c0ccda;
+    background-color: #d9dee4;
 }
