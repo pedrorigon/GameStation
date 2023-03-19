@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'store', component: StoreComponent },
   { path: 'library', component: LibraryComponent },
   { path: 'account', component: AccountComponent },
-  { path: '', redirectTo: '/store', pathMatch: 'full' },
+  { path: '', redirectTo: ' ', pathMatch: 'full' },
 ];
 
 @NgModule({
