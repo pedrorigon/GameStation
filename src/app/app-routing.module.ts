@@ -6,6 +6,8 @@ import { AccountComponent } from './components/account/account.component';
 import { LoginComponent } from './components/login/login.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { ExchangeComponent } from './components/exchange/exchange.component';
+import { GamesComponent } from './components/games/games.component';
+import { GameDetailsComponent } from './components/game-details/game-details.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'offers', component: OffersComponent },
   { path: 'exchange', component: ExchangeComponent },
   { path: 'account', component: AccountComponent },
+  { path: 'games', component: GamesComponent },
+  { path: 'game-details/:id', component: GameDetailsComponent },
   { path: '', redirectTo: 'store', pathMatch: 'full' },
 ];
 

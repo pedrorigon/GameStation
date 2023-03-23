@@ -42,25 +42,9 @@
     border-radius: 15px;
 }
 
-.store-content {
-    flex: 1;
-}
-
-.store-content ul {
+ul {
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 150px);
-    grid-gap: 60px;
-    margin-right: 50px;
-}
-
-.store-content li {
     text-decoration: none;
-}
-
-.gameInStore {
-    background-color: pink;
-    height: 200px;
 }
 
 .store-nav {
