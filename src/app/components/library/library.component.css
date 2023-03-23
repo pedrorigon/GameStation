@@ -82,6 +82,7 @@ ul {
     background-color: rgba(0, 0, 0, 0.637);
     border-radius: 15px;
     height: 90%;
+    overflow: auto;
 }
 
 .genre-title {

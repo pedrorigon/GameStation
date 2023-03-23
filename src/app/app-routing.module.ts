@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'store', component: StoreComponent },
   { path: 'library', component: LibraryComponent },
+  { path: 'library/:id', component: GameDetailsComponent },
   { path: 'offers', component: OffersComponent },
   { path: 'exchange', component: ExchangeComponent },
   { path: 'account', component: AccountComponent },
