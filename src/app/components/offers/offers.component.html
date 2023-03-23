@@ -1,17 +1,18 @@
 <div class="store-container">
-
     <div class="store-body">
         <div class="title-store">
             <h1>Offers</h1>
         </div>
         <div class="store-content">
             <ul>
-                <!-- dentro da div que engloba {{game}} coloca os jogos que estao para Oferta: imagem, preço nome...  -->
-                <li *ngFor="let game of GamesOffer; index as i">
-                    <div class="gameInStore">
-                        {{game}}
-                    </div>
-                </li>
+                <div class="grid-container">
+                    <!-- pega cada item da lista gameStore e manda para games  -->
+                    <li *ngFor="let games of GamesOffer">
+                        <div>
+                            <app-games [games]="games"></app-games>
+                        </div>
+                    </li>
+                </div>
             </ul>
         </div>
     </div>
@@ -24,5 +25,4 @@
             <label class="genre-options"><input type="checkbox" name="Puzzle" value="puzzle">Puzzle</label>
         </div>
     </div>
-
 </div>
