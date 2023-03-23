@@ -13,6 +13,13 @@
     background-color: transparent;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 300px;
+    grid-auto-flow: row;
+}
+
 .title-store {
     width: 100%;
     height: 80px;
@@ -40,26 +47,12 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.637);
     border-radius: 15px;
+    overflow-y: auto;
 }
 
-.store-content {
-    flex: 1;
-}
-
-.store-content ul {
+ul {
     list-style: none;
-}
-
-.store-content li {
     text-decoration: none;
-    display: inline-block;
-    margin: 20px;
-    width: 170px;
-}
-
-.gameInStore {
-    background-color: pink;
-    height: 200px;
 }
 
 .store-nav {

@@ -1,16 +1,28 @@
-<div class="library-container">
-
-    <div class="library-body">
-        <div class="title-library">
+<div class="store-container">
+    <div class="store-body">
+        <div class="title-store">
             <h1>Your Library</h1>
         </div>
-        <div class="library-content">
-            <!-- <div class="library-item">
-            <h2>{{ game.title }}</h2>
-            <p>{{ game.description }}</p>
-            <p>Price: {{ game.price }}</p> 
-            </div> -->
+        <div class="store-content">
+            <ul>
+                <div class="grid-container">
+                    <!-- pega cada item da lista gameStore e manda para games  -->
+                    <li *ngFor="let games of GamesLibrary">
+                        <div>
+                            <app-games [games]="games"></app-games>
+                        </div>
+                    </li>
+                </div>
+            </ul>
         </div>
     </div>
-
+    <div class="store-nav">
+        <input type="text" placeholder="Search">
+        <div class="genres">
+            <legend class="genre-title">Genres</legend>
+            <label class="genre-options"><input type="checkbox" name="Action" value="action">Action</label>
+            <label class="genre-options"><input type="checkbox" name="Adventure" value="adventure">Adventure</label>
+            <label class="genre-options"><input type="checkbox" name="Puzzle" value="puzzle">Puzzle</label>
+        </div>
+    </div>
 </div>
