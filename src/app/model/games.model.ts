@@ -4,4 +4,6 @@ export interface Games {
     nome: string;
     preco: number;
     link_imagens: string;
+    avaliacao: number;
+    tags: string[];
 }

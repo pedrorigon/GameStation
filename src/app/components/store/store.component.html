@@ -8,9 +8,9 @@
             <ul>
                 <div class="grid-container">
                     <!-- pega cada item da lista gameStore e manda para games  -->
-                    <li *ngFor="let games of GamesStore">
+                    <li *ngFor="let game of filteredGames">
                         <div>
-                            <app-games [games]="games"></app-games>
+                            <app-games [games]="game"></app-games>
                         </div>
                     </li>
                 </div>
@@ -18,12 +18,17 @@
         </div>
     </div>
     <div class="store-nav">
-        <input type="text" placeholder="Search">
+        <input type="text" placeholder="Search Titles" (input)="search($event)">
         <div class="genres">
             <legend class="genre-title">Genres</legend>
-            <label class="genre-options"><input type="checkbox" name="Action" value="action">Action</label>
-            <label class="genre-options"><input type="checkbox" name="Adventure" value="adventure">Adventure</label>
-            <label class="genre-options"><input type="checkbox" name="Puzzle" value="puzzle">Puzzle</label>
+            <label class="genre-options"><input type="checkbox" name="action" value="action"
+                    (change)="toggleGenre('action')">action</label>
+            <label class="genre-options"><input type="checkbox" name="adventure" value="adventure"
+                    (change)="toggleGenre('adventure')">adventure</label>
+            <label class="genre-options"><input type="checkbox" name="puzzle" value="puzzle"
+                    (change)="toggleGenre('puzzle')">puzzle</label>
+            <label class="genre-options"><input type="checkbox" name="multiplayer" value="multiplayer"
+                    (change)="toggleGenre('multiplayer')">Multiplayer</label>
         </div>
     </div>
 

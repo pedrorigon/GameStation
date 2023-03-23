@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-game-details',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./game-details.component.css']
 })
 export class GameDetailsComponent {
-
+  @Input() name_obj: string;
 }
