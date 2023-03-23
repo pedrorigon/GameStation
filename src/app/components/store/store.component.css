@@ -13,6 +13,13 @@
     background-color: transparent;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 300px;
+    grid-auto-flow: row;
+}
+
 .title-store {
     width: 100%;
     height: 80px;
@@ -40,6 +47,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.637);
     border-radius: 15px;
+    overflow-y: auto;
 }
 
 ul {

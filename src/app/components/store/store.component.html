@@ -6,12 +6,14 @@
         </div>
         <div class="store-content">
             <ul>
-                <!-- pega cada item da lista gameStore e manda para games  -->
-                <li *ngFor="let games of GamesStore">
-                    <div>
-                        <app-games [games]="games"></app-games>
-                    </div>
-                </li>
+                <div class="grid-container">
+                    <!-- pega cada item da lista gameStore e manda para games  -->
+                    <li *ngFor="let games of GamesStore">
+                        <div>
+                            <app-games [games]="games"></app-games>
+                        </div>
+                    </li>
+                </div>
             </ul>
         </div>
     </div>
