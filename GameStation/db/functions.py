@@ -1,6 +1,7 @@
 from .Permission import Permission
 from .Commands import CommandInfo, SQLCommand
-from django.db.utils import IntegrityError, PermissionDenied
+from django.db.utils import IntegrityError
+from django.core.exceptions import PermissionDenied
 import string
 import random
 
