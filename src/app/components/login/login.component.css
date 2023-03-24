@@ -15,10 +15,10 @@ body {
 
 .image-logo {
     position: relative;
-    left: 0%;
+    left: -10%;
     bottom: 30px;
-    width: 600px;
-    height: 700px;
+    width: 700px;
+    height: 800px;
     background-image: url(fotoGameStation.png);
     background-position: center center;
     background-size: cover;
@@ -26,11 +26,10 @@ body {
 
 .box {
     position: relative;
-    left: 10%;
-    width: 380px;
-    height: 420px;
+    left: 5%;
+    width: 500px;
+    height: 550px;
     background-color: #1c1c1c8a;
-
     border-radius: 8px;
     overflow: hidden;
 }
@@ -40,8 +39,8 @@ body {
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 380px;
-    height: 420px;
+    width: 500px;
+    height: 550px;
     background-image: linear-gradient(0deg, transparent, transparent, #13070181, #1307017a, #13070152);
     z-index: 1;
     transform-origin: bottom right;
@@ -53,8 +52,8 @@ body {
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 380px;
-    height: 420px;
+    width: 500px;
+    height: 550px;
     background-image: linear-gradient(0deg, transparent, transparent, #13070181, #1307017a, #13070152);
     z-index: 1;
     transform-origin: bottom right;
@@ -73,8 +72,8 @@ body {
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 380px;
-    height: 420px;
+    width: 500px;
+    height: 550px;
     background-image: linear-gradient(0deg, transparent, transparent, #dde2e791, #e3e7eb88, #d6dadd80);
     z-index: 1;
     transform-origin: bottom right;
@@ -118,17 +117,17 @@ body {
 }
 
 .box form h2 {
-    font-size: 27px;
+    font-size: 2.2em;
     color: #fff;
     font-weight: 700;
     text-align: center;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
 }
 
 .box form .inputBox {
     position: relative;
-    width: 300px;
-    margin-top: 35px;
+    width: 400px;
+    margin-top: 50px;
 }
 
 .box form .inputBox input {
@@ -140,7 +139,7 @@ body {
     border: none;
     box-shadow: none;
     color: #23242a;
-    font-size: 1em;
+    font-size: 1.2em;
     letter-spacing: 0.05em;
     transition: .5s;
     z-index: 10;
@@ -152,7 +151,7 @@ body {
     padding: 20px 0px 10px;
     pointer-events: none;
     color: #8f8f8f;
-    font-size: 1em;
+    font-size: 1.2em;
     letter-spacing: 0.05em;
     transition: .5s;
 }
@@ -160,7 +159,7 @@ body {
 .box form .inputBox input:valid~span,
 .box form .inputBox input:focus~span {
     color: #fff;
-    font-size: .75em;
+    font-size: 1em;
     transform: translateY(-34px);
 }
 
@@ -170,7 +169,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 2px;
-    background-color: #ffffff4f;
+    background-color: #ffffff60;
     border-radius: 4px;
     overflow: hidden;
     transition: .5s;
@@ -186,8 +185,8 @@ body {
     display: flex;
     justify-content: center;
     color: #8f8f8f;
-    font-size: .9em;
-    margin: 20px 0;
+    font-size: 1.1em;
+    margin: 40px 0;
 }
 
 .box form .links a {
@@ -195,7 +194,7 @@ body {
     text-decoration: none;
     font-weight: 600;
     margin: 10px 0;
-    font-size: .98em;
+    font-size: 1.15em;
 }
 
 .box form .links a:hover {
@@ -203,20 +202,21 @@ body {
 }
 
 .box form input[type="submit"] {
+    text-align: center;
     border: none;
     outline: none;
     position: relative;
-    left: 33%;
-    padding: 9px 24px;
+    left: 29%;
     background-color: #fff;
+    padding: 12px 30px;
     cursor: pointer;
     font-size: 0.9em;
     border-radius: 4px;
     font-weight: 600;
-    width: 100px;
+    width: 180px;
     margin-top: 10px;
 }
 
 .box form input[type="submit"]:active {
-    opacity: .8;
+    opacity: .5;
 }
