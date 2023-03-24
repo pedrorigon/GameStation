@@ -30,6 +30,7 @@ body {
     width: 380px;
     height: 420px;
     background-color: #1c1c1c8a;
+
     border-radius: 8px;
     overflow: hidden;
 }
@@ -41,7 +42,7 @@ body {
     left: -50%;
     width: 380px;
     height: 420px;
-    background-image: linear-gradient(0deg, transparent, transparent, #f3a981, #f3a981, #f3a981);
+    background-image: linear-gradient(0deg, transparent, transparent, #13070181, #1307017a, #13070152);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -54,7 +55,7 @@ body {
     left: -50%;
     width: 380px;
     height: 420px;
-    background-image: linear-gradient(0deg, transparent, transparent, #f3a981, #e2a685, #f3a981);
+    background-image: linear-gradient(0deg, transparent, transparent, #13070181, #1307017a, #13070152);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -74,7 +75,7 @@ body {
     left: -50%;
     width: 380px;
     height: 420px;
-    background-image: linear-gradient(0deg, transparent, transparent, #0f3152, #0f3152, #0f3152);
+    background-image: linear-gradient(0deg, transparent, transparent, #dde2e791, #e3e7eb88, #d6dadd80);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -88,7 +89,7 @@ body {
     left: -50%;
     width: 380px;
     height: 420px;
-    background-image: linear-gradient(0deg, transparent, transparent, #0f3152, #0f3152, #0f3152);
+    background-image: linear-gradient(0deg, transparent, transparent, #dde2e791, #e3e7eb88, #d6dadd80);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -204,6 +205,8 @@ body {
 .box form input[type="submit"] {
     border: none;
     outline: none;
+    position: relative;
+    left: 33%;
     padding: 9px 24px;
     background-color: #fff;
     cursor: pointer;
