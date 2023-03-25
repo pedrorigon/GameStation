@@ -18,7 +18,7 @@ import { DevInterfaceComponent } from './components/dev-interface/dev-interface.
 import { ManagerInterfaceComponent } from './components/manager-interface/manager-interface.component';
 import { GameDetailsManagerComponent } from './components/game-details-manager/game-details-manager.component';
 import { GamesManagerComponent } from './components/games-manager/games-manager.component';
-import { HistoricoManagerComponent } from './components//historico-manager/historico-manager.component';
+import { HistoricoManagerComponent } from './components/historico-manager/historico-manager.component';
 import { HeaderDevComponent } from './components/header-dev/header-dev.component';
 import { FeedbackDevComponent } from './components/feedback-dev/feedback-dev.component';
 import { HistoricoDevComponent } from './components/historico-dev/historico-dev.component';
@@ -29,6 +29,7 @@ import { GameDetailsExchangeComponent } from './components/game-details-exchange
 import { GamesExchangeComponent } from './components/games-exchange/games-exchange.component';
 import { GamesLibraryComponent } from './components/games-library/games-library.component';
 import { GameDetailsLibraryComponent } from './components/game-details-library/game-details-library.component';
+import { HeaderManagerComponent } from './components/header-manager/header-manager.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { GameDetailsLibraryComponent } from './components/game-details-library/g
     GamesExchangeComponent,
     GamesLibraryComponent,
     GameDetailsLibraryComponent,
+    HeaderManagerComponent,
   ],
   imports: [
     BrowserModule,

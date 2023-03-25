@@ -24,6 +24,7 @@ import { GameDetailsExchangeComponent } from './components/game-details-exchange
 import { GamesExchangeComponent } from './components/games-exchange/games-exchange.component';
 import { GamesLibraryComponent } from './components/games-library/games-library.component';
 import { GameDetailsLibraryComponent } from './components/game-details-library/game-details-library.component';
+import { HeaderManagerComponent } from './components/header-manager/header-manager.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -50,7 +51,9 @@ const routes: Routes = [
   { path: 'game-details-exchange/:id', component: GameDetailsExchangeComponent },
   { path: 'games-library', component: GamesLibraryComponent },
   { path: 'game-details-library/:id', component: GameDetailsLibraryComponent },
-  { path: '', redirectTo: 'store', pathMatch: 'full' },
+  { path: 'header-manager', component: HeaderManagerComponent },
+  { path: 'historico-manager', component: HistoricoManagerComponent },
+  { path: '', redirectTo: 'dev-interface', pathMatch: 'full' },
 ];
 
 @NgModule({
