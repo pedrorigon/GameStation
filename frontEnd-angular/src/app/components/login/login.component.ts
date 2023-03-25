@@ -35,9 +35,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  login() {
+  login(): boolean {
     const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
+    let success = false;
 
     // Enviar dados para o servidor para verificar o login
     fetch("http://127.0.0.1:8000/session/", {
@@ -51,28 +52,20 @@ export class LoginComponent implements OnInit {
         login: username, password: MD5(password).toString(),
       })
     }).then((response) => (
-      // Requisição concluída, verifica status
       response.ok ? (
-        // Obtém objeto retornado
-        response.json().then(
-          // [true, null] -> login, [false, string] -> falha
-          (data: [boolean, string|null]) => (
-            data[0] ? (
-              console.log('Login bem-sucedido')
-            ) : (
+        response.json()
+          .then((data: [boolean, string|null]) =>
+            data[0] ? ( success = true ) :
               console.log(`Login falhou, motivo: ${data[1]}`)
-            )
-          )
         )
-      ) : (
-        console.log(response)
-      )
+      ) : console.log(response)
     )).catch(
-      // Erro na requisição
-      (err) => console.log(err)
+      (err) => console.log('Erro na requisição')
     );
 
     this.loginForm.reset();
+
+    return success;
   }
 
   register() {

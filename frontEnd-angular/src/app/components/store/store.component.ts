@@ -26,9 +26,7 @@ export class StoreComponent {
               this.GamesStore = data[1] as Games[], result = true
             ) : console.log(data[1])
         )
-      ) : (
-        console.log(response)
-      )
+      ) : console.log(response)
     )).catch(
       (err) => console.log('Error na requisição')
     );
