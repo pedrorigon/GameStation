@@ -53,7 +53,7 @@ const routes: Routes = [
   { path: 'game-details-library/:id', component: GameDetailsLibraryComponent },
   { path: 'header-manager', component: HeaderManagerComponent },
   { path: 'historico-manager', component: HistoricoManagerComponent },
-  { path: '', redirectTo: 'dev-interface', pathMatch: 'full' },
+  { path: '', redirectTo: 'store', pathMatch: 'full' },
 ];
 
 @NgModule({
