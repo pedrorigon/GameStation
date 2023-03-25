@@ -25,6 +25,10 @@ import { HistoricoDevComponent } from './components/historico-dev/historico-dev.
 import { GamesListDevComponent } from './components/games-list-dev/games-list-dev.component';
 import { GamesDevComponent } from './components/games-dev/games-dev.component';
 import { GameDetailsDevComponent } from './components/game-details-dev/game-details-dev.component';
+import { GameDetailsExchangeComponent } from './components/game-details-exchange/game-details-exchange.component';
+import { GamesExchangeComponent } from './components/games-exchange/games-exchange.component';
+import { GamesLibraryComponent } from './components/games-library/games-library.component';
+import { GameDetailsLibraryComponent } from './components/game-details-library/game-details-library.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,10 @@ import { GameDetailsDevComponent } from './components/game-details-dev/game-deta
     GamesListDevComponent,
     GamesDevComponent,
     GameDetailsDevComponent,
+    GameDetailsExchangeComponent,
+    GamesExchangeComponent,
+    GamesLibraryComponent,
+    GameDetailsLibraryComponent,
   ],
   imports: [
     BrowserModule,

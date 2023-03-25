@@ -1,0 +1,129 @@
+.total {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container-details {
+    position: relative;
+    margin: auto;
+    margin-top: 20px;
+    width: 85vw;
+    height: 95vh;
+    background-color: rgba(0, 0, 0, 0.377);
+    border-radius: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.game-nome {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 35px;
+    padding-bottom: 30px;
+    padding-top: 2%;
+    text-align: center;
+    margin: 0;
+}
+
+.back-button {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    background-color: rgba(14, 8, 1, 0.644);
+    width: 10%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all .1s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.616);
+    color: black;
+}
+
+.link-back {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.game-imagens {
+    background-color: aquamarine;
+    width: 100%;
+    height: 40%;
+    margin-bottom: 20px;
+    overflow-x: auto;
+}
+
+.div-descricao {
+    margin: 15px;
+    padding: 12px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.479);
+    border-radius: 15px;
+    overflow-y: auto;
+}
+
+.game-descricao {
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.game-preco {
+    font-size: 32px;
+    color: rgb(151, 253, 119);
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+
+.exchange-button {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    background-color: rgba(21, 255, 52, 0.966);
+    width: 250px;
+    height: 60px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 30px;
+    left: 42%;
+    transition: .2s all ease;
+}
+
+.exchange-button:hover {
+    background-color: rgba(171, 243, 181, 0.753);
+}
+
+.back-button {
+    background-color: rgba(14, 8, 1, 0.644);
+    width: 10%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all .5s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.616);
+    color: black;
+}
+
+.link-back {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}

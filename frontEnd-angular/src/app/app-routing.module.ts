@@ -20,6 +20,10 @@ import { HistoricoDevComponent } from './components/historico-dev/historico-dev.
 import { GamesListDevComponent } from './components/games-list-dev/games-list-dev.component';
 import { GamesDevComponent } from './components/games-dev/games-dev.component';
 import { GameDetailsDevComponent } from './components/game-details-dev/game-details-dev.component';
+import { GameDetailsExchangeComponent } from './components/game-details-exchange/game-details-exchange.component';
+import { GamesExchangeComponent } from './components/games-exchange/games-exchange.component';
+import { GamesLibraryComponent } from './components/games-library/games-library.component';
+import { GameDetailsLibraryComponent } from './components/game-details-library/game-details-library.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -42,7 +46,11 @@ const routes: Routes = [
   { path: 'games-list-dev', component: GamesListDevComponent },
   { path: 'games-dev', component: GamesDevComponent },
   { path: 'game-details-dev/:id', component: GameDetailsDevComponent },
-  { path: '', redirectTo: 'dev-interface', pathMatch: 'full' },
+  { path: 'games-exchange', component: GamesExchangeComponent },
+  { path: 'game-details-exchange/:id', component: GameDetailsExchangeComponent },
+  { path: 'games-library', component: GamesLibraryComponent },
+  { path: 'game-details-library/:id', component: GameDetailsLibraryComponent },
+  { path: '', redirectTo: 'store', pathMatch: 'full' },
 ];
 
 @NgModule({
