@@ -1,30 +1,24 @@
 .account-container {
     display: flex;
-    flex-direction: row;
-    flex: 1;
-    margin-top: 20px;
-    margin-left: 260px;
-    width: 85vw;
-    height: 95vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
     background-color: transparent;
-    border-radius: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     box-sizing: border-box;
 }
 
 .title-account {
-    width: 100%;
     height: 80px;
     margin: 0;
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 0;
-    background-color: transparent;
     box-sizing: border-box;
 }
 
 .title-account h1 {
-    width: 100%;
     font-size: 3em;
     text-align: center;
     margin: auto;
@@ -33,16 +27,19 @@
 }
 
 .account-body {
-    margin: 0;
+    height: 95vh;
     width: 100%;
-    height: 100%;
+    box-sizing: border-box;
+    margin-left: 10px;
+    margin-right: 25px;
     background-color: rgba(0, 0, 0, 0.637);
     border-radius: 15px;
+    overflow-y: auto;
 }
 
 .account-content {
-    margin: 2% 10%;
-    width: 80%;
+    margin: auto;
+    width: 70%;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.356);
     border-radius: 15px;
