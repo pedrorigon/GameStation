@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleForm() {
+  toggleForm(event: MouseEvent) {
+    event.preventDefault();
     this.isLogin = !this.isLogin;
     if (this.isLogin) {
       this.loginForm.reset();
@@ -44,17 +45,18 @@ export class LoginComponent implements OnInit {
 
   register() {
     const name = this.registerForm.value.name;
-    const email = this.registerForm.value.email;
     const password = this.registerForm.value.password;
     const userType = this.registerForm.value.userType;
 
     // Enviar dados para o servidor para registrar o usuário
 
     this.registerForm.reset();
+
     this.isLogin = true;
   }
 
-  backToLogin() {
+  backToLogin(event: MouseEvent) {
+    event.preventDefault();
     this.isLogin = true;
   }
 }

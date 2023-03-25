@@ -24,7 +24,8 @@ body {
     background-size: cover;
 }
 
-.box {
+.box,
+.box-register {
     position: relative;
     left: 5%;
     width: 500px;
@@ -34,7 +35,8 @@ body {
     overflow: hidden;
 }
 
-.box::before {
+.box::before,
+.box-register::before {
     content: "";
     position: absolute;
     top: -50%;
@@ -47,7 +49,8 @@ body {
     animation: animate 6s linear infinite;
 }
 
-.box::after {
+.box::after,
+.box-register::after {
     content: "";
     position: absolute;
     top: -50%;
@@ -105,7 +108,8 @@ body {
     }
 }
 
-.box form {
+.box form,
+.box-register form {
     position: absolute;
     inset: 4px;
     background-color: #222;
@@ -116,7 +120,8 @@ body {
     flex-direction: column;
 }
 
-.box form h2 {
+.box form h2,
+.box-register form h2 {
     font-size: 2.2em;
     color: #fff;
     font-weight: 700;
@@ -130,7 +135,15 @@ body {
     margin-top: 50px;
 }
 
-.box form .inputBox input {
+.box-register form .inputBox {
+    position: relative;
+    width: 400px;
+    margin-top: 30px;
+}
+
+
+.box form .inputBox input,
+.box-register form .inputBox input {
     position: relative;
     width: 100%;
     padding: 20px 10px 10px;
@@ -145,7 +158,8 @@ body {
     z-index: 10;
 }
 
-.box form .inputBox span {
+.box form .inputBox span,
+.box-register form .inputBox span {
     position: absolute;
     left: 0;
     padding: 20px 0px 10px;
@@ -157,13 +171,16 @@ body {
 }
 
 .box form .inputBox input:valid~span,
-.box form .inputBox input:focus~span {
+.box form .inputBox input:focus~span,
+.box-register form .inputBox input:valid~span,
+.box-register form .inputBox input:focus~span {
     color: #fff;
     font-size: 1em;
     transform: translateY(-34px);
 }
 
-.box form .inputBox i {
+.box form .inputBox i,
+.box-register form .inputBox i {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -177,7 +194,9 @@ body {
 }
 
 .box form .inputBox input:valid~i,
-.box form .inputBox input:focus~i {
+.box form .inputBox input:focus~i,
+.box-register form .inputBox input:valid~i,
+.box-register form .inputBox input:focus~i {
     height: 44px;
 }
 
@@ -189,6 +208,15 @@ body {
     margin: 40px 0;
 }
 
+.box-register form .links {
+    display: flex;
+    justify-content: center;
+    color: #8f8f8f;
+    font-size: 1.1em;
+    margin-top: 18px;
+}
+
+
 .box form .links a {
     color: #8f8f8f;
     text-decoration: none;
@@ -197,17 +225,28 @@ body {
     font-size: 1.15em;
 }
 
-.box form .links a:hover {
+.box-register form .links a {
+    color: #8f8f8f;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0;
+    font-size: 1.15em;
+}
+
+.box form .links a:hover,
+.box-register form .links a:hover {
     color: #fff;
 }
 
-.box form input[type="submit"] {
+.box form input[type="submit"],
+.box-register form input[type="submit"] {
     text-align: center;
     border: none;
     outline: none;
     position: relative;
-    left: 29%;
+    left: 27%;
     background-color: #fff;
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.473);
     padding: 12px 30px;
     cursor: pointer;
     font-size: 0.9em;
@@ -217,6 +256,25 @@ body {
     margin-top: 10px;
 }
 
-.box form input[type="submit"]:active {
+.box form input[type="submit"]:active,
+.box-register form input[type="submit"]:active {
     opacity: .5;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    background-color: #222;
+    border: 2px #8f8f8f solid;
+    padding: 10px 15px;
+    font-size: 1em;
+    color: #9b9a9a;
+    border-radius: .5em;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    margin-left: 24.5%;
 }

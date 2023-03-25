@@ -1,33 +1,63 @@
 <!-- Formulário de Login -->
 
 <body>
-
     <div class="image-logo">
     </div>
 
-    <div class="box">
-        <span class="borderLine"></span>
-        <form>
-            <h2>Sign in</h2>
-            <div class="inputBox">
-                <input type="text" required="required">
-                <span>Username</span>
-                <i></i>
-            </div>
-            <div class="inputBox">
-                <input type="password" required="required">
-                <span>Password</span>
-                <i></i>
-            </div>
-            <div class="links">
-                <p>Don't have a account <a href="#">Register</a></p>
-            </div>
-            <input type="submit" value="Login">
-        </form>
-    </div>
+    <form class="form-login" *ngIf="isLogin" (ngSubmit)="login()" [formGroup]="loginForm">
+        <div class="box">
+            <span class="borderLine"></span>
+            <form>
+                <h2>Sign in</h2>
+                <div class="inputBox">
+                    <input type="text" id="username" formControlName="username" required="required">
+                    <span>Username</span>
+                    <i></i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="password" formControlName="password" required="required">
+                    <span>Password</span>
+                    <i></i>
+                </div>
+                <div class="links">
+                    <p>Don't have a account <a href="#" (click)="toggleForm($event)">Register</a></p>
+                </div>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </form>
+    <form *ngIf="!isLogin" (ngSubmit)="register()" [formGroup]="registerForm" class="form-register">
+        <div class="box-register">
+            <span class="borderLine"></span>
+            <form>
+                <h2>Register</h2>
+                <div class="inputBox">
+                    <input type="text" id="name" formControlName="name" required="required">
+                    <span>Username</span>
+                    <i></i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="password" formControlName="password" required="required">
+                    <span>Password</span>
+                    <i></i>
+                </div>
+                <div class="user-options">
+                    <select id="userType" name="userType">
+                        <option value="" selected hidden>Choose a user option</option>
+                        <option value="dev">Developer</option>
+                        <option value="user">Gamer / User</option>
+                    </select>
+                </div>
+                <input type="submit" value="Register">
+                <div class="links">
+                    <p>Back to <a href="#" (click)="backToLogin($event)">Login</a></p>
+                </div>
+
+            </form>
+        </div>
+    </form>
+
 </body>
-
-
 
 
 <!-- <form class="form-login" *ngIf="isLogin" (ngSubmit)="login()" [formGroup]="loginForm">
