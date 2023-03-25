@@ -1,0 +1,130 @@
+.total-container {
+    background-color: transparent;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.manager-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin: 0;
+    margin-top: 1%;
+    margin-left: 260px;
+    width: 85vw;
+    height: 95vh;
+    border-radius: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    background-color: rgba(172, 31, 31, 0);
+    overflow-y: auto;
+}
+
+.manager-body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 2, 2, 0.651);
+    border-radius: 15px;
+    overflow-y: auto;
+}
+
+.title {
+    width: 100%;
+    height: 15%;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    color: #fff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/*-------------header------------------*/
+.header {
+    position: absolute;
+    left: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 230px;
+    padding: 20px;
+    height: 95vh;
+    background-color: rgba(0, 0, 0, 0.637);
+    border-radius: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 2em;
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: 1%;
+}
+
+.header-top a {
+    background-color: rgba(0, 0, 0, 0.678);
+    margin-bottom: 10px;
+    padding: .3em .3em;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.header-top a:hover {
+    background-color: #334b64c2;
+}
+
+.header-top.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-bottom span {
+    margin-top: 10px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.678);
+    color: white;
+    padding-bottom: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em;
+    border-radius: 10px;
+}
+
+.header-bottom a {
+    margin-top: 80px;
+    background-color: rgba(0, 0, 0, 0.507);
+    border-radius: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: .8em;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.header-bottom a:hover {
+    background-color: #555;
+}

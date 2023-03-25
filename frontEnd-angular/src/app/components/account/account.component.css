@@ -1,0 +1,187 @@
+.account-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin-top: 20px;
+    margin-left: 260px;
+    width: 85vw;
+    height: 95vh;
+    background-color: transparent;
+    border-radius: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.title-account {
+    width: 100%;
+    height: 80px;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+.title-account h1 {
+    width: 100%;
+    font-size: 3em;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    color: white;
+}
+
+.account-body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.637);
+    border-radius: 15px;
+}
+
+.account-content {
+    margin: 2% 10%;
+    width: 80%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.356);
+    border-radius: 15px;
+}
+
+.card-text {
+    font-size: 1.8em;
+    text-align: left;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: white;
+}
+
+.btn-add-saldo {
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    margin-left: 40%;
+    padding: 20px 30px;
+    background-image: linear-gradient(rgba(9, 9, 65, 0.685), rgba(83, 64, 29, 0.726));
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.301);
+    transition: all .3s ease-in-out;
+}
+
+.btn-add-saldo:hover {
+    border: 2px solid rgba(19, 5, 5, 0.411);
+    background-image: linear-gradient(rgba(62, 62, 119, 0.685), rgba(158, 135, 91, 0.726));
+}
+
+/* FORMULARIO CARTAO */
+.form-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    position: absolute;
+    top: 55%;
+    left: 44%;
+    width: 450px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: rgb(88, 88, 88);
+}
+
+.form-container label {
+    color: rgb(128, 121, 121);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    margin: 0;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.valor {
+    width: 200px;
+    margin-right: 10px;
+}
+
+.nome {
+    width: 300px;
+}
+
+.numero {
+    width: 300px;
+    margin-right: 10px;
+}
+
+.validade {
+    width: 130px;
+    margin-right: 10px;
+}
+
+.cvv {
+    width: 100px;
+}
+
+.button-group {
+    text-align: right;
+}
+
+.btn-primary {
+    background-color: rgb(98, 168, 98);
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid rgb(98, 168, 98);
+    padding: 10px;
+    font-size: 1.1em;
+    transition: all .5s ease-in-out;
+    margin-right: 5px;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: rgb(98, 168, 98);
+    border: 1px solid rgb(98, 168, 98);
+}
+
+.btn-secondary {
+    background-color: rgb(167, 82, 82);
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid rgb(167, 82, 82);
+    padding: 10px;
+    font-size: 1.1em;
+    transition: all .5s ease-in-out;
+    margin-right: 5px;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: rgb(167, 82, 82);
+    border: 1px solid rgb(167, 82, 82);
+}
