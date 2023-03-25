@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MD5 } from 'crypto-js';
 
 @Component({
   selector: 'app-login',
@@ -39,6 +40,33 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.value.password;
 
     // Enviar dados para o servidor para verificar o login
+    fetch("localhost:8000/login", {
+      method: 'POST',
+      credentials: "same-origin",
+      body: JSON.stringify({
+        login: username, password: MD5(password).toString(),
+      })
+    }).then((response) => (
+      // Requisição concluída, verifica status
+      response.ok ? (
+        // Obtém objeto retornado
+        response.json().then(
+          // [true, null] -> login, [false, string] -> falha
+          (data: [boolean, string|null]) => (
+            data[0] ? (
+              console.log('Login bem-sucedido')
+            ) : (
+              console.log(`Login falhou, motivo: ${data[1]}`)
+            )
+          )
+        )
+      ) : (
+        console.log(`Response com status: ${response.status}`)
+      )
+    )).catch(
+      // Erro na requisição
+      (err) => console.log(err)
+    );
 
     this.loginForm.reset();
   }
