@@ -16,9 +16,9 @@ body {
 .image-logo {
     position: relative;
     left: -10%;
-    bottom: 30px;
-    width: 700px;
-    height: 800px;
+    bottom: 1.875rem;
+    width: 43.75rem;
+    height: 50rem;
     background-image: url(fotoGameStation.png);
     background-position: center center;
     background-size: cover;
@@ -36,8 +36,8 @@ body {
     }
 
     100% {
-        width: 700px;
-        height: 800px;
+        width: 43.75rem;
+        height: 50rem;
     }
 }
 
@@ -55,10 +55,10 @@ body {
 .box-register {
     position: relative;
     left: 5%;
-    width: 500px;
-    height: 550px;
+    width: 31.25rem;
+    height: 34.375rem;
     background-color: #1c1c1c8a;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     overflow: hidden;
 }
 
@@ -68,8 +68,8 @@ body {
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 500px;
-    height: 550px;
+    width: 31.25rem;
+    height: 34.375rem;
     background-image: linear-gradient(0deg, transparent, transparent, #13070181, #1307017a, #13070152);
     z-index: 1;
     transform-origin: bottom right;
@@ -82,8 +82,8 @@ body {
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 500px;
-    height: 550px;
+    width: 31.25rem;
+    height: 34.375rem;
     background-image: linear-gradient(0deg, transparent, transparent, #13070181, #1307017a, #13070152);
     z-index: 1;
     transform-origin: bottom right;
@@ -102,8 +102,8 @@ body {
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 500px;
-    height: 550px;
+    width: 31.25rem;
+    height: 34.375rem;
     background-image: linear-gradient(0deg, transparent, transparent, #dde2e791, #e3e7eb88, #d6dadd80);
     z-index: 1;
     transform-origin: bottom right;
@@ -116,8 +116,8 @@ body {
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 380px;
-    height: 420px;
+    width: 23.75rem;
+    height: 26.25rem;
     background-image: linear-gradient(0deg, transparent, transparent, #dde2e791, #e3e7eb88, #d6dadd80);
     z-index: 1;
     transform-origin: bottom right;
@@ -140,8 +140,8 @@ body {
     position: absolute;
     inset: 4px;
     background-color: #222;
-    padding: 50px 40px;
-    border-radius: 8px;
+    padding: 3.125rem 2.5rem;
+    border-radius: 0.5rem;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -158,14 +158,14 @@ body {
 
 .box form .inputBox {
     position: relative;
-    width: 400px;
-    margin-top: 50px;
+    width: 25rem;
+    margin-top: 3.125rem;
 }
 
 .box-register form .inputBox {
     position: relative;
-    width: 400px;
-    margin-top: 30px;
+    width: 25rem;
+    margin-top: 1.875rem;
 }
 
 
@@ -173,7 +173,7 @@ body {
 .box-register form .inputBox input {
     position: relative;
     width: 100%;
-    padding: 20px 10px 10px;
+    padding: 1.25rem 0.625rem 0.625rem;
     background-color: transparent;
     outline: none;
     border: none;
@@ -189,7 +189,7 @@ body {
 .box-register form .inputBox span {
     position: absolute;
     left: 0;
-    padding: 20px 0px 10px;
+    padding: 1.25rem 0px 0.625rem;
     pointer-events: none;
     color: #8f8f8f;
     font-size: 1.2em;
@@ -212,9 +212,9 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 2px;
+    height: 0.125rem;
     background-color: #ffffff60;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     overflow: hidden;
     transition: .5s;
     pointer-events: none;
@@ -224,7 +224,7 @@ body {
 .box form .inputBox input:focus~i,
 .box-register form .inputBox input:valid~i,
 .box-register form .inputBox input:focus~i {
-    height: 44px;
+    height: 2.75rem;
 }
 
 .box form .links {
@@ -232,7 +232,7 @@ body {
     justify-content: center;
     color: #8f8f8f;
     font-size: 1.1em;
-    margin: 40px 0;
+    margin: 2.5rem 0;
 }
 
 .box-register form .links {
@@ -240,14 +240,14 @@ body {
     justify-content: center;
     color: #8f8f8f;
     font-size: 1.1em;
-    margin-top: 18px;
+    margin-top: 1.125rem;
 }
 
 .box form .links a {
     color: #8f8f8f;
     text-decoration: none;
     font-weight: 600;
-    margin: 10px 0;
+    margin: 0.625rem 0;
     font-size: 1.15em;
 }
 
@@ -272,14 +272,14 @@ body {
     position: relative;
     left: 27%;
     background-color: #fff;
-    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.473);
-    padding: 12px 30px;
+    box-shadow: 0px 0.25rem 1.25rem rgba(255, 255, 255, 0.473);
+    padding: 0.75rem 1.875rem;
     cursor: pointer;
     font-size: 0.9em;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     font-weight: 600;
-    width: 180px;
-    margin-top: 10px;
+    width: 11.25rem;
+    margin-top: 0.625rem;
 }
 
 .box form input[type="submit"]:active,
@@ -296,11 +296,11 @@ select {
     box-shadow: none;
     background-color: #222;
     border: 2px #8f8f8f solid;
-    padding: 10px 15px;
+    padding: 0.625rem 0.9375rem;
     font-size: 1em;
     color: #9b9a9a;
     border-radius: .5em;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    margin-top: 1.875rem;
+    margin-bottom: 3.125rem;
     margin-left: 24.5%;
 }

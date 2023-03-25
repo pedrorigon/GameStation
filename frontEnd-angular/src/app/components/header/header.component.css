@@ -13,21 +13,21 @@
     align-items: center;
     width: 90%;
     height: 95vh;
-    padding: 20px;
+    padding: 1.25rem;
     background-color: rgba(0, 0, 0, 0.637);
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 2em;
+    font-size: 2rem;
     box-sizing: border-box;
     left: 0;
-    margin: auto 10px;
+    margin: auto 0.625rem;
 }
 
 .header-top a {
     background-color: rgba(0, 0, 0, 0.678);
-    margin-bottom: 10px;
-    padding: .3em .5em;
-    border-radius: 10px;
+    margin-bottom: 0.625rem;
+    padding: .6rem .5rem;
+    border-radius: 0.625rem;
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -52,26 +52,26 @@
 }
 
 .header-bottom span {
-    margin-top: 10px;
+    margin-top: 0.625rem;
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.678);
     color: white;
-    padding-bottom: 3em;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 1em;
-    border-radius: 10px;
+    padding-bottom: 6rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    border-radius: 0.625rem;
 }
 
 .header-bottom a {
-    margin-top: 80px;
+    margin-top: 5rem;
     background-color: rgba(0, 0, 0, 0.507);
-    border-radius: 10px;
+    border-radius: 0.625rem;
     color: #fff;
     border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: .8em;
+    border-radius: .25rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 1.8rem;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;

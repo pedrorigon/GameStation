@@ -3,12 +3,12 @@ a {
 }
 
 .card-game {
-    margin: 30px;
-    margin-right: 20px;
-    width: 200px;
-    height: 250px;
+    margin: 1.875rem;
+    margin-right: 1.25rem;
+    width: 12.5rem;
+    height: 15.625rem;
     background-color: rgba(0, 0, 0, 0.637);
-    border-radius: 15px;
+    border-radius: 0.9375rem;
 }
 
 .game-imagens {
@@ -21,12 +21,12 @@ a {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
     text-align: center;
-    margin-top: 10px;
-    margin: 10px;
+    margin-top: 0.625rem;
+    margin: 0.625rem;
 }
 
 .game-preco {
     color: rgb(50, 240, 25);
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }

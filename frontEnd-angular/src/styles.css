@@ -1,7 +1,90 @@
 /* You can add global styles to this file, and also import other style files */
+@media (max-width: 800px) {
+    html {
+        font-size: 7px;
+    }
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        background-image: linear-gradient(#0f3152, #b37553);
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 1000px) {
+    html {
+        font-size: 8px;
+    }
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        background-image: linear-gradient(#0f3152, #b37553);
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 2000px) {
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        background-image: linear-gradient(#0f3152, #b37553);
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 3000px) {
+    html {
+        font-size: 19px;
+    }
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        background-image: linear-gradient(#0f3152, #b37553);
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 5000px) {
+    html {
+        font-size: 22px;
+    }
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        background-image: linear-gradient(#0f3152, #b37553);
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 10000px) {
+    html {
+        font-size: 100px;
+    }
+
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        background-image: linear-gradient(#0f3152, #b37553);
+        overflow: hidden;
+    }
+}
+
 body {
     height: 100vh;
     width: 100vw;
     background-image: linear-gradient(#0f3152, #b37553);
     overflow: hidden;
+}
+
+html {
+    font-size: 16px;
 }

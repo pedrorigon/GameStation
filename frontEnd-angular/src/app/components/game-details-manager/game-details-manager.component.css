@@ -12,7 +12,7 @@
     width: 85vw;
     height: 95vh;
     background-color: rgba(3, 3, 3, 0.377);
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     box-sizing: border-box;
     display: flex;
@@ -25,8 +25,8 @@
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 2.6em;
-    padding-bottom: 30px;
+    font-size: 2.6rem;
+    padding-bottom: 1.875rem;
     padding-top: 2%;
     text-align: center;
     margin: 0;
@@ -36,74 +36,64 @@
     background-color: aquamarine;
     width: 100%;
     height: 40%;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     overflow-x: auto;
 }
 
 .div-descricao {
-    margin: 15px;
-    padding: 12px;
-    height: 200px;
+    margin: 0.9375rem;
+    padding: 0.75rem;
+    height: 12.5rem;
     background-color: rgba(0, 0, 0, 0.479);
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     overflow-y: auto;
 }
 
 .game-descricao {
     color: white;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 18px;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    font-size: 1.125rem;
     text-align: justify;
-}
-
-.game-preco {
-    font-size: 32px;
-    color: rgb(151, 253, 119);
-    text-transform: uppercase;
-    font-weight: bolder;
-    text-align: center;
-    background-color: transparent;
-    margin-bottom: 10px;
 }
 
 .game-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 0.9375rem;
 }
 
 .aprovar-button {
-    font-size: 20px;
+    font-size: 1.25rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
     background-color: rgba(21, 255, 52, 0.966);
-    width: 250px;
-    height: 60px;
-    border-radius: 10px;
+    width: 15.625rem;
+    height: 3.75rem;
+    border-radius: 0.625rem;
     margin: 0;
     transition: .2s all ease;
     margin: 0;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin-top: 0.3125rem;
+    margin-bottom: 1.25rem;
 }
 
 .recusar-button {
-    font-size: 20px;
+    font-size: 1.25rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
     background-color: rgba(209, 23, 23, 0.966);
-    width: 250px;
-    height: 60px;
-    border-radius: 10px;
+    width: 15.625rem;
+    height: 3.75rem;
+    border-radius: 0.625rem;
     margin: 0;
     transition: .2s all ease;
     margin: 0;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin-top: 0.3125rem;
+    margin-bottom: 1.25rem;
 }
 
 .aprovar-button:hover {
@@ -114,13 +104,42 @@
     background-color: rgba(209, 23, 23, 0.363);
 }
 
+.game-preco {
+    font-size: 2rem;
+    color: rgb(151, 253, 119);
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+    background-color: transparent;
+    margin-bottom: 0.625rem;
+}
+
+.exchange-button {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    background-color: rgba(21, 255, 52, 0.966);
+    width: 15.625rem;
+    height: 3.75rem;
+    border-radius: 0.625rem;
+    margin: 0;
+    transition: .2s all ease;
+    margin-top: 0.3125rem;
+    margin-bottom: 1.25rem;
+}
+
+.exchange-button:hover {
+    background-color: rgba(130, 252, 146, 0.801);
+}
+
 .link-back {
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: .125rem;
 }
 
 .back-button {
@@ -130,8 +149,8 @@
     background-color: rgba(14, 8, 1, 0.644);
     width: 10%;
     text-align: center;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 0.625rem;
+    padding: 0.625rem;
     transition: all .5s ease-in-out;
 }
 

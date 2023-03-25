@@ -10,16 +10,16 @@
 }
 
 .title-account {
-    height: 80px;
+    height: 5rem;
     margin: 0;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
     padding: 0;
     box-sizing: border-box;
 }
 
 .title-account h1 {
-    font-size: 3em;
+    font-size: 3rem;
     text-align: center;
     margin: auto;
     padding: 0;
@@ -30,23 +30,23 @@
     height: 95vh;
     width: 100%;
     box-sizing: border-box;
-    margin-left: 10px;
-    margin-right: 25px;
+    margin-left: 0.625rem;
+    margin-right: 1.5625rem;
     background-color: rgba(0, 0, 0, 0.637);
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     overflow-y: auto;
 }
 
 .account-content {
     margin: auto;
     width: 70%;
-    padding: 10px;
+    padding: 0.625rem;
     background-color: rgba(0, 0, 0, 0.356);
-    border-radius: 15px;
+    border-radius: 0.9375rem;
 }
 
 .card-text {
-    font-size: 1.8em;
+    font-size: 1.8rem;
     text-align: left;
     margin-left: 5%;
     margin-right: 5%;
@@ -57,12 +57,12 @@
     position: relative;
     color: white;
     text-align: center;
-    font-size: 1.8em;
-    margin-bottom: 15px;
+    font-size: 1.8rem;
+    margin-bottom: 0.9375rem;
     margin-left: 40%;
-    padding: 20px 30px;
+    padding: 1.25rem 1.875rem;
     background-image: linear-gradient(rgba(9, 9, 65, 0.685), rgba(83, 64, 29, 0.726));
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     border: 2px solid rgba(255, 255, 255, 0.301);
     transition: all .3s ease-in-out;
 }
@@ -83,12 +83,12 @@
     position: absolute;
     top: 55%;
     left: 44%;
-    width: 450px;
+    width: 28.125rem;
     margin: auto;
-    padding: 20px;
+    padding: 1.25rem;
     background-color: #f5f5f5;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -104,45 +104,45 @@
 }
 
 .form-group {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0.3125rem;
 }
 
 input[type="text"] {
     margin: 0;
     width: 100%;
-    padding: 15px;
-    font-size: 16px;
+    padding: 0.9375rem;
+    font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     box-sizing: border-box;
 }
 
 .valor {
-    width: 200px;
-    margin-right: 10px;
+    width: 12.5rem;
+    margin-right: 0.625rem;
 }
 
 .nome {
-    width: 300px;
+    width: 18.75rem;
 }
 
 .numero {
-    width: 300px;
-    margin-right: 10px;
+    width: 18.75rem;
+    margin-right: 0.625rem;
 }
 
 .validade {
-    width: 130px;
-    margin-right: 10px;
+    width: 8.125rem;
+    margin-right: 0.625rem;
 }
 
 .cvv {
-    width: 100px;
+    width: 6.25rem;
 }
 
 .button-group {
@@ -154,10 +154,10 @@ input[type="text"] {
     color: #fff;
     border-radius: 5px;
     border: 1px solid rgb(98, 168, 98);
-    padding: 10px;
-    font-size: 1.1em;
+    padding: 0.625rem;
+    font-size: 1.1rem;
     transition: all .5s ease-in-out;
-    margin-right: 5px;
+    margin-right: 0.3125rem;
 }
 
 .btn-primary:hover {
@@ -169,12 +169,12 @@ input[type="text"] {
 .btn-secondary {
     background-color: rgb(167, 82, 82);
     color: #fff;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     border: 1px solid rgb(167, 82, 82);
-    padding: 10px;
-    font-size: 1.1em;
+    padding: 0.625rem;
+    font-size: 1.1rem;
     transition: all .5s ease-in-out;
-    margin-right: 5px;
+    margin-right: 0.3125rem;
 }
 
 .btn-secondary:hover {
