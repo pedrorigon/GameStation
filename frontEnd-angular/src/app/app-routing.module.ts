@@ -17,6 +17,9 @@ import { UserInterfaceComponent } from './components/user-interface/user-interfa
 import { DevInterfaceComponent } from './components/dev-interface/dev-interface.component';
 import { FeedbackDevComponent } from './components/feedback-dev/feedback-dev.component';
 import { HistoricoDevComponent } from './components/historico-dev/historico-dev.component';
+import { GamesListDevComponent } from './components/games-list-dev/games-list-dev.component';
+import { GamesDevComponent } from './components/games-dev/games-dev.component';
+import { GameDetailsDevComponent } from './components/game-details-dev/game-details-dev.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -36,6 +39,9 @@ const routes: Routes = [
   { path: 'user-interface', component: UserInterfaceComponent },
   { path: 'feedback-dev', component: FeedbackDevComponent },
   { path: 'historico-dev', component: HistoricoDevComponent },
+  { path: 'games-list-dev', component: GamesListDevComponent },
+  { path: 'games-dev', component: GamesDevComponent },
+  { path: 'game-details-dev/:id', component: GameDetailsDevComponent },
   { path: '', redirectTo: 'dev-interface', pathMatch: 'full' },
 ];
 

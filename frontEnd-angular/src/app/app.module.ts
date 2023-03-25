@@ -22,6 +22,9 @@ import { HistoricoManagerComponent } from './components//historico-manager/histo
 import { HeaderDevComponent } from './components/header-dev/header-dev.component';
 import { FeedbackDevComponent } from './components/feedback-dev/feedback-dev.component';
 import { HistoricoDevComponent } from './components/historico-dev/historico-dev.component';
+import { GamesListDevComponent } from './components/games-list-dev/games-list-dev.component';
+import { GamesDevComponent } from './components/games-dev/games-dev.component';
+import { GameDetailsDevComponent } from './components/game-details-dev/game-details-dev.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,9 @@ import { HistoricoDevComponent } from './components/historico-dev/historico-dev.
     HeaderDevComponent,
     FeedbackDevComponent,
     HistoricoDevComponent,
+    GamesListDevComponent,
+    GamesDevComponent,
+    GameDetailsDevComponent,
   ],
   imports: [
     BrowserModule,

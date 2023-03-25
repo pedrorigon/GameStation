@@ -1,0 +1,22 @@
+<div class="total">
+    <app-header-dev></app-header-dev>
+    <div class="store-container">
+        <div class="store-body">
+            <div class="title">
+                <h2>Your Games for Sale</h2>
+            </div>
+            <div class="store-content">
+                <ul>
+                    <div class="grid-container">
+                        <!-- pega cada item da lista gameStore e manda para games  -->
+                        <li *ngFor="let game of GamesDev">
+                            <div>
+                                <app-games-dev [games]="game"></app-games-dev>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
