@@ -63,6 +63,9 @@ commands = {
     "/historico/": {
         "GET": CommandInfo(SQLCommand.HISTORICO, generic_permission, (Permission.USER, Permission.DEV,Permission.ADMIN), returns_table=True),
     },
+    "/gerenciar_jogos/": {
+        "GET": CommandInfo(SQLCommand.GERENCIAR_JOGOS, generic_jogo_info, (Permission.DEV, ), returns_table=True),
+    },
 }
 
 # Executa um comando da api

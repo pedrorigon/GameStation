@@ -55,7 +55,7 @@ A API sempre retorna uma tupla `(bool, None|str|{}|[{}])`, sendo o primeiro elem
 Dados retornados:
 
 * `BIBLIO_INFO`: `{"id_chave": int, "avaliacao_usuario": float, "disponibilidade": str, ...JOGO}`;
-* `JOGO`: `{"id_jogo": int, "nome": str, "avaliacao": float, "preco": float, "tags": list[str], "link_imagens": str, "link_trailer": str}`;
+* `JOGO`: `{"id_jogo": int, "nome": str, "descricao": str, "avaliacao": float, "preco": float, "tags": list[str], "link_imagens": str, "link_trailer": str}`;
 * `OFERTA`: `{"id_oferta": int, "data": timestamp, "usuario_rank": float, "preco_oferta": float, ...JOGO}`;
 * `TROCA`: `{"id_troca": int, "data": timestamp, "usuario_rank": float, ...JOGO}`;
 * `PROPOSTA`: `{"id_proposta": int, ...JOGO}`;
@@ -165,4 +165,10 @@ PUT|`{"acrescimo": float}`|`{}`|Aumenta saldo do usuário|Deve estar logado como
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-GET|`{}`|`[HISTORICO, ]`|Caso usuário, retornas todas transações que fez parte;<br/>Caso desenvolvedor, retorna todos transações em que seu jogo foi comprado;<br/>Caso gerenciador, retorna todas transações concluídas no sistema;|Deve estar logado
+GET|`{}`|`[HISTORICO, ...]`|Caso usuário, retornas todas transações que fez parte;<br/>Caso desenvolvedor, retorna todos transações em que seu jogo foi comprado;<br/>Caso gerenciador, retorna todas transações concluídas no sistema;|Deve estar logado
+
+### gerenciar_jogos
+
+Método|Argumentos|Resposta|Descrição|Restrição
+-|-|-|-|-
+GET|`{}`|`[JOGO, ...]`|Retorna todos os jogo do desenvolvedor que estão atualmente na loja.|Deve estar logado como desenvolvedor

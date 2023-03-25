@@ -67,6 +67,7 @@ class SQLCommand:
         Permission.DEV: "SELECT id_transacao, id_usuario, id_chave, valor, historico.data FROM historico JOIN jogo_instanciado ON (jogo_instanciado.id=historico.id_chave) JOIN jogo_pendente ON (jogo_pendente.id=jogo_instanciado.id_jogo) WHERE(id_dev=:id_usuario AND direcao='I' AND tipo != 'T');",
         Permission.ADMIN: "SELECT * FROM historico;"
     }
+    GERENCIAR_JOGOS = "SELECT id_jogo FROM jogo_pendente JOIN (jogo_aceito.id = jogo_pendente.id_jogo) WHERE(jogo_pendente.id_dev=:id_usuario);"
 
 # sql_statement: Comando(s) SQL
 # function: Função a ser chamada

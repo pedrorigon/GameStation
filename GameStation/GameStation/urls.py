@@ -33,5 +33,6 @@ urlpatterns = [
     path('avaliacoes/', views.api_generic),
     path('aumentar_saldo/', views.api_generic),
     path('historico/', views.api_generic),
+    path('gerenciar_jogos/', views.api_generic),
     path('session/', views.session),
 ]
