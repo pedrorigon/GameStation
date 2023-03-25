@@ -40,9 +40,13 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.value.password;
 
     // Enviar dados para o servidor para verificar o login
-    fetch("localhost:8000/login", {
+    fetch("http://127.0.0.1:8000/session/", {
       method: 'POST',
-      credentials: "same-origin",
+      credentials: 'include',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }),
       body: JSON.stringify({
         login: username, password: MD5(password).toString(),
       })
@@ -61,7 +65,7 @@ export class LoginComponent implements OnInit {
           )
         )
       ) : (
-        console.log(`Response com status: ${response.status}`)
+        console.log(response)
       )
     )).catch(
       // Erro na requisição
