@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,14 +42,33 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    "corsheaders.middleware.CorsPostCsrfMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "django.middleware.csrf.CsrfViewMiddleware",
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+FRONTEND_PORT = 4200
+
+CSRF_ALLOWED_ORIGINS = ['http://localhost:' + FRONTEND_PORT]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:' + FRONTEND_PORT]
+CORS_ALLOWED_ORIGINS = ['http://localhost:' + FRONTEND_PORT]
+CORS_ORIGIN_WHITELIST = ['http://localhost:' + FRONTEND_PORT]
+CORS_ALLOW_CREDENTIALS = True
+
+CSRF_USE_SESSIONS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
 
 ROOT_URLCONF = 'GameStation.urls'
 

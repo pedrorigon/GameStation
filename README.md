@@ -23,6 +23,7 @@ virtualenv venv
 . venv/bin/activate
 pip install django
 pip install djangorestframework
+pip install django-cors-headers
 
 cd GameStation
 python3 manage.py runserver
