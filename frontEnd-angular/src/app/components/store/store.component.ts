@@ -8,61 +8,39 @@ import { Games } from 'src/app/model/games.model';
 })
 
 export class StoreComponent {
-  // carregar lista de jogos para venda do banco de dados
-  GamesStore: Games[] = [
-    {
-      "id": 1,
-      "link_imagens": "link imagem do jogo 1",
-      "nome": "nome jogo 1",
-      "preco": 100.00,
-      "avaliacao": 9,
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-    {
-      "id": 2,
-      "link_imagens": "link imagem do jogo 2",
-      "nome": "nome jogo 2",
-      "preco": 90.90,
-      "avaliacao": 9,
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-    {
-      "id": 3,
-      "link_imagens": "link imagem do jogo 3",
-      "nome": "nome jogo 3",
-      "preco": 50.00,
-      "avaliacao": 8,
-      "tags": ["puzzle"]
-    },
-    {
-      "id": 4,
-      "link_imagens": "link imagem do jogo 4",
-      "nome": "nome jogo 4",
-      "preco": 70.00,
-      "avaliacao": 7,
-      "tags": ["adventure"]
-    },
-    {
-      "id": 5,
-      "link_imagens": "link imagem do jogo 5",
-      "nome": "nome jogo 5",
-      "preco": 120.00,
-      "avaliacao": 9.5,
-      "tags": ["action", "adventure"]
-    },
-    {
-      "id": 6,
-      "link_imagens": "link imagem do jogo 6",
-      "nome": "nome jogo 6",
-      "preco": 80.00,
-      "avaliacao": 8.5,
-      "tags": ["puzzle", "multiplayer"]
-    },
-  ];
+  refreshGames(): boolean {
+    let result = false;
+
+    fetch("http://127.0.0.1:8000/loja/", {
+      method: 'GET',
+      credentials: 'include',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }),
+    }).then((response) => (
+      response.ok ? (
+        response.json()
+          .then((data: [boolean, Games[]|string]) =>
+            data[0] ? (
+              this.GamesStore = data[1] as Games[], result = true
+            ) : console.log(data[1])
+        )
+      ) : (
+        console.log(response)
+      )
+    )).catch(
+      (err) => console.log('Error na requisição')
+    );
+
+    return result;
+  }
+
+  GamesStore: Games[] = [];
 
   //para filtragem nos generos selecionados
   selectedGenres: string[] = [];
-  filteredGames: any[] = this.GamesStore;
+  filteredGames: any[] = [];
 
   filterGames() {
     this.selectedGenres = this.selectedGenres.map(genre => genre.toLowerCase());
@@ -109,7 +87,7 @@ export class StoreComponent {
     const target = e.target as HTMLInputElement
     const value = target.value
 
-    this.filteredGames = this.GamesStore.filter((games) => { return games.nome.toLowerCase().includes(value); })
+    this.filteredGames = this.GamesStore.filter((game) => { return game.nome.toLowerCase().includes(value); })
   }
 
   constructor() { }
