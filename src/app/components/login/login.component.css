@@ -22,6 +22,33 @@ body {
     background-image: url(fotoGameStation.png);
     background-position: center center;
     background-size: cover;
+    animation: image-tam-animate 2s ease-out forwards,
+        image-animate 4s ease-in forwards;
+    animation-fill-mode: forwards, forwards;
+    animation-delay: .2s, .2s;
+
+}
+
+@keyframes image-tam-animate {
+    0% {
+        width: 0%;
+        height: 0%;
+    }
+
+    100% {
+        width: 700px;
+        height: 800px;
+    }
+}
+
+@keyframes image-animate {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
 }
 
 .box,
@@ -215,7 +242,6 @@ body {
     font-size: 1.1em;
     margin-top: 18px;
 }
-
 
 .box form .links a {
     color: #8f8f8f;

@@ -1,0 +1,33 @@
+<div class="total-container">
+
+    <header class="header">
+        <div class="header-top vertical">
+            <a routerLink="/manager-interface">Pending Games</a>
+            <a routerLink="/historico-manager">Transaction List</a>
+        </div>
+        <div class="header-bottom">
+            <a routerLink="/login">Logout</a>
+        </div>
+    </header>
+
+    <div class="manager-container">
+        <div class="manager-body">
+            <div class="title-store">
+                <h1>Hi Dev!</h1>
+                <h2>Add New Game</h2>
+            </div>
+            <div class="manager-content">
+                <ul>
+                    <div class="grid-container">
+                        <!-- pega cada item da lista gameStore e manda para games  -->
+                        <li *ngFor="let game of JogosPendentes">
+                            <div>
+                                <app-games-manager [games]="game"></app-games-manager>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
