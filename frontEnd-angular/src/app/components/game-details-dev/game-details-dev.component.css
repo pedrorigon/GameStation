@@ -98,7 +98,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
-    background-color: rgba(21, 255, 52, 0.966);
+    background-color: rgba(233, 17, 17, 0.938);
     width: 15.625rem;
     height: 3.75rem;
     border-radius: 0.625rem;
@@ -109,7 +109,7 @@
 }
 
 .remove-button:hover {
-    background-color: rgba(130, 252, 146, 0.801);
+    background-color: rgba(236, 83, 83, 0.685);
 }
 
 .link-back {
