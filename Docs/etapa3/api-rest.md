@@ -35,7 +35,7 @@ A API sempre retorna uma tupla `(bool, None|str|{}|[{}])`, sendo o primeiro elem
 * `JOGO_PENDENTE`: {"rank_dev": "float": int, ...JOGO};
 * `AVALIACAO`: {"avaliacao_usuario": float, "resenha": str, ...JOGO};
 * `HISTORICO`: {"id_transacao": int, "id_usuario": int, "id_usuario_participou": int, "id_chave": int, "valor": float, "tipo": char, "direcao": char, "data": timestamp};
-* `USER_ROLE`: `'user'|'dev'|'admin'`;
+* `USER_ROLE`: 'user'|'dev'|'admin';
 
 ## end-points
 
