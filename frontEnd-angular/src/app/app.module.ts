@@ -31,6 +31,8 @@ import { GamesLibraryComponent } from './components/games-library/games-library.
 import { GameDetailsLibraryComponent } from './components/game-details-library/game-details-library.component';
 import { HeaderManagerComponent } from './components/header-manager/header-manager.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GamesOfferComponent } from './components/games-offer/games-offer.component';
+import { GameDetailsOfferComponent } from './components/game-details-offer/game-details-offer.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import { RegisterComponent } from './components/register/register.component';
     GameDetailsLibraryComponent,
     HeaderManagerComponent,
     RegisterComponent,
+    GamesOfferComponent,
+    GameDetailsOfferComponent,
   ],
   imports: [
     BrowserModule,

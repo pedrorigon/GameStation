@@ -21,11 +21,11 @@ export class StoreComponent {
     }).then((response) => (
       response.ok ? (
         response.json()
-          .then((data: [boolean, Games[]|string]) =>
+          .then((data: [boolean, Games[] | string]) =>
             data[0] ? (
               this.GamesStore = data[1] as Games[], result = true
             ) : console.log(data[1])
-        )
+          )
       ) : console.log(response)
     )).catch(
       (err) => console.log('Error na requisição')

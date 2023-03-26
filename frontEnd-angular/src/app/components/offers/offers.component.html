@@ -8,9 +8,9 @@
             <ul>
                 <div class="grid-container">
                     <!-- pega cada item da lista gameStore e manda para games  -->
-                    <li *ngFor="let game of filteredGames">
+                    <li *ngFor="let offer of filteredGames">
                         <div>
-                            <app-games [games]="game"></app-games>
+                            <app-games-offer [oferta]="offer"></app-games-offer>
                         </div>
                     </li>
                 </div>
