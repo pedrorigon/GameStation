@@ -97,6 +97,9 @@ class CommandInfo:
                         continue
 
                     return (False, str(key) + ": Expected: " + str(value))
+                # Caso especial: float é convertido para int
+                elif value == float and type(args[key]) == int:
+                    continue
 
                 return (False, str(key) + ": Invalid type: " + str(type(args[key])) + ", expected: " + str(value))
 
