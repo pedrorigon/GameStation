@@ -81,14 +81,14 @@ GET|`{}`|`[JOGO, ...]`|Obtém uma lista com todos os jogos que podem ser comprad
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-PUT|`{"id_jogo": int}`|`{}`|Compra jogado diretamente da loja|Deve estar logado, usa sessão para inferir id do usuário 
+POST|`{"id_jogo": int}`|`{}`|Compra jogado diretamente da loja|Deve estar logado, usa sessão para inferir id do usuário 
 
 ### ofertas
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
 GET|`{}`|`[OFERTA, ...]`|Obtém uma lista com todos os jogos que foram colocados em oferta|-
-PUT|`{"id_chave": int, "preco": float}`|`{}`|Coloca um jogo da biblioteca para oferta com o preço `preco`|Deve estar logado, usa sessão para inferir id do usuário
+POST|`{"id_chave": int, "preco": float}`|`{}`|Coloca um jogo da biblioteca para oferta com o preço `preco`|Deve estar logado, usa sessão para inferir id do usuário
 DELETE|`{"id_oferta": int}`|`{}`|Remove um jogo ofertado|Deve estar logado, usa sessão para verificar se usuário é o criador da oferta
 
 ### trocas
@@ -96,7 +96,7 @@ DELETE|`{"id_oferta": int}`|`{}`|Remove um jogo ofertado|Deve estar logado, usa 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
 GET|`{}`|`[TROCA, ...]`|Obtém uma lista com todas as trocas disponíveis|-
-PUT|`{"id_chave": int}`|`{}`|Coloca um jogo para troca|Deve estar logado, usa sessão para inferir id do usuário
+POST|`{"id_chave": int}`|`{}`|Coloca um jogo para troca|Deve estar logado, usa sessão para inferir id do usuário
 DELETE|`{"id_troca": int}`|`{}`|Remove a troca|Deve estar logado, usa sessão para verificar se usuário é o criador da troca
 
 ### propostas
@@ -104,26 +104,26 @@ DELETE|`{"id_troca": int}`|`{}`|Remove a troca|Deve estar logado, usa sessão pa
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
 GET|`{"id_troca": int}`|`[PROPOSTA, ...]`|Obtém uma lista com todas as propostas recebidas para determinada troca|Deve estar logado, usa sessão para verificar se usuário é o criador da troca
-PUT|`{"id_chave": int, "id_troca": int}`|`{}`|Coloca um jogo como contrapartida|Deve estar logado
+POST|`{"id_chave": int, "id_troca": int}`|`{}`|Coloca um jogo como contrapartida|Deve estar logado
 DELETE|`{"id_proposta": int}`|`{}`|Remove a contrapartida|Deve estar logado, usa sessão para verificar se usuário é o criador da troca ou da proposta
 
 ### comprar_oferta
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-PUT|`{"id_oferta": int}`|`{}`|Compra jogo ofertado|Deve estar logado como usuário
+POST|`{"id_oferta": int}`|`{}`|Compra jogo ofertado|Deve estar logado como usuário
 
 ### aceitar_troca
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-PUT|`{"id_troca": int, "id_proposta": int}`|`{}`|Aceita que uma troca seja feita com determinada contrapartida|Deve estar logado, usa sessão para verificar se usuário é o criador da troca
+POST|`{"id_troca": int, "id_proposta": int}`|`{}`|Aceita que uma troca seja feita com determinada contrapartida|Deve estar logado, usa sessão para verificar se usuário é o criador da troca
 
 ### session
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-PUT|`{"login": str, "password": str}`|`USER_ROLE`|Cria nova sessão|-
+POST|`{"login": str, "password": str}`|`USER_ROLE`|Cria nova sessão|-
 DELETE|`{}`|`{}`|Encerra sessão|-
 
 ### validar_jogo
@@ -131,7 +131,7 @@ DELETE|`{}`|`{}`|Encerra sessão|-
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
 GET|`{}`|`[JOGO_PENDENTE, ...]`|Obtém lista de jogos pendentes|Deve estar logado como gerenciador
-PUT|`{"id_jogo": int}`|`{}`|Aceita jogo|Deve estar logado como gerenciador
+POST|`{"id_jogo": int}`|`{}`|Aceita jogo|Deve estar logado como gerenciador
 DELETE|`{"id_jogo": int, "justificativa": str}`|`{}`|Recusa/cancela um jogo|Deve estar logado, se desenvolvedor justificativa pode estar vazia, se gerenciador não pode estar vazio
 
 ### jogo
@@ -139,10 +139,10 @@ DELETE|`{"id_jogo": int, "justificativa": str}`|`{}`|Recusa/cancela um jogo|Deve
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
 GET|`{"id_jogo": int}`|`JOGO`|Obtém informações sobre o jogo|-
-PUT|`JOGO`*|`{}`|Cria jogo|Deve estar logado como desenvolvedor
+POST|`JOGO`*|`{}`|Cria jogo|Deve estar logado como desenvolvedor
 DELETE|`{"id_jogo": int, "justificativa": str}`|`{}`|Remove/recusa um jogo|Deve estar logado, se desenvolvedor justificativa pode estar vazia, se gerenciador não pode estar vazio
 
-\* Não deve conter o campo `id_jogo`;
+\* Não deve conter os campos `id_jogo` e `avaliacao`;
 
 ### user_info
 
@@ -155,13 +155,13 @@ GET|`{}`|`{"login": str, "saldo": float, "rank": float}`, caso usuário;<br/>`{"
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
 GET|`{}`|`[AVALIACAO, ...]`|Recebe todas as avaliações feitas, caso usuário;<br/>Recebe todas as avaliações recebidas, caso desenvolvedor;|-
-PUT|`{"id_jogo": int, "nota": float, "resenha": str}`|`{}`|Faz uma avaliação para um jogo|Deve estar logado como usuário
+POST|`{"id_jogo": int, "nota": float, "resenha": str}`|`{}`|Faz uma avaliação para um jogo|Deve estar logado como usuário
 
 ### aumentar_saldo
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-PUT|`{"acrescimo": float}`|`{}`|Aumenta saldo do usuário|Deve estar logado como usuário
+POST|`{"acrescimo": float}`|`{}`|Aumenta saldo do usuário|Deve estar logado como usuário
 
 ### historico
 
