@@ -17,6 +17,7 @@ export class OffersComponent {
       "nome": "nome jogo 1",
       "preco": 100.00,
       "avaliacao": 9,
+      "descricao": "descricao",
       "tags": ["action", "adventure", "multiplayer"]
     },
     {
@@ -25,6 +26,7 @@ export class OffersComponent {
       "nome": "nome jogo 2",
       "preco": 90.90,
       "avaliacao": 9,
+      "descricao": "descricao",
       "tags": ["action", "adventure", "multiplayer"]
     },
     {
@@ -33,6 +35,7 @@ export class OffersComponent {
       "nome": "nome jogo 3",
       "preco": 50.00,
       "avaliacao": 8,
+      "descricao": "descricao",
       "tags": ["puzzle"]
     },
     {
@@ -41,6 +44,7 @@ export class OffersComponent {
       "nome": "nome jogo 4",
       "preco": 70.00,
       "avaliacao": 7,
+      "descricao": "descricao",
       "tags": ["adventure"]
     },
   ];
