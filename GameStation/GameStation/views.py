@@ -70,4 +70,4 @@ def session(request):
     # Retorna token para cliente
     request.session['session_key'] = s.session_key
 
-    return Response((True, None))
+    return Response((True, ret[1][1]))

@@ -63,6 +63,7 @@ Dados retornados:
 * `JOGO_PENDENTE`: `{"rank_dev": "float": int, ...JOGO}`;
 * `AVALIACAO`: `{"avaliacao_usuario": float, "resenha": str, ...JOGO}`;
 * `HISTORICO`: `{"id_transacao": int, "id_usuario": int, "id_usuario_participou": int, "id_chave": int, "valor": float, "tipo": char, "direcao": char, "data": timestamp}`;
+* `USER_ROLE`: `'user'|'dev'|'admin'`;
 
 ### biblioteca
 
@@ -122,7 +123,7 @@ PUT|`{"id_troca": int, "id_proposta": int}`|`{}`|Aceita que uma troca seja feita
 
 Método|Argumentos|Resposta|Descrição|Restrição
 -|-|-|-|-
-PUT|`{"login": str, "password": str}`|`{}`|Cria nova sessão|-
+PUT|`{"login": str, "password": str}`|`USER_ROLE`|Cria nova sessão|-
 DELETE|`{}`|`{}`|Encerra sessão|-
 
 ### validar_jogo
