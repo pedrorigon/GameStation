@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-FRONTEND_PORT = 4200
+FRONTEND_PORT = '4200'
 
 CSRF_ALLOWED_ORIGINS = ['http://localhost:' + FRONTEND_PORT]
 CSRF_TRUSTED_ORIGINS = ['http://localhost:' + FRONTEND_PORT]
