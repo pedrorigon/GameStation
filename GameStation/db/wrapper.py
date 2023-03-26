@@ -67,7 +67,7 @@ commands = {
 }
 
 # Executa um comando da api
-def command_wrapper(cursor, url: str, method: str, arg: dict) -> tuple[bool, str|dict]:
+def command_wrapper(cursor, url: str, method: str, arg: dict) -> tuple[bool, str or dict]:
     try:
         command = commands[url]
     except KeyError:

@@ -29,7 +29,7 @@ def _jogo_tag(cursor, id_jogo: int) -> list[str]:
     return [line[0] for line in cursor.fetchall()]
 
 # Retorna a permissão o nível de permissão do usuário
-def _permissao_usuario(cursor, sql_statement: str, arg:dict) -> tuple[bool, None|str|Permission]:
+def _permissao_usuario(cursor, sql_statement: str, arg:dict) -> tuple[bool, None or str or Permission]:
     cursor.execute(sql_statement, arg)
     ret = cursor.fetchone()
 
@@ -48,7 +48,7 @@ def _gen_new_key(cursor, sql_statement: str) -> str:
             return new_key
 
 # Retorna a tabela obtida pelo cursor, em formato de lista de dicionários
-def _get_return_table(cursor) -> str|dict:
+def _get_return_table(cursor) -> str or dict:
     ret = []
 
     column_names = cursor.description
@@ -71,7 +71,7 @@ def _get_return_table(cursor) -> str|dict:
     return (True, ret)
 
 # Executa condicionalmente conforme permissão
-def generic_permission(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:
+def generic_permission(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str or dict]:
     try:
         cursor.execute(command.sql_statement[arg['permission']], arg)
     except IntegrityError as e:
@@ -83,7 +83,7 @@ def generic_permission(cursor, command: CommandInfo, arg: dict) -> tuple[bool, s
     return (True, "Success")
 
 # Remove jogo da loja
-def remover_jogo(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:
+def remover_jogo(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str or dict]:
     # Se for admin é obrigatório uma justificativa
     if arg['permission'] == Permission.ADMIN:
         if arg['justificativa'] is None or len(arg['justificativa']) == 0:
@@ -92,7 +92,7 @@ def remover_jogo(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dic
     return generic(cursor, command, arg)
 
 # Executa comando e retorna tabela com dados sobre os id_jogo's
-def generic_jogo_info(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:
+def generic_jogo_info(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str or dict]:
     ret = generic(cursor, command, arg)
 
     if not ret[0]:
@@ -104,7 +104,7 @@ def generic_jogo_info(cursor, command: CommandInfo, arg: dict) -> tuple[bool, st
     return ret
 
 # Execução genérica
-def generic(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:
+def generic(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str or dict]:
     try:
         cursor.execute(command.sql_statement, arg)
     except IntegrityError as e:
@@ -116,7 +116,7 @@ def generic(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:
     return (True, "Success")
 
 # Remove uma proposta
-def remover_proposta(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:
+def remover_proposta(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str or dict]:
     cursor.execute(command["USUARIO_PROPOS"], arg)
 
     # Não foi o usuário que propôs
@@ -135,7 +135,7 @@ def remover_proposta(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str
     return (True, "Success")    
 
 # UC7 - Adiciona jogo pendente
-def adicionar_jogo(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:
+def adicionar_jogo(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str or dict]:
     # Tags iguais quebram check de unicidade (id_jogo, tag)
     tags = list(set(arg["tags"]))
 
@@ -171,7 +171,7 @@ def adicionar_jogo(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|d
     return (True, "success")
 
 # UC3 - Compra jogo da loja
-def comprar_jogo(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:
+def comprar_jogo(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str or dict]:
     # Obtém saldo do usuário
     cursor.execute(command.sql_statement['SALDO_USUARIO'], arg)
     saldo = cursor.fetchone()
@@ -219,7 +219,7 @@ def comprar_jogo(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dic
     return (True, "success")
 
 # UC12 - Dado login e password retorna id do usuário e permissão
-def login(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|tuple[int, Permission]]:
+def login(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str or tuple[int, Permission]]:
     # Obtém id do usuário
     cursor.execute(command.sql_statement['ID_LOGIN'], arg)
     ret = cursor.fetchone()

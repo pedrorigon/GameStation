@@ -1,12 +1,48 @@
-version: '3'
+version: '3.9'
 
 services:
-  web:
-    build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/app
+  backend:
+    build: 
+      context: ./GameStation
+    # command: ping google.com
+    command: python3 manage.py runserver 0.0.0.0:8000
     ports:
-      - "8000:8000"
-      
-       
+      - 8000:8000
+    volumes:
+      - ./app:/static_volume
+
+
+
+
+
+
+# version: '3'
+
+# services:      
+#   backend:
+#     build:
+#       context: ./GameStation/
+#     # command: python3 manage.py runserver 0.0.0.0:8000
+#     # command: bash -c "python3 -m venv venv && source venv/bin/activate && pip install django djangorestframework && python manage.py runserver 0.0.0.0:8000"
+#     # command: ls && mkdir test && ls
+#     # command: echo "oi"
+#       # volumes:
+#     #   - static_volume:/home/dpdadm/web/staticfiles
+#     expose:
+#       - 8000
+#     # depends_on:
+#       # - db
+#     restart: unless-stopped
+
+#   # frontend:
+#   #   build: 
+#   #     context: ./frontend/
+#   #   volumes:
+#   #     - ./frontend:/app
+#   #   expose:
+#   #     - 80
+#   #   depends_on:
+#   #     - backend
+
+# # volumes:
+# #     static_volume:

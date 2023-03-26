@@ -74,7 +74,7 @@ class SQLCommand:
 # args: Argumentos necessários
 # returns_table: Retorna tabela?
 class CommandInfo:
-    def __init__(self, sql_statement: SQLCommand|dict[str: SQLCommand], function, permission: None|tuple[Permission]=None, args: dict[str: any]={}, returns_table: bool=False):
+    def __init__(self, sql_statement: SQLCommand or dict[str: SQLCommand], function, permission: None or tuple[Permission]=None, args: dict[str: any]={}, returns_table: bool=False):
         self.sql_statement = sql_statement
         self.function = function
         self.permission = permission
@@ -82,7 +82,7 @@ class CommandInfo:
         self.returns_table = returns_table
 
     # Verifica se os argumentos em 'args' estão corretos comparados com self.args
-    def verify_args(self, args: dict[str: any]) -> tuple[bool, None|str]:
+    def verify_args(self, args: dict[str: any]) -> tuple[bool, None or str]:
         for (key, value) in self.args.items():
             # Verifica se chave existe
             if key not in args.keys():
