@@ -47,7 +47,7 @@ commands = {
     },
     "/jogo/": {
         "GET": CommandInfo(SQLCommand.JOGO, generic_jogo_info, args={"id_jogo": int}, returns_table=True),
-        "POST": CommandInfo(SQLCommand.ADICIONA_JOGO, generic, (Permission.DEV,), {"nome": str, "avaliacao": float, "preco": float, "tags": list[str], "link_imagens": str, "link_trailer": str}),
+        "POST": CommandInfo(SQLCommand.ADICIONA_JOGO, adicionar_jogo, (Permission.DEV,), {"nome": str, "preco": float, "tags": list[str], "link_imagens": str, "link_trailer": str}),
         "DELETE": CommandInfo(SQLCommand.REMOVER_JOGO, remover_jogo, (Permission.DEV, Permission.ADMIN), {"id_jogo": int, "motivo": str}),
     },
     "/user_info/": {
