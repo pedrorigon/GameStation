@@ -1,38 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MD5 } from 'crypto-js';
+import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  isLogin: boolean = true;
-  loginForm: FormGroup = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
-  });
-  registerForm: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-    userType: new FormControl('dev', Validators.required)
-  });
 
-  constructor() { }
+export class LoginComponent implements OnInit {
+
+  loginForm: FormGroup
+
+  constructor(private fb: FormBuilder) {
+    this.loginForm = fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    })
+  }
 
   ngOnInit(): void {
   }
 
-  toggleForm(event: MouseEvent) {
-    event.preventDefault();
-    this.isLogin = !this.isLogin;
-    if (this.isLogin) {
-      this.loginForm.reset();
-    } else {
-      this.registerForm.reset();
-    }
+  submit() {
+    console.log(this.loginForm.getRawValue());
   }
 
   login(): boolean {
@@ -54,10 +47,10 @@ export class LoginComponent implements OnInit {
     }).then((response) => (
       response.ok ? (
         response.json()
-          .then((data: [boolean, string|null]) =>
-            data[0] ? ( success = true ) :
+          .then((data: [boolean, string | null]) =>
+            data[0] ? (success = true) :
               console.log(`Login falhou, motivo: ${data[1]}`)
-        )
+          )
       ) : console.log(response)
     )).catch(
       (err) => console.log('Erro na requisição')
@@ -68,20 +61,4 @@ export class LoginComponent implements OnInit {
     return success;
   }
 
-  register() {
-    const name = this.registerForm.value.name;
-    const password = this.registerForm.value.password;
-    const userType = this.registerForm.value.userType;
-
-    // Enviar dados para o servidor para registrar o usuário
-
-    this.registerForm.reset();
-
-    this.isLogin = true;
-  }
-
-  backToLogin(event: MouseEvent) {
-    event.preventDefault();
-    this.isLogin = true;
-  }
 }

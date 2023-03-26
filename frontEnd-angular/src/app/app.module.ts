@@ -30,6 +30,7 @@ import { GamesExchangeComponent } from './components/games-exchange/games-exchan
 import { GamesLibraryComponent } from './components/games-library/games-library.component';
 import { GameDetailsLibraryComponent } from './components/game-details-library/game-details-library.component';
 import { HeaderManagerComponent } from './components/header-manager/header-manager.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -60,12 +61,13 @@ import { HeaderManagerComponent } from './components/header-manager/header-manag
     GamesLibraryComponent,
     GameDetailsLibraryComponent,
     HeaderManagerComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
-    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

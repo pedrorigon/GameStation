@@ -4,6 +4,7 @@ import { StoreComponent } from './components/store/store.component';
 import { LibraryComponent } from './components/library/library.component';
 import { AccountComponent } from './components/account/account.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { ExchangeComponent } from './components/exchange/exchange.component';
 import { GamesComponent } from './components/games/games.component';
@@ -28,6 +29,7 @@ import { HeaderManagerComponent } from './components/header-manager/header-manag
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'store', component: StoreComponent },
   { path: 'library', component: LibraryComponent },
   { path: 'library/:id', component: GameDetailsComponent },
