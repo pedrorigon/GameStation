@@ -120,7 +120,7 @@ export class LibraryComponent {
     const target = e.target as HTMLInputElement
     const value = target.value
 
-    this.filteredGames = this.GamesLibrary.filter((games) => { return games.nome.toLowerCase().includes(value); })
+    this.filteredGames = this.GamesLibrary.filter((games) => { return games.nome.includes(value); })
   }
 
   constructor() { }

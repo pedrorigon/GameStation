@@ -41,8 +41,10 @@ export class DevInterfaceComponent {
         'Accept': 'application/json',
       }),
       body: JSON.stringify({
-        avaliacao:  10.5 ,nome: "El jueguito", descricao: "fasfasf afafsasf a", preco: 500.54, link_imagens: 'image.png', tags : ['FPS'], link_trailer: ""
+        // avaliacao:  10.5 ,nome: "El jueguito", descricao: "fasfasf afafsasf a", preco: 500.54, link_imagens: 'image.png', tags : ['FPS'], link_trailer: ""
         // avaliacao:  10.5 ,nome: nome, descricao: descricao, preco: 500.54, link_imagens: link_imagens, tags : JSON.stringify(tags), link_trailer: ""
+        // nome: nome, descricao: descricao, preco: parseFloat(preco), link_imagens: link_imagens, tags : JSON.stringify(tags.map((v:string) => v.toLowerCase())), link_trailer: ""
+        nome: nome, descricao: descricao, preco: parseFloat(preco), link_imagens: link_imagens, tags : ['fps'], link_trailer: ""
       })
     }).then((response) => (
       response.ok ? (

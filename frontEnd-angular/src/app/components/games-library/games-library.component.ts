@@ -11,6 +11,7 @@ export class GamesLibraryComponent {
   @Input() games!: Biblio
 
   showDetails = false;
+  imgvar = "https://media.kasperskydaily.com/wp-content/uploads/sites/94/2020/02/29174606/game-ratings-featured.jpg";
 
   verDetails() {
     this.showDetails = true;

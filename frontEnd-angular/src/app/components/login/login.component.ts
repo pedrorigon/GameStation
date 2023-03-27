@@ -47,11 +47,11 @@ export class LoginComponent implements OnInit {
             if (data[0]) {
               const userType: string | null = data[1];
               if (userType === 'admin') {
-                window.location.href = '/admin-page'; // redireciona para a página do admin
+                window.location.href = '/manager-interface'; // redireciona para a página do admin
               } else if (userType === 'dev') {
-                window.location.href = '/dev-page'; // redireciona para a página do desenvolvedor
+                window.location.href = '/dev-interface'; // redireciona para a página do desenvolvedor
               } else {
-                window.location.href = '/user-page'; // redireciona para a página do usuário comum
+                window.location.href = '/store'; // redireciona para a página do usuário comum
               }
             } else {
               console.log(`Login falhou, motivo: ${data[1]}`);

@@ -37,33 +37,33 @@ export class StoreComponent {
   }
 
   GamesStore: Games[] = [
-    {
-      "id": 1,
-      "link_imagens": "cs-go.jpeg",
-      "nome": "nome jogo 1",
-      "preco": 100.00,
-      "avaliacao": 9,
-      "descricao": "descricao",
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-    {
-      "id": 2,
-      "link_imagens": "cs-go.jpeg",
-      "nome": "nome jogo 2",
-      "preco": 90.90,
-      "avaliacao": 9,
-      "descricao": "descricao",
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-    {
-      "id": 3,
-      "link_imagens": "cs-go.jpeg",
-      "nome": "nome jogo 3",
-      "preco": 50.00,
-      "avaliacao": 8,
-      "descricao": "descricao",
-      "tags": ["puzzle"]
-    },
+    // {
+    //   "id": 1,
+    //   "link_imagens": "cs-go.jpeg",
+    //   "nome": "nome jogo 1",
+    //   "preco": 100.00,
+    //   "avaliacao": 9,
+    //   "descricao": "descricao",
+    //   "tags": ["action", "adventure", "multiplayer"]
+    // },
+    // {
+    //   "id": 2,
+    //   "link_imagens": "cs-go.jpeg",
+    //   "nome": "nome jogo 2",
+    //   "preco": 90.90,
+    //   "avaliacao": 9,
+    //   "descricao": "descricao",
+    //   "tags": ["action", "adventure", "multiplayer"]
+    // },
+    // {
+    //   "id": 3,
+    //   "link_imagens": "cs-go.jpeg",
+    //   "nome": "nome jogo 3",
+    //   "preco": 50.00,
+    //   "avaliacao": 8,
+    //   "descricao": "descricao",
+    //   "tags": ["puzzle"]
+    // },
   ];
 
   // constructor(private gameService: GameServiceService) { 
@@ -119,6 +119,6 @@ export class StoreComponent {
     const target = e.target as HTMLInputElement
     const value = target.value
 
-    this.filteredGames = this.GamesStore.filter((game) => { return game.nome.toLowerCase().includes(value); })
+    this.filteredGames = this.GamesStore.filter((game) => { return game.nome.includes(value); })
   }
 }
