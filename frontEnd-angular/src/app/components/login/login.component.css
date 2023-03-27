@@ -259,6 +259,10 @@ body {
     font-size: 1.15em;
 }
 
+.login {
+    margin-top: 4rem;
+}
+
 .box .form .links a:hover,
 .box-register .form .links a:hover {
     color: #fff;

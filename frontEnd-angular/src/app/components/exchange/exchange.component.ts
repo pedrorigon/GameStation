@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Games } from 'src/app/model/games.model';
+import { Troca } from 'src/app/model/troca.model';
 
 @Component({
   selector: 'app-exchange',
@@ -9,8 +9,11 @@ import { Games } from 'src/app/model/games.model';
 export class ExchangeComponent {
 
   // carregar lista de jogos para venda do banco de dados
-  GamesExchange: Games[] = [
+  GamesExchange: Troca[] = [
     {
+      "id_troca": 10,
+      "data": 0, //so por enquanto depois é Date
+      "usuario_rank": 1,
       "id": 1,
       "link_imagens": "link imagem do jogo 1",
       "nome": "nome jogo 1",
@@ -20,6 +23,9 @@ export class ExchangeComponent {
       "tags": ["action", "adventure", "multiplayer"]
     },
     {
+      "id_troca": 15,
+      "data": 0, //so por enquanto depois é Date
+      "usuario_rank": 1,
       "id": 2,
       "link_imagens": "link imagem do jogo 2",
       "nome": "nome jogo 2",
@@ -29,6 +35,9 @@ export class ExchangeComponent {
       "tags": ["action", "adventure", "multiplayer"]
     },
     {
+      "id_troca": 20,
+      "data": 0, //so por enquanto depois é Date
+      "usuario_rank": 1,
       "id": 3,
       "link_imagens": "link imagem do jogo 3",
       "nome": "nome jogo 3",
@@ -36,24 +45,6 @@ export class ExchangeComponent {
       "avaliacao": 8,
       "descricao": "descricao",
       "tags": ["puzzle"]
-    },
-    {
-      "id": 4,
-      "link_imagens": "link imagem do jogo 4",
-      "nome": "nome jogo 4",
-      "preco": 70.00,
-      "descricao": "descricao",
-      "avaliacao": 7,
-      "tags": ["adventure"]
-    },
-    {
-      "id": 5,
-      "link_imagens": "link imagem do jogo 5",
-      "nome": "nome jogo 5",
-      "preco": 120.00,
-      "avaliacao": 9.5,
-      "descricao": "descricao",
-      "tags": ["action", "adventure"]
     },
   ];
   //para filtragem nos generos selecionados

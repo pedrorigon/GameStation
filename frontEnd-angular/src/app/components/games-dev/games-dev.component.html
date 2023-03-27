@@ -1,9 +1,48 @@
-<a [routerLink]="['/game-details-dev', games.id]">
+<button (click)="verDetails()" *ngIf="!showDetails">
     <div class="card-game">
-        <div class="game-imagens">{{games.link_imagens}}</div>
+        <div class="game-imagens">{{game.link_imagens}}</div>
 
-        <h3 class="game-nome">{{games.nome}}</h3>
+        <h3 class="game-nome">{{game.nome}}</h3>
 
-        <div class="game-preco">R$ {{games.preco}}</div>
+        <div class="game-preco">R$ {{game.preco}}</div>
     </div>
-</a>
+</button>
+
+<div class="tudo">
+    <div class="total-details" *ngIf="showDetails">
+        <div class="container-details">
+            <button class="link-back-details" (click)="semDetails()">
+                <div class="back-button-details">Back</div>
+            </button>
+
+            <h2 class="game-nome-details">{{game.nome}}</h2>
+
+            <div class="game-imagens-details">Imagens jogo</div>
+
+            <div class="grid-details">
+                <div class="div-descricao-details">
+                    <p class="game-descricao-details">descrição do jogo Contrary to popular belief, Lorem Ipsum is not
+                        simply random
+                        text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000
+                        years
+                        old.</p>
+                </div>
+
+                <div class="game-column2-details">
+
+                    <div class="textos-details">
+                        <p class="game-preco-details">R$ {{game.preco}}</p>
+                        <p class="game-avaliacoes-details">Avaliação: {{game.avaliacao}}/10</p>
+                    </div>
+
+                    <div class="game-buttons-details">
+                        <button class="buy-button-details" (click)="removerJogo()">Remove Game</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

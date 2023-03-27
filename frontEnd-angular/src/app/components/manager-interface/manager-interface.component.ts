@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Games } from 'src/app/model/games.model';
+import { JogoPendente } from 'src/app/model/jogo-pendente.model';
+import { Historico } from 'src/app/model/historico.model';
 
 @Component({
   selector: 'app-manager-interface',
@@ -7,9 +8,10 @@ import { Games } from 'src/app/model/games.model';
   styleUrls: ['./manager-interface.component.css']
 })
 export class ManagerInterfaceComponent {
-  JogosPendentes: Games[] = [
+  JogosPendentes: JogoPendente[] = [
     {
       "id": 10,
+      "rank_dev": 1,
       "link_imagens": "link imagem do jogo 1",
       "nome": "nome jogo 1",
       "preco": 100.00,
@@ -18,6 +20,7 @@ export class ManagerInterfaceComponent {
       "tags": ["action", "adventure", "multiplayer"]
     },
     {
+      "rank_dev": 10,
       "id": 20,
       "link_imagens": "link imagem do jogo 2",
       "nome": "nome jogo 2",
@@ -27,6 +30,7 @@ export class ManagerInterfaceComponent {
       "tags": ["action", "adventure", "multiplayer"]
     },
     {
+      "rank_dev": 2,
       "id": 30,
       "link_imagens": "link imagem do jogo 3",
       "nome": "nome jogo 3",
@@ -35,14 +39,18 @@ export class ManagerInterfaceComponent {
       "avaliacao": 8,
       "tags": ["puzzle"]
     },
+  ];
+
+  ManagerHistorico: Historico[] = [
     {
-      "id": 40,
-      "link_imagens": "link imagem do jogo 4",
-      "nome": "nome jogo 4",
-      "preco": 70.00,
-      "avaliacao": 7,
-      "descricao": "descricao",
-      "tags": ["adventure"]
+      "id_usuario": 15,
+      "id_transacao": 10,
+      "id_usuario_participou": 1,
+      "id_chave": 101,
+      "valor": 100,
+      "tipo": "srting",
+      "direcao": "string",
+      "data": 25,
     },
   ];
 

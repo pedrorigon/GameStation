@@ -10,7 +10,8 @@
                     <!-- pega cada item da lista gameStore e manda para games  -->
                     <li *ngFor="let game of filteredGames">
                         <div>
-                            <app-games [games]="game"></app-games>
+                            <app-games [game]="game"></app-games>
+                            <app-game-details [game]="game" hidden></app-game-details>
                         </div>
                     </li>
                 </div>

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Historico } from 'src/app/model/historico.model';
+
 
 @Component({
   selector: 'app-historico-manager',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class HistoricoManagerComponent {
 
+  @Input() transaction!: Historico
+
+  ngOnInit() {
+
+  }
 }
