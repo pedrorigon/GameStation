@@ -5,6 +5,9 @@ class SQLCommand:
         FROM jogo_pendente
         LEFT JOIN jogo_nota ON (jogo_nota.id_jogo=jogo_pendente.id)
         WHERE(id_jogo=:id_jogo);"""
+    JOGO_INFO_PENDENTE = """SELECT nome, preco, descricao, link_imagens, link_trailer
+        FROM jogo_pendente
+        WHERE(id=:id_jogo);"""
     TAGS_JOGO = "SELECT tag FROM jogo_tags WHERE(id_jogo=:id_jogo);"
     BIBLIOTECA = "SELECT id_jogo, id_chave, avaliacao_usuario, disponibilidade FROM jogos_usuario WHERE(id_usuario=:id_usuario);"
     LOJA = "SELECT id_jogo FROM loja;"

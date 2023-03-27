@@ -1,6 +1,6 @@
 from .Commands import SQLCommand, CommandInfo
 from .Permission import Permission
-from .functions import generic, generic_jogo_info, comprar_jogo, remover_jogo, adicionar_jogo, generic_permission, login, remover_proposta
+from .functions import generic, generic_jogo_info, comprar_jogo, remover_jogo, adicionar_jogo, generic_permission, login, remover_proposta, jogo_pendente
 from rest_framework.exceptions import MethodNotAllowed, NotFound, PermissionDenied
 
 # LINK:
@@ -41,7 +41,7 @@ commands = {
         # DELETE é lidado diretamente em views.session
     },
     "/validar_jogo/": {
-        "GET": CommandInfo(SQLCommand.LISTAR_JOGOS_EM_AGUARDO, generic_jogo_info, (Permission.ADMIN,), returns_table=True),
+        "GET": CommandInfo(SQLCommand.LISTAR_JOGOS_EM_AGUARDO, jogo_pendente, (Permission.ADMIN,), returns_table=True),
         "POST": CommandInfo(SQLCommand.ACEITAR_JOGO, generic, (Permission.ADMIN,), {"id_jogo": int}),
         "DELETE": CommandInfo(SQLCommand.REMOVER_JOGO, remover_jogo, (Permission.DEV, Permission.ADMIN), {"id_jogo": int, "justificativa": str}),
     },
