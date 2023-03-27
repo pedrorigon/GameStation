@@ -55,10 +55,10 @@ MIDDLEWARE = [
 
 FRONTEND_PORT = 4200
 
-CSRF_ALLOWED_ORIGINS = ['http://localhost:' + FRONTEND_PORT]
-CSRF_TRUSTED_ORIGINS = ['http://localhost:' + FRONTEND_PORT]
-CORS_ALLOWED_ORIGINS = ['http://localhost:' + FRONTEND_PORT]
-CORS_ORIGIN_WHITELIST = ['http://localhost:' + FRONTEND_PORT]
+CSRF_ALLOWED_ORIGINS = ['http://localhost:' + str(FRONTEND_PORT)]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:' + str(FRONTEND_PORT)]
+CORS_ALLOWED_ORIGINS = ['http://localhost:' + str(FRONTEND_PORT)]
+CORS_ORIGIN_WHITELIST = ['http://localhost:' + str(FRONTEND_PORT)]
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_USE_SESSIONS = True

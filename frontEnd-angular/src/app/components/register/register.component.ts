@@ -27,18 +27,38 @@ export class RegisterComponent {
     const name = this.registerForm.value.name;
     const password = this.registerForm.value.password;
     const userType = this.registerForm.value.userType;
-
+    let success = false;
+    
     if (!userType) {
-      console.log('Selecione um tipo de usuário válido');
+      alert('Selecione um tipo de usuário válido!');
       return;
     }
 
     // Enviar dados para o servidor para registrar o usuário
-
+    fetch("http://127.0.0.1:8000/session/", {
+      method: 'POST',
+      credentials: 'include',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }),
+      body: JSON.stringify({
+        login: name, password: MD5(password).toString(), userType: userType
+      })
+    }).then((response) => (
+      response.ok ? (
+        response.json()
+          .then((data: [boolean, string | null]) =>
+            data[0] ? (success = true) :
+              console.log(`Registro falhou, motivo: ${data[1]}`)
+          )
+      ) : console.log(response)
+    )).catch(
+      (err) => console.log('Erro na requisição')
+    );
+    
     this.navigateToDefaultPage(userType);
-
     this.registerForm.reset();
-
   }
 
   navigateToDefaultPage(userType: string) {

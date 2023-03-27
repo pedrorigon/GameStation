@@ -7,35 +7,35 @@
         </div>
 
         <div class="box">
-            <form>
+            <form [formGroup]="gameForm" (ngSubmit)="addGame()">
                 <div class="inputBox">
                     <span>Game Name</span>
-                    <input type="text" id="nome-jogo" formControlName="nome-jogo" required="required">
+                    <input type="text" id="nome-jogo" formControlName="nome" required="required">
 
                     <i></i>
                 </div>
                 <div class="inputBox">
                     <span>Game Price</span>
-                    <input type="text" id="preco-jogo" formControlName="preco-jogo" required="required"
+                    <input type="text" id="preco-jogo" formControlName="preco" required="required"
                         class="game-price">
 
                     <i></i>
                 </div>
                 <div class="inputBox">
                     <span>Game Tags</span>
-                    <input type="text" id="tags-jogo" formControlName="tags-jogo" required="required">
+                    <input type="text" id="tags-jogo" formControlName="tags" required="required">
 
                     <i></i>
                 </div>
                 <div class="inputBox">
                     <span>Link Images</span>
-                    <input type="text" id="link-imagens" formControlName="link-imagens" required="required">
+                    <input type="text" id="link-imagens" formControlName="link_imagens" required="required">
 
                     <i></i>
                 </div>
                 <div class="inputBox">
                     <span>Game Description</span>
-                    <textarea id="descricao-jogo" name="descricao-jogo" rows="6" cols="100"
+                    <textarea id="descricao-jogo" name="descricao" rows="6" cols="100"
                         class="game-description"></textarea>
                     <i></i>
                 </div>

@@ -24,9 +24,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit() {
-    console.log(this.loginForm.getRawValue());
-  }
 
   login(): boolean {
     const username = this.loginForm.value.username;
