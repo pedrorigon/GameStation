@@ -31,4 +31,10 @@ export class GamesOfferComponent {
 
   }
 
+  removerOferta() {
+
+    //implementar deletar_oferta
+
+  }
+
 }

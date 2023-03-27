@@ -56,11 +56,18 @@
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.678);
     color: white;
-    padding-bottom: 6rem;
+    padding-bottom: 0;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-top: 1rem;
     border-radius: 0.625rem;
+}
+
+.header-bottom span p {
+    text-align: center;
+    margin: 1rem;
+    padding-bottom: 1rem;
+    color: rgb(28, 245, 28);
 }
 
 .header-bottom a {
@@ -80,4 +87,17 @@
 
 .header-bottom a:hover {
     background-color: #555;
+}
+
+.logout-button {
+    margin-top: 4rem;
+    background-color: rgba(0, 0, 0, 0.678);
+    margin-bottom: 0.625rem;
+    padding: 1rem 2rem;
+    border-radius: 0.625rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
 }

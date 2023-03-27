@@ -184,6 +184,21 @@ button {
     background-color: rgba(130, 252, 146, 0.801);
 }
 
+.remove-button-details {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    background-color: rgba(255, 56, 21, 0.966);
+    width: 10rem;
+    height: 3rem;
+    border-radius: 0.625rem;
+    margin: 0;
+    transition: .2s all ease;
+    margin-top: 0.3125rem;
+    margin-bottom: 1.25rem;
+}
+
 .link-back-details {
     color: white;
     text-decoration: none;

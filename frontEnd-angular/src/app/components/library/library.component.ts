@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { 
+  Component,
+} from '@angular/core';
 import { Biblio } from 'src/app/model/biblio.model';
 
 @Component({
@@ -7,6 +9,11 @@ import { Biblio } from 'src/app/model/biblio.model';
   styleUrls: ['./library.component.css']
 })
 export class LibraryComponent {
+
+  ngOnInit(){
+    this.refreshGames();
+    this.filterGames();
+  }
 
   // carregar lista de jogos para venda do banco de dados
   refreshGames(): boolean {
@@ -25,7 +32,7 @@ export class LibraryComponent {
         response.json()
           .then((data: [boolean, Biblio[] | string]) =>
             data[0] ? (
-              this.GamesLibrary = data[1] as Biblio[], result = true
+              this.GamesLibrary = data[1] as Biblio[], result = true, this.filterGames()
             ) : console.log(data[1])
           )
       ) : console.log(response)

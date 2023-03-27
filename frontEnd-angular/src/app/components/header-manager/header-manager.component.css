@@ -82,3 +82,16 @@
 .header-bottom a:hover {
     background-color: #555;
 }
+
+.logout-button {
+    margin-top: 4rem;
+    background-color: rgba(0, 0, 0, 0.678);
+    margin-bottom: 0.625rem;
+    padding: 1rem 2rem;
+    border-radius: 0.625rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+}

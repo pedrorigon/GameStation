@@ -10,8 +10,8 @@
         <div class="header-bottom">
             <!-- <span>Balance: {{ balance }}</span>
       <button (click)="logout()">Logout</button> -->
-            <span>Balance</span>
-            <a routerLink="/login">Logout</a>
+            <span> Balance: <p>R${{userInfo.saldo}}</p></span>
+            <button class="logout-button" (click)="logout()">Logout</button>
             <!-- <button></button> -->
         </div>
     </header>

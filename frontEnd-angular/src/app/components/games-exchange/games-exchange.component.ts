@@ -25,5 +25,10 @@ export class GamesExchangeComponent {
   }
 
   trocarJogo() {
+    //implementar
+  }
+
+  removerTroca() {
+    //implementar
   }
 }
