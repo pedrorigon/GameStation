@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Games } from 'src/app/model/games.model';
+import { GameServiceService } from 'src/app/game-service.service';
 
 @Component({
   selector: 'app-store',
@@ -8,6 +9,7 @@ import { Games } from 'src/app/model/games.model';
 })
 
 export class StoreComponent {
+
   refreshGames(): boolean {
     let result = false;
 
@@ -34,11 +36,43 @@ export class StoreComponent {
     return result;
   }
 
-  GamesStore: Games[] = [];
+  GamesStore: Games[] = [
+    {
+      "id": 1,
+      "link_imagens": "cs-go.jpeg",
+      "nome": "nome jogo 1",
+      "preco": 100.00,
+      "avaliacao": 9,
+      "descricao": "descricao",
+      "tags": ["action", "adventure", "multiplayer"]
+    },
+    {
+      "id": 2,
+      "link_imagens": "cs-go.jpeg",
+      "nome": "nome jogo 2",
+      "preco": 90.90,
+      "avaliacao": 9,
+      "descricao": "descricao",
+      "tags": ["action", "adventure", "multiplayer"]
+    },
+    {
+      "id": 3,
+      "link_imagens": "cs-go.jpeg",
+      "nome": "nome jogo 3",
+      "preco": 50.00,
+      "avaliacao": 8,
+      "descricao": "descricao",
+      "tags": ["puzzle"]
+    },
+  ];
+
+  // constructor(private gameService: GameServiceService) { 
+  //   this.gameService.game = this.game;
+  // }
 
   //para filtragem nos generos selecionados
   selectedGenres: string[] = [];
-  filteredGames: any[] = [];
+  filteredGames: any[] = this.GamesStore;
 
   filterGames() {
     this.selectedGenres = this.selectedGenres.map(genre => genre.toLowerCase());
@@ -87,7 +121,4 @@ export class StoreComponent {
 
     this.filteredGames = this.GamesStore.filter((game) => { return game.nome.toLowerCase().includes(value); })
   }
-
-  constructor() { }
-
 }

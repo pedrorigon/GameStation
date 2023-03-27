@@ -11,7 +11,7 @@
                     <!-- pega cada item da lista gameStore e manda para games  -->
                     <li *ngFor="let game of JogosPendentes">
                         <div>
-                            <app-games-manager [games]="game"></app-games-manager>
+                            <app-games-manager [game]="game"></app-games-manager>
                         </div>
                     </li>
                 </div>

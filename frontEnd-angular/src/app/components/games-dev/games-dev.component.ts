@@ -8,11 +8,27 @@ import { Games } from 'src/app/model/games.model';
 })
 export class GamesDevComponent {
 
-  @Input() games!: Games
+  @Input() game!: Games
 
-  constructor() { }
+  showDetails = false;
+
+  verDetails() {
+    this.showDetails = true;
+    console.log(this.showDetails);
+  }
+
+  semDetails() {
+    this.showDetails = false;
+  }
 
   ngOnInit() {
+
+  }
+
+  removerJogo() {
+    //IMPLEMENTAR AQUI
+    console.log(this.game);
+
   }
 
 }

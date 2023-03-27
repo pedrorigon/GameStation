@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Games } from 'src/app/model/games.model';
+import { Biblio } from 'src/app/model/biblio.model';
 
 @Component({
   selector: 'app-games-library',
@@ -8,11 +8,29 @@ import { Games } from 'src/app/model/games.model';
 })
 export class GamesLibraryComponent {
 
-  @Input() games!: Games
+  @Input() games!: Biblio
 
-  constructor() { }
+  showDetails = false;
+
+  verDetails() {
+    this.showDetails = true;
+    console.log(this.showDetails);
+  }
+
+  semDetails() {
+    this.showDetails = false;
+  }
 
   ngOnInit() {
+
+  }
+
+  ofertarJogo() {
+    //IMPLEMENTAR
+  }
+
+  trocarJogo() {
+    //IMPLEMENTAR
   }
 
 }

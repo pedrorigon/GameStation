@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Games } from 'src/app/model/games.model';
+import { JogoPendente } from 'src/app/model/jogo-pendente.model';
 
 @Component({
   selector: 'app-games-manager',
@@ -8,11 +8,29 @@ import { Games } from 'src/app/model/games.model';
 })
 export class GamesManagerComponent implements OnInit {
 
-  @Input() games!: Games
+  @Input() game!: JogoPendente
 
-  constructor() { }
+  showDetails = false;
+
+  verDetails() {
+    this.showDetails = true;
+    console.log(this.showDetails);
+  }
+
+  semDetails() {
+    this.showDetails = false;
+  }
 
   ngOnInit() {
+
   }
+
+  aprovarJogo() {
+    //IMPLEMENTAR AQUI
+  }
+  recusarJogo() {
+    //IMPLEMENTAR AQUI
+  }
+
 
 }

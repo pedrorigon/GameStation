@@ -25,10 +25,9 @@ export class LoginComponent implements OnInit {
   }
 
 
-  login(): boolean {
+  login(): void {
     const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
-    let success = false;
 
     // Enviar dados para o servidor para verificar o login
     fetch("http://127.0.0.1:8000/session/", {
@@ -41,21 +40,43 @@ export class LoginComponent implements OnInit {
       body: JSON.stringify({
         login: username, password: MD5(password).toString(),
       })
-    }).then((response) => (
-      response.ok ? (
+    }).then((response) => {
+      if (response.ok) {
         response.json()
-          .then((data: [boolean, string | null]) =>
-            data[0] ? (success = true) :
-              console.log(`Login falhou, motivo: ${data[1]}`)
-          )
-      ) : console.log(response)
-    )).catch(
-      (err) => console.log('Erro na requisição')
-    );
+          .then((data: [boolean, string | null]) => {
+            if (data[0]) {
+              const userType: string | null = data[1];
+              if (userType === 'admin') {
+                window.location.href = '/admin-page'; // redireciona para a página do admin
+              } else if (userType === 'dev') {
+                window.location.href = '/dev-page'; // redireciona para a página do desenvolvedor
+              } else {
+                window.location.href = '/user-page'; // redireciona para a página do usuário comum
+              }
+            } else {
+              console.log(`Login falhou, motivo: ${data[1]}`);
+            }
+          });
+      } else {
+        console.log(response);
+      }
+    }).catch((err) => console.log('Erro na requisição'));
 
     this.loginForm.reset();
-
-    return success;
   }
 
+  // login2() {
+  //   const userType: string = 'dev'
+  //   if (userType === 'admin') {
+  //     window.location.href = '/manager-interface'; // redireciona para a página do admin
+  //   } else if (userType === 'dev') {
+  //     window.location.href = '/dev-interface'; // redireciona para a página do desenvolvedor
+  //   } else {
+  //     window.location.href = '/store'; // redireciona para a página do usuário comum
+  //   }
+  // }
 }
+
+
+
+

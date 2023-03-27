@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Games } from 'src/app/model/games.model';
+import { Troca } from 'src/app/model/troca.model';
 
 @Component({
   selector: 'app-games-exchange',
@@ -7,10 +7,28 @@ import { Games } from 'src/app/model/games.model';
   styleUrls: ['./games-exchange.component.css']
 })
 export class GamesExchangeComponent {
-  @Input() games!: Games
 
-  constructor() { }
+  @Input() troca!: Troca
+
+  showDetails = false;
+
+  verDetails() {
+    this.showDetails = true;
+    console.log(this.showDetails);
+  }
+
+  semDetails() {
+    this.showDetails = false;
+  }
 
   ngOnInit() {
+  }
+
+  trocarJogo() {
+    //implementar
+  }
+
+  removerTroca() {
+    //implementar
   }
 }

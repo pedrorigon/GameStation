@@ -59,12 +59,21 @@
     text-align: center;
     font-size: 1.8rem;
     margin-bottom: 0.9375rem;
-    margin-left: 40%;
     padding: 1.25rem 1.875rem;
     background-image: linear-gradient(rgba(9, 9, 65, 0.685), rgba(83, 64, 29, 0.726));
     border-radius: 0.9375rem;
     border: 2px solid rgba(255, 255, 255, 0.301);
     transition: all .3s ease-in-out;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.container-form {
+    display: flex;
+    justify-content: center;
 }
 
 .btn-add-saldo:hover {
@@ -82,7 +91,6 @@
 .form-container {
     position: absolute;
     top: 55%;
-    left: 44%;
     width: 28.125rem;
     margin: auto;
     padding: 1.25rem;

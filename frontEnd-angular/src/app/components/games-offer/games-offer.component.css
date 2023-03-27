@@ -1,8 +1,12 @@
-a {
-    text-decoration: none;
+button {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 .card-game {
+    font-size: 1.2rem;
     margin: 1.875rem;
     margin-right: 1.25rem;
     width: 12.5rem;
@@ -21,13 +25,202 @@ a {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
     text-align: center;
-    margin-top: 0.5rem;
-    margin: 0.3rem;
+    margin-top: 0.625rem;
+    margin: 0.2rem;
 }
 
-.game-preco,
+.game-preco {
+    color: rgb(159, 234, 150);
+    text-align: center;
+    margin-bottom: 0.1rem;
+    font-size: 1.1rem;
+    text-decoration: line-through;
+}
+
 .game-preco-oferta {
     color: rgb(50, 240, 25);
     text-align: center;
+    font-size: 1.3rem;
     margin-bottom: 0.2rem;
+    font-weight: bold;
+}
+
+/* ----------------------- CSS DO DETAILS ------------------------- */
+.tudo {
+    background-image: linear-gradient(#0f3152, #b37553);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.total-details {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.container-details {
+    position: relative;
+    width: 85vw;
+    height: 95vh;
+    background-color: rgba(3, 3, 3, 0.377);
+    border-radius: 0.9375rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-nome-details {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 2.6rem;
+    padding-bottom: 1.875rem;
+    padding-top: 2%;
+    text-align: center;
+    margin: 0;
+}
+
+
+.game-imagens-details {
+    background-color: aquamarine;
+    width: 100%;
+    height: 40%;
+    margin-bottom: 1.25rem;
+    overflow-x: auto;
+    z-index: 100;
+}
+
+.div-descricao-details {
+    margin: 0.9375rem;
+    padding: 0.75rem;
+    height: 12.5rem;
+    background-color: rgba(0, 0, 0, 0.479);
+    border-radius: 0.9375rem;
+    overflow-y: auto;
+}
+
+.game-descricao-details {
+    color: white;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    font-size: 1.125rem;
+    text-align: justify;
+}
+
+.game-buttons-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9375rem;
+}
+
+.textos-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.75rem;
+    margin-bottom: 0.9375rem;
+}
+
+
+.game-preco-details {
+    font-size: 1.5rem;
+    color: rgb(152, 232, 128);
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-decoration: line-through;
+    text-align: center;
+    background-color: transparent;
+    margin-bottom: 0.625rem;
+    margin: 0;
+}
+
+.offer-preco-details {
+    font-size: 2rem;
+    color: rgb(38, 225, 47);
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+    background-color: transparent;
+    margin-bottom: 0.625rem;
+    margin: 0;
+}
+
+.game-avaliacoes-details {
+    margin: 0;
+    color: rgb(255, 244, 86);
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+    background-color: transparent;
+}
+
+.buy-button-details {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    background-color: rgba(21, 255, 52, 0.966);
+    width: 15.625rem;
+    height: 3.75rem;
+    border-radius: 0.625rem;
+    margin: 0;
+    transition: .2s all ease;
+    margin-top: 0.3125rem;
+    margin-bottom: 1.25rem;
+}
+
+.buy-button-button-details:hover {
+    background-color: rgba(130, 252, 146, 0.801);
+}
+
+.remove-button-details {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    background-color: rgba(255, 56, 21, 0.966);
+    width: 10rem;
+    height: 3rem;
+    border-radius: 0.625rem;
+    margin: 0;
+    transition: .2s all ease;
+    margin-top: 0.3125rem;
+    margin-bottom: 1.25rem;
+}
+
+.link-back-details {
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .125rem;
+}
+
+.back-button-details {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    background-color: rgba(14, 8, 1, 0.644);
+    width: 10%;
+    text-align: center;
+    border-radius: 0.625rem;
+    padding: 0.625rem;
+    transition: all .5s ease-in-out;
+}
+
+.back-button-details:hover {
+    background-color: rgba(255, 255, 255, 0.616);
+    color: black;
 }
