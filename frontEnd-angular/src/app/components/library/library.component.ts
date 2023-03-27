@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Games } from 'src/app/model/games.model';
+import { Biblio } from 'src/app/model/biblio.model';
 
 @Component({
   selector: 'app-library',
@@ -8,40 +8,35 @@ import { Games } from 'src/app/model/games.model';
 })
 export class LibraryComponent {
 
-  name_obj: string = "library";
-  showGameDetails = false;
+  // carregar lista de jogos para venda do banco de dados
+  refreshGames(): boolean {
+    let result = false;
 
-  showDetails(idJogo: number) {
-    this.showGameDetails = true;
-    this.name_obj = "library"
+    //conferir se é /biblioteca mesmo!!!
+    fetch("http://127.0.0.1:8000/biblioteca/", {
+      method: 'GET',
+      credentials: 'include',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }),
+    }).then((response) => (
+      response.ok ? (
+        response.json()
+          .then((data: [boolean, Biblio[] | string]) =>
+            data[0] ? (
+              this.GamesLibrary = data[1] as Biblio[], result = true
+            ) : console.log(data[1])
+          )
+      ) : console.log(response)
+    )).catch(
+      (err) => console.log('Error na requisição')
+    );
+
+    return result;
   }
 
-  GamesLibrary: Games[] = [
-    {
-      "id": 1,
-      "link_imagens": "link imagem do jogo 1",
-      "nome": "nome jogo 1",
-      "preco": 100.00,
-      "avaliacao": 9,
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-    {
-      "id": 2,
-      "link_imagens": "link imagem do jogo 2",
-      "nome": "nome jogo 2",
-      "preco": 90.90,
-      "avaliacao": 9,
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-    {
-      "id": 3,
-      "link_imagens": "link imagem do jogo 3",
-      "nome": "nome jogo 3",
-      "preco": 50.00,
-      "avaliacao": 8,
-      "tags": ["puzzle"]
-    },
-  ];
+  GamesLibrary: Biblio[] = [];
 
   //para filtragem nos generos selecionados
   selectedGenres: string[] = [];
@@ -54,6 +49,7 @@ export class LibraryComponent {
     gamesStoreCopy.forEach(game => {
       game.tags = game.tags.map(tag => tag.toLowerCase());
     });
+
 
     console.log('Selected genres:', this.selectedGenres);
 

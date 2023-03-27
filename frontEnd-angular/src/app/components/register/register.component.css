@@ -22,33 +22,6 @@ body {
     background-image: url(fotoGameStation.png);
     background-position: center center;
     background-size: cover;
-    animation: image-tam-animate 2s ease-out forwards,
-        image-animate 4s ease-in forwards;
-    animation-fill-mode: forwards, forwards;
-    animation-delay: .2s, .2s;
-
-}
-
-@keyframes image-tam-animate {
-    0% {
-        width: 0%;
-        height: 0%;
-    }
-
-    100% {
-        width: 43.75rem;
-        height: 50rem;
-    }
-}
-
-@keyframes image-animate {
-    0% {
-        opacity: 0%;
-    }
-
-    100% {
-        opacity: 100%;
-    }
 }
 
 .box,
@@ -162,12 +135,11 @@ body {
     margin-top: 3.125rem;
 }
 
-.box-register form .inputBox {
+.box-register .form .inputBox {
     position: relative;
     width: 25rem;
     margin-top: 1.875rem;
 }
-
 
 .box .form .inputBox input,
 .box-register .form .inputBox input {

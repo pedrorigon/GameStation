@@ -1,0 +1,10 @@
+<a [routerLink]="['/game-details-offer', oferta.id]">
+    <div class="card-game">
+        <div class="game-imagens">{{oferta.link_imagens}}</div>
+
+        <h3 class="game-nome">{{oferta.nome}}</h3>
+
+        <div class="game-preco">R$ {{oferta.preco}}</div>
+        <div class="game-preco-oferta">R$ {{oferta.preco_oferta}}</div>
+    </div>
+</a>

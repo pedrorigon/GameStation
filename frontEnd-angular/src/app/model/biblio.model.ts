@@ -1,5 +1,8 @@
-
-export interface Games {
+export interface Biblio {
+    id_chave: number,
+    avaliacao_usuario: number,
+    disponibilidade: string,
+    //jogo
     id: number;
     nome: string;
     descricao: string;

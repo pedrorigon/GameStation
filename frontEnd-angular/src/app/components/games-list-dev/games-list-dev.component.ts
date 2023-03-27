@@ -15,6 +15,7 @@ export class GamesListDevComponent {
       "nome": "nome jogo 1",
       "preco": 100.00,
       "avaliacao": 9,
+      "descricao": "descricao",
       "tags": ["action", "adventure", "multiplayer"]
     },
     {
@@ -23,6 +24,7 @@ export class GamesListDevComponent {
       "nome": "nome jogo 2",
       "preco": 90.90,
       "avaliacao": 9,
+      "descricao": "descricao",
       "tags": ["action", "adventure", "multiplayer"]
     },
   ];

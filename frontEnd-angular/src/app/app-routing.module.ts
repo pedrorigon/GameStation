@@ -4,6 +4,7 @@ import { StoreComponent } from './components/store/store.component';
 import { LibraryComponent } from './components/library/library.component';
 import { AccountComponent } from './components/account/account.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { ExchangeComponent } from './components/exchange/exchange.component';
 import { GamesComponent } from './components/games/games.component';
@@ -25,9 +26,13 @@ import { GamesExchangeComponent } from './components/games-exchange/games-exchan
 import { GamesLibraryComponent } from './components/games-library/games-library.component';
 import { GameDetailsLibraryComponent } from './components/game-details-library/game-details-library.component';
 import { HeaderManagerComponent } from './components/header-manager/header-manager.component';
+import { GamesOfferComponent } from './components/games-offer/games-offer.component';
+import { GameDetailsOfferComponent } from './components/game-details-offer/game-details-offer.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'store', component: StoreComponent },
   { path: 'library', component: LibraryComponent },
   { path: 'library/:id', component: GameDetailsComponent },
@@ -46,6 +51,8 @@ const routes: Routes = [
   { path: 'historico-dev', component: HistoricoDevComponent },
   { path: 'games-list-dev', component: GamesListDevComponent },
   { path: 'games-dev', component: GamesDevComponent },
+  { path: 'game-details-offer/:id', component: GameDetailsOfferComponent },
+  { path: 'games-offer', component: GamesOfferComponent },
   { path: 'game-details-dev/:id', component: GameDetailsDevComponent },
   { path: 'games-exchange', component: GamesExchangeComponent },
   { path: 'game-details-exchange/:id', component: GameDetailsExchangeComponent },

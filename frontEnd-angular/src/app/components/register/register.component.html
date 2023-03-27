@@ -1,0 +1,34 @@
+<body>
+    <div class="image-logo">
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="form-register">
+        <div class="box-register">
+            <span class="borderLine"></span>
+            <div class="form">
+                <h2>Register</h2>
+                <div class="inputBox">
+                    <input type="text" id="name" formControlName="name" required>
+                    <span>Username</span>
+                    <i></i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="password" formControlName="password" required>
+                    <span>Password</span>
+                    <i></i>
+                </div>
+                <div class="user-options">
+                    <select id="userType" name="userType" formControlName="userType">
+                        <option value="" selected hidden>Choose a user option</option>
+                        <option value="manager">Manager</option>
+                        <option value="dev">Developer</option>
+                        <option value="user">Gamer / User</option>
+                    </select>
+                </div>
+                <button type="submit">Register</button>
+                <div class="links">
+                    <p>Back to <a routerLink="/login">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </form>

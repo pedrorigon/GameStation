@@ -14,6 +14,7 @@ export class ManagerInterfaceComponent {
       "nome": "nome jogo 1",
       "preco": 100.00,
       "avaliacao": 9,
+      "descricao": "descricao",
       "tags": ["action", "adventure", "multiplayer"]
     },
     {
@@ -22,6 +23,7 @@ export class ManagerInterfaceComponent {
       "nome": "nome jogo 2",
       "preco": 90.90,
       "avaliacao": 9,
+      "descricao": "descricao",
       "tags": ["action", "adventure", "multiplayer"]
     },
     {
@@ -29,6 +31,7 @@ export class ManagerInterfaceComponent {
       "link_imagens": "link imagem do jogo 3",
       "nome": "nome jogo 3",
       "preco": 50.00,
+      "descricao": "descricao",
       "avaliacao": 8,
       "tags": ["puzzle"]
     },
@@ -38,6 +41,7 @@ export class ManagerInterfaceComponent {
       "nome": "nome jogo 4",
       "preco": 70.00,
       "avaliacao": 7,
+      "descricao": "descricao",
       "tags": ["adventure"]
     },
   ];
