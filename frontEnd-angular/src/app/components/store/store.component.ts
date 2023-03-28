@@ -10,12 +10,12 @@ import { GameServiceService } from 'src/app/game-service.service';
 
 export class StoreComponent {
   GamesStore: Games[] = [];
-  
+
   //para filtragem nos generos selecionados
   selectedGenres: string[] = [];
   filteredGames: any[] = this.GamesStore;
 
-  ngOnInit(){
+  ngOnInit() {
     this.refreshGames();
   }
 

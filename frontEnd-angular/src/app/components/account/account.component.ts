@@ -11,14 +11,10 @@ import { Userinfo } from 'src/app/model/user_info.model';
 export class AccountComponent {
 
   ngOnInit(): void {
+    this.refreshUserInfo()
   }
 
-  userInfo: Userinfo =
-    {
-      "login": "string",
-      "saldo": 100,
-      "rank": 10,
-    }
+  userInfo!: Userinfo
 
   refreshUserInfo(): boolean {
     let result = false;
@@ -33,9 +29,9 @@ export class AccountComponent {
     }).then((response) => (
       response.ok ? (
         response.json()
-          .then((data: [boolean, { login: string, saldo: number, rank: number } | string]) =>
+          .then((data: [boolean, Userinfo[] | string]) =>
             data[0] ? (
-              this.userInfo = data[1] as Userinfo, result = true
+              this.userInfo = data[1][0] as Userinfo, result = true, console.log(this.userInfo)
             ) : console.log(data[1])
           )
       ) : console.log(response)
@@ -56,9 +52,10 @@ export class AccountComponent {
     this.mostrarFormulario = true;
   }
 
-  addSaldo(valor: number) {
-    alert("Valor a ser adicionado: " + valor);
-    /*fetch("http://127.0.0.1:8000/add_saldo/", {
+  addSaldo(valor: string) {
+    // alert("Valor a ser adicionado: " + valor);
+
+    fetch("http://127.0.0.1:8000/aumentar_saldo/", {
       method: 'POST',
       credentials: 'include',
       headers: new Headers({
@@ -66,7 +63,7 @@ export class AccountComponent {
         'Accept': 'application/json',
       }),
       body: JSON.stringify({
-        valor: valor
+        acrescimo: parseFloat(valor)
       })
     }).then(response => {
       if (response.ok) {
@@ -78,7 +75,7 @@ export class AccountComponent {
       }
     }).catch(error => {
       console.log("Erro na requisição");
-    });*/
+    });
 
     this.refreshUserInfo();
   }

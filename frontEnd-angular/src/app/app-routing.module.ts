@@ -28,6 +28,7 @@ import { GameDetailsLibraryComponent } from './components/game-details-library/g
 import { HeaderManagerComponent } from './components/header-manager/header-manager.component';
 import { GamesOfferComponent } from './components/games-offer/games-offer.component';
 import { GameDetailsOfferComponent } from './components/game-details-offer/game-details-offer.component';
+import { AccountDevComponent } from './components/account-dev/account-dev.component';
 
 
 const routes: Routes = [
@@ -61,6 +62,7 @@ const routes: Routes = [
   { path: 'game-details-library/:id', component: GameDetailsLibraryComponent },
   { path: 'header-manager', component: HeaderManagerComponent },
   { path: 'historico-manager', component: HistoricoManagerComponent },
+  { path: 'account-dev', component: AccountDevComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 

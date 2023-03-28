@@ -29,6 +29,31 @@ export class GamesExchangeComponent {
   }
 
   removerTroca() {
-    //implementar
+    let result = false;
+
+    //conferir se é /biblioteca mesmo!!!
+    fetch("http://127.0.0.1:8000/trocas/", {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }),
+      body: JSON.stringify({
+        id_troca: this.troca.id_troca
+      })
+    }).then((response) => (
+      response.ok ? (
+        response.json()
+          .then((data: [boolean, null | string]) =>
+            data[0] ? (
+              console.log("Successfully removed offered game!")
+            ) : console.log(data[1])
+          )
+      ) : console.log(response)
+    )).catch(
+      (err) => console.log('Error na requisição')
+    );
+    return result;
   }
 }

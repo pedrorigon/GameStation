@@ -1,8 +1,8 @@
-import { 
+import {
   Component,
 } from '@angular/core';
 import { GameInLibrary } from 'src/app/model/biblio.model';
-import {  } from 'src/app/model/biblio.model';
+import { } from 'src/app/model/biblio.model';
 
 @Component({
   selector: 'app-library',
@@ -15,7 +15,7 @@ export class LibraryComponent {
   selectedGenres: string[] = [];
   filteredGames: any[] = this.gamesLibrary;
 
-  ngOnInit(){
+  ngOnInit() {
     this.refreshGames();
     this.filterGames();
   }
@@ -42,7 +42,7 @@ export class LibraryComponent {
           )
       ) : console.log(response)
     )).catch(
-      (err) => console.log('Error na requisição')
+      (err) => console.log('Error na library')
     );
 
     return result;

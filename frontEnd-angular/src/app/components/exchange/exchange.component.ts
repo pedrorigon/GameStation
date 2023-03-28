@@ -9,44 +9,40 @@ import { Troca } from 'src/app/model/troca.model';
 export class ExchangeComponent {
 
   // carregar lista de jogos para venda do banco de dados
-  GamesExchange: Troca[] = [
-    {
-      "id_troca": 10,
-      "data": 0, //so por enquanto depois é Date
-      "usuario_rank": 1,
-      "id": 1,
-      "link_imagens": "link imagem do jogo 1",
-      "nome": "nome jogo 1",
-      "preco": 100.00,
-      "avaliacao": 9,
-      "descricao": "descricao",
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-    {
-      "id_troca": 15,
-      "data": 0, //so por enquanto depois é Date
-      "usuario_rank": 1,
-      "id": 2,
-      "link_imagens": "link imagem do jogo 2",
-      "nome": "nome jogo 2",
-      "preco": 90.90,
-      "avaliacao": 9,
-      "descricao": "descricao",
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-    {
-      "id_troca": 20,
-      "data": 0, //so por enquanto depois é Date
-      "usuario_rank": 1,
-      "id": 3,
-      "link_imagens": "link imagem do jogo 3",
-      "nome": "nome jogo 3",
-      "preco": 50.00,
-      "avaliacao": 8,
-      "descricao": "descricao",
-      "tags": ["puzzle"]
-    },
-  ];
+  GamesExchange: Troca[] = [];
+
+  refreshGames(): boolean {
+    let result = false;
+
+    fetch("http://127.0.0.1:8000/trocas/", {
+      method: 'GET',
+      credentials: 'include',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }),
+    }).then((response) => (
+      response.ok ? (
+        response.json()
+          .then((data: [boolean, Troca[] | string]) =>
+            data[0] ? (
+              this.GamesExchange = data[1] as Troca[], result = true, this.filterGames()
+            ) : console.log(data[1])
+          )
+      ) : console.log(response)
+    )).catch(
+      (err) => console.log('Error na requisição')
+    );
+
+    return result;
+  }
+
+  ngOnInit() {
+    this.refreshGames();
+    this.filterGames();
+  }
+
+
   //para filtragem nos generos selecionados
   selectedGenres: string[] = [];
   filteredGames: any[] = this.GamesExchange;
@@ -96,7 +92,7 @@ export class ExchangeComponent {
     const target = e.target as HTMLInputElement
     const value = target.value
 
-    this.filteredGames = this.GamesExchange.filter((games) => { return games.nome.toLowerCase().includes(value); })
+    this.filteredGames = this.GamesExchange.filter((games) => { return games.nome.includes(value); })
   }
 
   constructor() { }

@@ -33,6 +33,7 @@ import { HeaderManagerComponent } from './components/header-manager/header-manag
 import { RegisterComponent } from './components/register/register.component';
 import { GamesOfferComponent } from './components/games-offer/games-offer.component';
 import { GameDetailsOfferComponent } from './components/game-details-offer/game-details-offer.component';
+import { AccountDevComponent } from './components/account-dev/account-dev.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { GameDetailsOfferComponent } from './components/game-details-offer/game-
     RegisterComponent,
     GamesOfferComponent,
     GameDetailsOfferComponent,
+    AccountDevComponent,
   ],
   imports: [
     BrowserModule,
