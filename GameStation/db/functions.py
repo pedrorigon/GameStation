@@ -23,6 +23,24 @@ def _jogo_info(cursor, id_jogo: int) -> dict:
 
     return {"tags": _jogo_tag(cursor, id_jogo), **jogo_info}
 
+# Retorna informações e tags de jogo pendente por id_jogo
+def _jogo_pendente_info(cursor, id_jogo: int) -> dict:
+    cursor.execute(SQLCommand.JOGO_INFO_PENDENTE, {"id_jogo": id_jogo})
+    column_names = cursor.description
+
+    if column_names is None:
+        return {}
+
+    column_names = [column_name[0] for column_name in column_names]
+    n_columns = len(column_names)
+    records = cursor.fetchone()
+
+    jogo_info = {}
+    for i in range(n_columns):
+        jogo_info[column_names[i]] = records[i]
+
+    return {"tags": _jogo_tag(cursor, id_jogo), **jogo_info}
+
 # Retorna tags de jogo especificado por id_jogo
 def _jogo_tag(cursor, id_jogo: int) -> list[str]:
     cursor.execute(SQLCommand.TAGS_JOGO, {"id_jogo": id_jogo})
@@ -100,6 +118,18 @@ def generic_jogo_info(cursor, command: CommandInfo, arg: dict) -> tuple[bool, st
 
     for i in range(len(ret[1])):
         ret[1][i].update(_jogo_info(cursor, ret[1][i]["id_jogo"]))
+
+    return ret
+
+# Executa comando e retorna tabela com dados sobre os id_jogo's
+def jogo_pendente(cursor, command: CommandInfo, arg: dict) -> tuple[bool, str|dict]:
+    ret = generic(cursor, command, arg)
+
+    if not ret[0]:
+        return ret
+
+    for i in range(len(ret[1])):
+        ret[1][i].update(_jogo_pendente_info(cursor, ret[1][i]["id_jogo"]))
 
     return ret
 
