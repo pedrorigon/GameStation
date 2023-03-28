@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GameServiceService } from 'src/app/game-service.service';
-import { Games } from 'src/app/model/games.model';
+import { JogoGamesManager } from 'src/app/model/jogo-games-manager.model';
 import { GameInLibrary } from 'src/app/model/biblio.model';
 
 
@@ -12,7 +12,7 @@ import { GameInLibrary } from 'src/app/model/biblio.model';
 })
 export class GamesComponent {
 
-  @Input() game!: Games;
+  @Input() game!: JogoGamesManager;
 
   showDetails = false;
 
@@ -32,7 +32,6 @@ export class GamesComponent {
   }
 
   comprarJogo() {
-    console.log(this.game.id);
     let success = false;
 
     fetch("http://127.0.0.1:8000/comprar_jogo/", {
@@ -43,7 +42,7 @@ export class GamesComponent {
         'Accept': 'application/json',
       }),
       body: JSON.stringify({
-        id_jogo: this.game.id,
+        id_jogo: this.game.id_jogo,
       })
 
       //VER COMO CONCLUIR A PARTIR DAQUI
