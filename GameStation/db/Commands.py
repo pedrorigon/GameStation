@@ -23,7 +23,7 @@ class SQLCommand:
     }
     OFERTAS = "SELECT * FROM exibe_ofertas;"
     TROCAS = "SELECT * FROM exibe_trocas;"
-    INSERIR_OFERTAS = "INSERT INTO ofertas(id_usuario, id_chave, valor) VALUES(:id_usuario, :id_chave, :valor);"
+    INSERIR_OFERTAS = "INSERT INTO ofertas(id_usuario, id_chave, valor) VALUES(:id_usuario, :id_chave, :preco);"
     REMOVE_OFERTA = "DELETE FROM ofertas WHERE(id=:id_oferta AND id_usuario=:id_usuario);"
     ANUNCIA_TROCA = "INSERT INTO trocas(id_usuario, id_chave) VALUES(:id_usuario, :id_chave);"
     REMOVE_TROCA = "DELETE FROM trocas WHERE(id=:id_troca AND id_usuario=:id_usuario);"
