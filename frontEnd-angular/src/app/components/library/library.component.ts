@@ -1,8 +1,6 @@
-import {
-  Component,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { GameInLibrary } from 'src/app/model/biblio.model';
-import { } from 'src/app/model/biblio.model';
+
 
 @Component({
   selector: 'app-library',

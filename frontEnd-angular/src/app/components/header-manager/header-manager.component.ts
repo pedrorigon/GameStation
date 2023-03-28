@@ -11,7 +11,17 @@ export class HeaderManagerComponent {
   constructor(private router: Router) { }
 
   logout() {
-    //aqui implementar
+    let success = false;
+
+    fetch("http://127.0.0.1:8000/session/", {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }),
+    });
+
     this.router.navigate(['/login']);
   }
 

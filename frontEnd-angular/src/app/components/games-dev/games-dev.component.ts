@@ -37,7 +37,7 @@ export class GamesDevComponent {
         'Accept': 'application/json',
       }),
       body: JSON.stringify({
-        id_jogo: this.game.id, justificativa: ''
+        id_jogo: this.game.id_jogo, justificativa: ''
       })
     }).then((response) => (
       response.ok ? (

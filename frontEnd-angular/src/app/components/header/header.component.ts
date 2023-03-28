@@ -8,12 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  userInfo: Userinfo =
-    {
-      "login": "string",
-      "saldo": 100,
-      "rank": 10,
-    }
+  userInfo: Userinfo = {
+    "login": "string",
+    "saldo": 0,
+    "rank": 0
+  }
 
   refreshUserInfo(): boolean {
     let result = false;
@@ -44,8 +43,16 @@ export class HeaderComponent {
   constructor(private router: Router) { }
 
   logout() {
-    //aqui implementar
+    let success = false;
 
+    fetch("http://127.0.0.1:8000/session/", {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }),
+    });
 
     this.router.navigate(['/login']);
   }

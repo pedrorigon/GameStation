@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Games } from 'src/app/model/games.model';
-import { GameServiceService } from 'src/app/game-service.service';
 
 @Component({
   selector: 'app-store',
@@ -9,14 +8,10 @@ import { GameServiceService } from 'src/app/game-service.service';
 })
 
 export class StoreComponent {
-  GamesStore: Games[] = [];
-
-  //para filtragem nos generos selecionados
-  selectedGenres: string[] = [];
-  filteredGames: any[] = this.GamesStore;
 
   ngOnInit() {
     this.refreshGames();
+    this.filterGames();
   }
 
   refreshGames(): boolean {
@@ -34,7 +29,7 @@ export class StoreComponent {
         response.json()
           .then((data: [boolean, Games[] | string]) =>
             data[0] ? (
-              this.GamesStore = data[1] as Games[], result = true, this.filterGames()
+              this.GamesStore = data[1] as Games[], result = true
             ) : console.log(data[1])
           )
       ) : console.log(response)
@@ -45,9 +40,11 @@ export class StoreComponent {
     return result;
   }
 
-  // constructor(private gameService: GameServiceService) { 
-  //   this.gameService.game = this.game;
-  // }
+  GamesStore: Games[] = [];
+
+  //para filtragem nos generos selecionados
+  selectedGenres: string[] = [];
+  filteredGames: any[] = [];
 
   filterGames() {
     this.selectedGenres = this.selectedGenres.map(genre => genre.toLowerCase());
@@ -96,4 +93,6 @@ export class StoreComponent {
 
     this.filteredGames = this.GamesStore.filter((game) => { return game.nome.includes(value); })
   }
+
+  constructor() { }
 }
