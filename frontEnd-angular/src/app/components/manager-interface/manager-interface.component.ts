@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { JogoPendente } from 'src/app/model/jogo-pendente.model';
+import { JogoGamesManager } from 'src/app/model/jogo-games-manager.model';
 import { Historico } from 'src/app/model/historico.model';
 
 @Component({
@@ -8,7 +8,7 @@ import { Historico } from 'src/app/model/historico.model';
   styleUrls: ['./manager-interface.component.css']
 })
 export class ManagerInterfaceComponent {
-  JogosPendentes: JogoPendente[] = [];
+  JogosPendentes: JogoGamesManager[] = [];
 
   ManagerHistorico: Historico[] = [];
 
@@ -31,9 +31,9 @@ export class ManagerInterfaceComponent {
     }).then((response) => (
       response.ok ? (
         response.json()
-          .then((data: [boolean, JogoPendente[] | string]) =>
+          .then((data: [boolean, JogoGamesManager[] | string]) =>
             data[0] ? (
-              this.JogosPendentes = data[1] as JogoPendente[], result = true
+              this.JogosPendentes = data[1] as JogoGamesManager[], result = true
             ) : console.log(data[1])
           )
       ) : console.log(response)
