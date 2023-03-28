@@ -1,10 +1,10 @@
 <button (click)="verDetails()" *ngIf="!showDetails">
     <div class="card-game">
-        <div class="game-imagens">{{game.link_imagens}}</div>
+        <div class="game-imagens"></div>
 
         <h3 class="game-nome">{{game.nome}}</h3>
 
-        <div class="game-preco">R$ {{game.preco}}</div>
+        <div class="game-preco">R$ {{game.preco.toFixed(2)}}</div>
     </div>
 </button>
 
@@ -17,7 +17,7 @@
 
             <h2 class="game-nome-details">{{game.nome}}</h2>
 
-            <div class="game-imagens-details">Imagens jogo</div>
+            <div class="game-imagens-details"></div>
 
             <div class="grid-details">
                 <div class="div-descricao-details">
@@ -31,8 +31,8 @@
                 <div class="game-column2-details">
 
                     <div class="textos-details">
-                        <p class="game-preco-details">R$ {{game.preco}}</p>
-                        <p class="game-avaliacoes-details">Avaliação: {{game.avaliacao}}/10</p>
+                        <p class="game-preco-details">R$ {{game.preco.toFixed(2)}}</p>
+                        <p class="game-avaliacoes-details">Avaliação: {{game.avaliacao.toFixed(1)}}/10</p>
                     </div>
 
                     <div class="game-buttons-details">

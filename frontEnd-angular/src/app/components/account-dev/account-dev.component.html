@@ -6,9 +6,9 @@
             <h1>Your Account </h1>
         </div>
         <div class="account-content">
-            <p class="card-text">Username: {{devInfo.login}}</p>
-            <p class="card-text">User Rank: {{devInfo.rank}} </p>
-            <p class="card-text">Saldo Atual: R$ {{devInfo.lucro}} </p>
+            <p class="card-text">Dev Username: {{devInfo.login}}</p>
+            <p class="card-text">User Rank: {{devInfo.rank.toFixed(2)}} </p>
+            <p class="card-text">Saldo Atual: R$ {{devInfo.lucro.toFixed(2)}} </p>
         </div>
     </div>
 </div>

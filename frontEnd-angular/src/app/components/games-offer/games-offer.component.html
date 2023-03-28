@@ -1,12 +1,12 @@
 <button (click)="verDetails()" *ngIf="!showDetails">
     <div class="card-game">
-        <div class="game-imagens">{{oferta.link_imagens}}</div>
+        <div class="game-imagens"></div>
 
         <h3 class="game-nome">{{oferta.nome}}</h3>
 
-        <div class="game-preco">R$ {{oferta.preco}}</div>
+        <div class="game-preco">R$ {{oferta.preco.toFixed(2)}}</div>
 
-        <div class="game-preco-oferta">R$ {{oferta.preco_oferta}}</div>
+        <div class="game-preco-oferta">R$ {{oferta.preco_oferta.toFixed(2)}}</div>
     </div>
 </button>
 
@@ -19,7 +19,7 @@
 
             <h2 class="game-nome-details">{{oferta.nome}}</h2>
 
-            <div class="game-imagens-details">Imagens jogo</div>
+            <div class="game-imagens-details"></div>
 
             <div class="grid-details">
                 <div class="div-descricao-details">
@@ -33,9 +33,9 @@
                 <div class="game-column2-details">
 
                     <div class="textos-details">
-                        <p class="game-preco-details">R$ {{oferta.preco}}</p>
-                        <p class="offer-preco-details">R$ {{oferta.preco}}</p>
-                        <p class="game-avaliacoes-details">Avaliação: {{oferta.avaliacao}}/10</p>
+                        <p class="game-preco-details">R$ {{oferta.preco.toFixed(2)}}</p>
+                        <p class="offer-preco-details">R$ {{oferta.preco_oferta.toFixed(2)}}</p>
+                        <p class="game-avaliacoes-details">Avaliação: {{oferta.avaliacao.toFixed(1)}}/10</p>
                     </div>
 
                     <div class="game-buttons-details">

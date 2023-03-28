@@ -17,6 +17,7 @@ button {
 
 .game-imagens {
     /* background-color: rgba(212, 0, 255, 0.329); */
+    background-image: url(cs-go.jpeg);
     background-position: center center;
     background-size: cover;
     width: 100%;
@@ -84,12 +85,11 @@ button {
 }
 
 .game-imagens-details {
-    /* background-color: aquamarine;
-    background-image: url({{game.link_imagens}}); */
+    background-image: url(cs-go.jpeg);
     background-position: center center;
     background-size: cover;
     width: 100%;
-    height: 40%;
+    height: 100%;
     margin-bottom: 1.25rem;
     overflow-x: auto;
     z-index: 100;

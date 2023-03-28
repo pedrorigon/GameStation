@@ -28,10 +28,11 @@ export class GamesComponent {
 
   ngOnInit() {
     // console.log(this.game)
+    const numFixed = this.game.avaliacao.toFixed(2);
   }
 
   comprarJogo() {
-    console.log(this.game.id_jogo);
+    console.log(this.game.id);
     let success = false;
 
     fetch("http://127.0.0.1:8000/comprar_jogo/", {
@@ -42,7 +43,7 @@ export class GamesComponent {
         'Accept': 'application/json',
       }),
       body: JSON.stringify({
-        id_jogo: this.game.id_jogo,
+        id_jogo: this.game.id,
       })
 
       //VER COMO CONCLUIR A PARTIR DAQUI

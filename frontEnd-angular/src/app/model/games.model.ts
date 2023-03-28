@@ -1,6 +1,6 @@
 
 export interface Games {
-    id_jogo: number;
+    id: number;
     nome: string;
     descricao: string;
     preco: number;
