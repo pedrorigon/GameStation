@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Games } from 'src/app/model/games.model';
+import { JogoGamesManager } from 'src/app/model/jogo-games-manager.model';
 
 @Component({
   selector: 'app-games-list-dev',
@@ -8,7 +8,7 @@ import { Games } from 'src/app/model/games.model';
 })
 export class GamesListDevComponent {
 
-  GamesDev: Games[] = []
+  GamesDev: JogoGamesManager[] = []
 
   ngOnInit() {
     this.refreshGames();
@@ -27,9 +27,9 @@ export class GamesListDevComponent {
     }).then((response) => (
       response.ok ? (
         response.json()
-          .then((data: [boolean, Games[] | string]) =>
+          .then((data: [boolean, JogoGamesManager[] | string]) =>
             data[0] ? (
-              this.GamesDev = data[1] as Games[], result = true
+              this.GamesDev = data[1] as JogoGamesManager[], result = true
             ) : console.log(data[1])
           )
       ) : console.log(response)
