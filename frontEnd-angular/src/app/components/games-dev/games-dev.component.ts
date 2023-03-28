@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Games } from 'src/app/model/games.model';
+import { JogoGamesManager } from 'src/app/model/jogo-games-manager.model';
 
 @Component({
   selector: 'app-games-dev',
@@ -8,7 +8,7 @@ import { Games } from 'src/app/model/games.model';
 })
 export class GamesDevComponent {
 
-  @Input() game!: Games
+  @Input() game!: JogoGamesManager
 
   showDetails = false;
 

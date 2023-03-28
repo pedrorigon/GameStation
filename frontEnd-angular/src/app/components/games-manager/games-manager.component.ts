@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { JogoPendente } from 'src/app/model/jogo-pendente.model';
+import { JogoGamesManager } from 'src/app/model/jogo-games-manager.model';
 
 @Component({
   selector: 'app-games-manager',
@@ -8,7 +8,7 @@ import { JogoPendente } from 'src/app/model/jogo-pendente.model';
 })
 export class GamesManagerComponent implements OnInit {
 
-  @Input() game!: JogoPendente
+  @Input() game!: JogoGamesManager
 
   showDetails = false;
 
@@ -37,7 +37,7 @@ export class GamesManagerComponent implements OnInit {
         'Accept': 'application/json',
       }),
       body: JSON.stringify({
-        id_jogo: this.game.id
+        id_jogo: this.game.id_jogo
       })
     }).then((response) => (
       response.ok ? (
@@ -64,7 +64,7 @@ export class GamesManagerComponent implements OnInit {
         'Accept': 'application/json',
       }),
       body: JSON.stringify({
-        id_jogo: this.game.id, justificativa: 'aa'
+        id_jogo: this.game.id_jogo, justificativa: 'aa'
       })
     }).then((response) => (
       response.ok ? (
