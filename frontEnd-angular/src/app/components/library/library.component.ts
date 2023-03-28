@@ -1,7 +1,8 @@
 import { 
   Component,
 } from '@angular/core';
-import { Biblio } from 'src/app/model/biblio.model';
+import { GameInLibrary } from 'src/app/model/biblio.model';
+import {  } from 'src/app/model/biblio.model';
 
 @Component({
   selector: 'app-library',
@@ -9,6 +10,10 @@ import { Biblio } from 'src/app/model/biblio.model';
   styleUrls: ['./library.component.css']
 })
 export class LibraryComponent {
+  gamesLibrary: GameInLibrary[] = [];
+  //para filtragem nos generos selecionados
+  selectedGenres: string[] = [];
+  filteredGames: any[] = this.gamesLibrary;
 
   ngOnInit(){
     this.refreshGames();
@@ -30,9 +35,9 @@ export class LibraryComponent {
     }).then((response) => (
       response.ok ? (
         response.json()
-          .then((data: [boolean, Biblio[] | string]) =>
+          .then((data: [boolean, GameInLibrary[] | string]) =>
             data[0] ? (
-              this.GamesLibrary = data[1] as Biblio[], result = true, this.filterGames()
+              this.gamesLibrary = data[1] as GameInLibrary[], result = true, this.filterGames()
             ) : console.log(data[1])
           )
       ) : console.log(response)
@@ -43,40 +48,9 @@ export class LibraryComponent {
     return result;
   }
 
-  GamesLibrary: Biblio[] = [
-    {
-      "id_chave": 5,
-      "avaliacao_usuario": 10,
-      "disponibilidade": "string",
-      "id": 1,
-      "link_imagens": "link imagem do jogo 1",
-      "nome": "nome jogo 1",
-      "preco": 100.00,
-      "avaliacao": 9,
-      "descricao": "descricao",
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-    {
-      "id_chave": 7,
-      "avaliacao_usuario": 10,
-      "disponibilidade": "string",
-      "id": 2,
-      "link_imagens": "link imagem do jogo 2",
-      "nome": "nome jogo 2",
-      "preco": 90.90,
-      "avaliacao": 9,
-      "descricao": "descricao",
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-  ];
-
-  //para filtragem nos generos selecionados
-  selectedGenres: string[] = [];
-  filteredGames: any[] = this.GamesLibrary;
-
   filterGames() {
     this.selectedGenres = this.selectedGenres.map(genre => genre.toLowerCase());
-    const gamesStoreCopy = [...this.GamesLibrary];
+    const gamesStoreCopy = [...this.gamesLibrary];
 
     gamesStoreCopy.forEach(game => {
       game.tags = game.tags.map(tag => tag.toLowerCase());
@@ -120,9 +94,12 @@ export class LibraryComponent {
     const target = e.target as HTMLInputElement
     const value = target.value
 
-    this.filteredGames = this.GamesLibrary.filter((games) => { return games.nome.includes(value); })
+    this.filteredGames = this.gamesLibrary.filter((games) => { return games.nome.includes(value); })
   }
 
-  constructor() { }
+
+
+
+
 
 }

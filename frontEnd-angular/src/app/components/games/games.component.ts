@@ -1,6 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Games } from 'src/app/model/games.model';
 import { GameServiceService } from 'src/app/game-service.service';
+import { GameInLibrary } from 'src/app/model/biblio.model';
+
+
+interface Game {
+  id_jogo: number;
+  nome: string;
+  descricao: string;
+  preco: number;
+  link_imagens: string;
+  avaliacao: number;
+  tags: string[];
+}
+
 
 @Component({
   selector: 'app-games',
@@ -8,8 +20,8 @@ import { GameServiceService } from 'src/app/game-service.service';
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent {
-
-  @Input() game!: Games
+  @Input() game!: Game;
+  gameToOffer: GameInLibrary = {} as GameInLibrary;
 
   showDetails = false;
 
@@ -23,12 +35,11 @@ export class GamesComponent {
   }
 
   ngOnInit() {
-
+    // console.log(this.game)
   }
 
   comprarJogo() {
-    const id_game = this.game.id;
-    console.log(id_game);
+    console.log(this.game.id_jogo);
     let success = false;
 
     fetch("http://127.0.0.1:8000/comprar_jogo/", {
@@ -39,7 +50,7 @@ export class GamesComponent {
         'Accept': 'application/json',
       }),
       body: JSON.stringify({
-        id_jogo: id_game,
+        id_jogo: this.game.id_jogo,
       })
 
       //VER COMO CONCLUIR A PARTIR DAQUI

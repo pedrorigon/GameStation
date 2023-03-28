@@ -8,6 +8,15 @@ import { Oferta } from 'src/app/model/oferta.model';
 })
 
 export class OffersComponent {
+  gamesOffer: Oferta[] = [];
+  //para filtragem nos generos selecionados
+  selectedGenres: string[] = [];
+  filteredGames: any[] = this.gamesOffer;
+  
+
+  ngOnInit(){
+    this.refreshGames();
+  }
 
   // carregar lista de jogos para venda do banco de dados
   refreshGames(): boolean {
@@ -26,7 +35,7 @@ export class OffersComponent {
         response.json()
           .then((data: [boolean, Oferta[] | string]) =>
             data[0] ? (
-              this.GamesOffer = data[1] as Oferta[], result = true
+              this.gamesOffer = data[1] as Oferta[], result = true, this.filterGames()
             ) : console.log(data[1])
           )
       ) : console.log(response)
@@ -37,41 +46,9 @@ export class OffersComponent {
     return result;
   }
 
-  GamesOffer: Oferta[] = [
-    {
-      "id": 1,
-      "id_oferta": 25,
-      "data": 25,
-      "usuario_rank": 10,
-      "preco_oferta": 100,
-      "link_imagens": "link imagem do jogo 1",
-      "nome": "nome jogo 1",
-      "preco": 100.00,
-      "avaliacao": 9,
-      "descricao": "descricao",
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-    {
-      "id_oferta": 25,
-      "data": 25,
-      "usuario_rank": 10,
-      "preco_oferta": 100,
-      "id": 2,
-      "link_imagens": "link imagem do jogo 2",
-      "nome": "nome jogo 2",
-      "preco": 90.90,
-      "avaliacao": 9,
-      "descricao": "descricao",
-      "tags": ["action", "adventure", "multiplayer"]
-    },];
-
-  //para filtragem nos generos selecionados
-  selectedGenres: string[] = [];
-  filteredGames: any[] = this.GamesOffer;
-
   filterGames() {
     this.selectedGenres = this.selectedGenres.map(genre => genre.toLowerCase());
-    const gamesStoreCopy = [...this.GamesOffer];
+    const gamesStoreCopy = [...this.gamesOffer];
 
     gamesStoreCopy.forEach(offer => {
       offer.tags = offer.tags.map(tag => tag.toLowerCase());
@@ -114,7 +91,7 @@ export class OffersComponent {
     const target = e.target as HTMLInputElement
     const value = target.value
 
-    this.filteredGames = this.GamesOffer.filter((offer) => { return offer.nome.toLowerCase().includes(value); })
+    this.filteredGames = this.gamesOffer.filter((offer) => { return offer.nome.includes(value); })
   }
 
   constructor() { }

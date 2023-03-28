@@ -1,4 +1,4 @@
-export interface Biblio {
+export interface GameInLibrary {
     id_chave: number,
     avaliacao_usuario: number,
     disponibilidade: string,

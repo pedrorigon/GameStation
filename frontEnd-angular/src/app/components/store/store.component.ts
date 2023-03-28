@@ -9,6 +9,15 @@ import { GameServiceService } from 'src/app/game-service.service';
 })
 
 export class StoreComponent {
+  GamesStore: Games[] = [];
+  
+  //para filtragem nos generos selecionados
+  selectedGenres: string[] = [];
+  filteredGames: any[] = this.GamesStore;
+
+  ngOnInit(){
+    this.refreshGames();
+  }
 
   refreshGames(): boolean {
     let result = false;
@@ -25,7 +34,7 @@ export class StoreComponent {
         response.json()
           .then((data: [boolean, Games[] | string]) =>
             data[0] ? (
-              this.GamesStore = data[1] as Games[], result = true
+              this.GamesStore = data[1] as Games[], result = true, this.filterGames()
             ) : console.log(data[1])
           )
       ) : console.log(response)
@@ -36,43 +45,9 @@ export class StoreComponent {
     return result;
   }
 
-  GamesStore: Games[] = [
-    // {
-    //   "id": 1,
-    //   "link_imagens": "cs-go.jpeg",
-    //   "nome": "nome jogo 1",
-    //   "preco": 100.00,
-    //   "avaliacao": 9,
-    //   "descricao": "descricao",
-    //   "tags": ["action", "adventure", "multiplayer"]
-    // },
-    // {
-    //   "id": 2,
-    //   "link_imagens": "cs-go.jpeg",
-    //   "nome": "nome jogo 2",
-    //   "preco": 90.90,
-    //   "avaliacao": 9,
-    //   "descricao": "descricao",
-    //   "tags": ["action", "adventure", "multiplayer"]
-    // },
-    // {
-    //   "id": 3,
-    //   "link_imagens": "cs-go.jpeg",
-    //   "nome": "nome jogo 3",
-    //   "preco": 50.00,
-    //   "avaliacao": 8,
-    //   "descricao": "descricao",
-    //   "tags": ["puzzle"]
-    // },
-  ];
-
   // constructor(private gameService: GameServiceService) { 
   //   this.gameService.game = this.game;
   // }
-
-  //para filtragem nos generos selecionados
-  selectedGenres: string[] = [];
-  filteredGames: any[] = this.GamesStore;
 
   filterGames() {
     this.selectedGenres = this.selectedGenres.map(genre => genre.toLowerCase());
