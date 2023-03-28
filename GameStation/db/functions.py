@@ -17,9 +17,6 @@ def _jogo_info(cursor, id_jogo: int) -> dict:
     n_columns = len(column_names)
     records = cursor.fetchone()
 
-    print(records)
-    print(id_jogo)
-
     jogo_info = {}
     for i in range(n_columns):
         jogo_info[column_names[i]] = records[i]
