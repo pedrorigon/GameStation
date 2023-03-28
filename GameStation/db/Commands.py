@@ -34,7 +34,7 @@ class SQLCommand:
         "USUARIO_CRIOU": "SELECT id_usuario FROM trocas WHERE(id=(SELECT id_troca FROM proposta_contraparte WHERE(id=:id_proposta)) AND id_usuario=:id_usuario);",
         "REMOVER": "DELETE FROM proposta_contraparte WHERE(id_proposta=:id_proposta);"
     }
-    COMPRA_OFERTA = """INSERT INTO oferta_concluida(id, id_user_vendeu, id_user_comprou, id_chave, valor) VALUES(:id_oferta, (SELECT id_usuario FROM ofertas WHERE(id=:id_oferta)), :id_usuario, (SELECT id_chave ROM ofertas WHERE(id=:id_oferta)), (SELECT valor FROM ofertas WHERE(id=:id_oferta)));"""
+    COMPRA_OFERTA = """INSERT INTO oferta_concluida(id, id_user_vendeu, id_user_comprou, id_chave, valor) VALUES(:id_oferta, (SELECT id_usuario FROM ofertas WHERE(id=:id_oferta)), :id_usuario, (SELECT id_chave FROM ofertas WHERE(id=:id_oferta)), (SELECT valor FROM ofertas WHERE(id=:id_oferta)));"""
     LOGIN = {
         "PERMISSAO_USUARIO": "SELECT tipo FROM user_role JOIN usuario_base ON (usuario_base.id=user_role.id) WHERE(usuario_base.id=:id AND password=:password);",
         "ID_LOGIN": "SELECT id FROM usuario_base WHERE(login=:login);"
