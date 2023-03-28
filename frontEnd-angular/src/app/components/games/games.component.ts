@@ -1,17 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GameServiceService } from 'src/app/game-service.service';
+import { Games } from 'src/app/model/games.model';
 import { GameInLibrary } from 'src/app/model/biblio.model';
 
-
-interface Game {
-  id_jogo: number;
-  nome: string;
-  descricao: string;
-  preco: number;
-  link_imagens: string;
-  avaliacao: number;
-  tags: string[];
-}
 
 
 @Component({
@@ -20,14 +11,15 @@ interface Game {
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent {
-  @Input() game!: Game;
-  gameToOffer: GameInLibrary = {} as GameInLibrary;
+
+  @Input() game!: Games;
 
   showDetails = false;
 
   verDetails() {
     this.showDetails = true;
     console.log(this.showDetails);
+    console.log(this.game.avaliacao)
   }
 
   semDetails() {
@@ -39,7 +31,7 @@ export class GamesComponent {
   }
 
   comprarJogo() {
-    console.log(this.game.id_jogo);
+    console.log(this.game.id);
     let success = false;
 
     fetch("http://127.0.0.1:8000/comprar_jogo/", {
@@ -50,7 +42,7 @@ export class GamesComponent {
         'Accept': 'application/json',
       }),
       body: JSON.stringify({
-        id_jogo: this.game.id_jogo,
+        id_jogo: this.game.id,
       })
 
       //VER COMO CONCLUIR A PARTIR DAQUI

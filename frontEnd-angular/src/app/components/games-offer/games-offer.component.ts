@@ -15,6 +15,7 @@ export class GamesOfferComponent {
   verDetails() {
     this.showDetails = true;
     console.log(this.showDetails);
+    console.log(this.oferta)
   }
 
   semDetails() {

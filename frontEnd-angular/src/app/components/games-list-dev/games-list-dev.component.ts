@@ -8,24 +8,36 @@ import { Games } from 'src/app/model/games.model';
 })
 export class GamesListDevComponent {
 
-  GamesDev: Games[] = [
-    {
-      "id": 1,
-      "link_imagens": "link imagem do jogo 1",
-      "nome": "nome jogo 1",
-      "preco": 100.00,
-      "avaliacao": 9,
-      "descricao": "descricao",
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-    {
-      "id": 2,
-      "link_imagens": "link imagem do jogo 2",
-      "nome": "nome jogo 2",
-      "preco": 90.90,
-      "avaliacao": 9,
-      "descricao": "descricao",
-      "tags": ["action", "adventure", "multiplayer"]
-    },
-  ];
+  GamesDev: Games[] = []
+
+  ngOnInit() {
+    this.refreshGames();
+  }
+
+  refreshGames(): boolean {
+    let result = false;
+
+    fetch("http://127.0.0.1:8000/gerenciar_jogos/", {
+      method: 'GET',
+      credentials: 'include',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }),
+    }).then((response) => (
+      response.ok ? (
+        response.json()
+          .then((data: [boolean, Games[] | string]) =>
+            data[0] ? (
+              this.GamesDev = data[1] as Games[], result = true
+            ) : console.log(data[1])
+          )
+      ) : console.log(response)
+    )).catch(
+      (err) => console.log('Error na requisição')
+    );
+
+    return result;
+  }
+
 }
