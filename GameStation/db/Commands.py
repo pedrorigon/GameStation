@@ -1,7 +1,7 @@
 from .Permission import Permission
 
 class SQLCommand:
-    JOGO_INFO = """SELECT nome, preco, descricao, link_imagens, link_trailer, nota
+    JOGO_INFO = """SELECT nome, preco, descricao, link_imagens, link_trailer, nota AS avaliacao
         FROM jogo_pendente
         LEFT JOIN jogo_nota ON (jogo_nota.id_jogo=jogo_pendente.id)
         WHERE(id_jogo=:id_jogo);"""

@@ -52,20 +52,24 @@ CREATE VIEW IF NOT EXISTS jogos_usuario AS
 
 /* Tabela de ofertas visível ao usuário */
 CREATE VIEW IF NOT EXISTS exibe_ofertas AS
-    SELECT ofertas.id AS id_oferta, rank AS usuario_rank, jogo_pendente.id AS id_jogo, ofertas.data, ofertas.valor AS preco_oferta
+    SELECT ofertas.id AS id_oferta, rank AS usuario_rank, jogo_pendente.id AS id_jogo, ofertas.data, ofertas.valor AS preco_oferta, AVG(nota) AS avaliacao
     FROM ofertas
     JOIN jogo_instanciado ON (jogo_instanciado.id=ofertas.id_chave)
     JOIN jogo_pendente ON (jogo_pendente.id=jogo_instanciado.id_jogo)
     JOIN usuario ON (ofertas.id_usuario=usuario.id)
+    LEFT JOIN avaliacao ON (avaliacao.id_jogo=jogo_pendente.id)
+    GROUP BY jogo_pendente.id
     ORDER BY usuario.rank DESC;
 
 /* Tabela de trocas visível ao usuário */
 CREATE VIEW IF NOT EXISTS exibe_trocas AS
-    SELECT trocas.id AS id_troca, rank AS usuario_rank, jogo_pendente.id AS id_jogo, trocas.data
+    SELECT trocas.id AS id_troca, rank AS usuario_rank, jogo_pendente.id AS id_jogo, trocas.data, AVG(nota) AS avaliacao
     FROM trocas
     JOIN jogo_instanciado ON (jogo_instanciado.id=trocas.id_chave)
     JOIN jogo_pendente ON (jogo_pendente.id=jogo_instanciado.id_jogo)
     JOIN usuario ON (trocas.id_usuario=usuario.id)
+    LEFT JOIN avaliacao ON (avaliacao.id_jogo=jogo_pendente.id)
+    GROUP BY jogo_pendente.id
     ORDER BY usuario.rank DESC;
 
 /* Gera ranking de desenvolvedores */
