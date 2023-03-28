@@ -4,7 +4,7 @@ BEGIN;
 CREATE VIEW IF NOT EXISTS jogo_nota AS
     SELECT jogo_aceito.id AS id_jogo, AVG(nota) AS nota
     FROM jogo_aceito
-    JOIN avaliacao ON (avaliacao.id_jogo=jogo_aceito.id)
+    LEFT JOIN avaliacao ON (avaliacao.id_jogo=jogo_aceito.id)
     GROUP BY jogo_aceito.id;
 
 /* Exibe todos os jogos que o usuário pode obter */
