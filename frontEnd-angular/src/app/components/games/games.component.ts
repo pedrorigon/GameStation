@@ -27,8 +27,6 @@ export class GamesComponent {
   }
 
   ngOnInit() {
-    // console.log(this.game)
-    const numFixed = this.game.avaliacao.toFixed(2);
   }
 
   comprarJogo() {
